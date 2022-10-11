@@ -32,7 +32,7 @@ public class installDriversTest {
         WebDriverManager.firefoxdriver().setup();
         WebDriver driver = new FirefoxDriver();
         driver.quit();
-    }*/
+    }
 
     @Test
     public void ieSession(){
@@ -42,6 +42,6 @@ public class installDriversTest {
         driver.quit();
 
 
-    }
+    }*/
 
 }
