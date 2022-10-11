@@ -1,5 +1,5 @@
 # bc10
-Repositorio para el desarrollo del bootcamp 10 de TSOFT.
+## Repositorio para el desarrollo del bootcamp 10 de TSOFT.
 
 
 - Tutor1: Eduardo Araya
@@ -9,6 +9,13 @@ Repositorio para el desarrollo del bootcamp 10 de TSOFT.
 - Nahuel Diaz
 - Daniel Rebolledo
 - Florencia Lorenzati
+- Sebastian Herrera
 - Lucas Cabral
 - Nelson Tapia
 - Blas Uria
+- Lozada Rocio
+- Jordan Jimenez
+- Pehuen Dias
+- Leonel Godoy
+- Fabricio Arias
+
