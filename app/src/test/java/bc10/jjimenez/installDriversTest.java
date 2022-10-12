@@ -19,11 +19,11 @@ public class installDriversTest {
 
 
     }
-    @Test
+    /*@Test
     void edgeSession(){
         WebDriverManager.edgedriver().setup();
         WebDriver driver = new EdgeDriver();
-        driver.quit();
+        driver.quit();*/
 
 
     }
@@ -44,4 +44,4 @@ public class installDriversTest {
 
     }*/
 
-}
+
