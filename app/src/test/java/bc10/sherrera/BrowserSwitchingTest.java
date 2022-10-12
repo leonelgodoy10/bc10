@@ -17,7 +17,7 @@ public class BrowserSwitchingTest{
     }
 
     @Test
-    void browserActionTest(){
+    void browserActionTest() {
         driver = new ChromeDriver();
         //numero de ventana del driver
         String originalWindows = driver.getWindowHandle();
