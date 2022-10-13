@@ -26,7 +26,7 @@ public class browserSwitchingTestTest {
 
 
         driver = new ChromeDriver();
-        driver2 = new ChromeDriver();
+        //driver2 = new ChromeDriver();
 
 
 
@@ -37,7 +37,7 @@ public class browserSwitchingTestTest {
         driver.navigate().to("https:selenium.dev");
 
 
-        // numero de ventana del driver
+        /*numero de ventana del driver
         String Window2 = driver2.getWindowHandle();
         driver2.navigate().to("https://www.facebook.com/");
         driver2.switchTo().newWindow(WindowType.TAB);
@@ -46,18 +46,8 @@ public class browserSwitchingTestTest {
         //cambiarme a window 1
         driver.switchTo().window(Window1);
         driver.switchTo().newWindow(WindowType.TAB);
-        driver.navigate().to("https:selenium.dev");
+        driver.navigate().to("https:selenium.dev");*/
 
-
-        //cambiarme a windows 2
-        driver2.switchTo().window(Window2);
-        driver2.switchTo().newWindow(WindowType.TAB);
-        driver2.navigate().to("https://www.facebook.com/");
-
-        //cambiarme a window 1
-        driver.switchTo().window(Window1);
-        driver.switchTo().newWindow(WindowType.TAB);
-        driver.navigate().to("https:selenium.dev");
 
 
     }
