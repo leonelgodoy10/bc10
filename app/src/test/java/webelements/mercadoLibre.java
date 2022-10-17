@@ -108,6 +108,8 @@ public class mercadoLibre {
 
         WebElement trabaj = driver.findElement(oportunidades);
         trabaj.click();
+
+        scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(scrFile,new File("./Pantallazo2.png"));
 
         driver.navigate().back();
