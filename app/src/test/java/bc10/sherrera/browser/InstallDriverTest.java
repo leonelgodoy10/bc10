@@ -1,4 +1,4 @@
-package bc10.sherrera;
+package bc10.sherrera.browser;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Test;
