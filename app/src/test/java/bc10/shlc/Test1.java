@@ -52,7 +52,6 @@ public class Test1 {
         //Se imprime resultado
         System.out.println("Boton Filter by Name esta funcionando de manera correta: " +btnFilter);
 
-
     }
     @Test
     void userInterfaceNewComputer(){

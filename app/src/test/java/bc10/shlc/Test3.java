@@ -45,6 +45,7 @@ public class Test3 {
         //Se valida el mensaje de computador creado
         WebElement mensajeNombre = driver.findElement(mensajeNombreLoc);
         Assertions.assertEquals("Done ! Computer BC10_SELU has been created", mensajeNombre.getText());
+
     }
 
     @AfterEach

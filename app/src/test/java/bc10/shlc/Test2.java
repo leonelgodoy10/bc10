@@ -44,7 +44,6 @@ public class Test2 {
         Assertions.assertEquals("Failed to refine type : Predicate isEmpty() did not fail.",mensajeError.getText());
 
 
-
     }
 
     @AfterEach
