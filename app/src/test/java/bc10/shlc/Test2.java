@@ -19,6 +19,7 @@ public class Test2 {
     By btnNewComputerLoc = By.xpath("//a[@id='add']");
     By btnCreateComputerLoc = By.xpath("//input[@value='Create this computer']");
     By mensajeErrorLoc = By.xpath("//span[contains(text(),'Failed to refine type : Predicate isEmpty() did no')]");
+
     @BeforeEach
     void setUp(){
         //Configuracion inicial
@@ -28,8 +29,8 @@ public class Test2 {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.navigate().to("https://computer-database.gatling.io");
-
     }
+
     @Test
     void createUserfailed(){
 
@@ -42,8 +43,6 @@ public class Test2 {
         WebElement mensajeError = driver.findElement(mensajeErrorLoc);
         //Se valida el Texto error
         Assertions.assertEquals("Failed to refine type : Predicate isEmpty() did not fail.",mensajeError.getText());
-
-
     }
 
     @AfterEach

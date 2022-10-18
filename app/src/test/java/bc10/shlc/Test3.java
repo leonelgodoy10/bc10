@@ -29,7 +29,6 @@ public class Test3 {
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
         driver.navigate().to("https://computer-database.gatling.io");
-
     }
     @Test
     void createUserfailed(){
@@ -45,7 +44,6 @@ public class Test3 {
         //Se valida el mensaje de computador creado
         WebElement mensajeNombre = driver.findElement(mensajeNombreLoc);
         Assertions.assertEquals("Done ! Computer BC10_SELU has been created", mensajeNombre.getText());
-
     }
 
     @AfterEach

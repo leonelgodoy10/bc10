@@ -10,8 +10,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 import java.time.Duration;
 import java.util.List;
@@ -47,24 +46,25 @@ public class Test1 {
         WebElement btnFilterName = driver.findElement(btnFilterNameLoc);
         //Verificamos si el boton esta desplegado
         boolean btnFilter  =  btnFilterName.isDisplayed();
-        //Se valida que el boton esta desplegado
+        //Se valida que el boton esta desplegado y se validado por texto
+        Assertions.assertEquals("Filter by name",btnFilterName.getAccessibleName());
         Assertions.assertTrue(btnFilter);
         //Se imprime resultado
         System.out.println("Boton Filter by Name esta funcionando de manera correta: " +btnFilter);
-
     }
+
     @Test
     void userInterfaceNewComputer(){
         WebElement btnNewComputer = driver.findElement(btnNewComputerLoc);
         //Verificamos si el boton esta desplegado
-        boolean btnNewComp  =  btnNewComputer.isDisplayed();
-        //Se valida que el boton esta desplegado
+        boolean btnNewComp  =  btnNewComputer.isEnabled();
+        //Se valida que el boton esta desplegado y validado por texto
+        Assertions.assertEquals("Add a new computer",btnNewComputer.getAccessibleName());
         Assertions.assertTrue(btnNewComp);
         //Se imprime resultado
         System.out.println("Boton Filter by Name esta funcionando de manera correta: " +btnNewComp);
-
-
     }
+
     @Test
     void userInterfaceTable() {
         //Se obtiene la WebTable
