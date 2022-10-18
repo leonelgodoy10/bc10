@@ -12,6 +12,7 @@ public class BrowserActionsTest {
 
     @BeforeEach
     void setUp(){
+
         WebDriverManager.chromedriver().setup();
     }
     
