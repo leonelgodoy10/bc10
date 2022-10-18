@@ -138,62 +138,47 @@ public class webElementAvanzados {
     @Test
     public void webTables1 () throws InterruptedException {
         driver.navigate().to("https://the-internet.herokuapp.com/tables");
-        // ejercicio tabla 1 : ordenar la tabla por deuda de mayor a menor
-
         //Lista de de webtables en la pagina
         /*List<WebElement> webTables = driver.findElements(By.id("table2"));
-
         WebElement tabla = webTables.get(0);*/
         List<WebElement> webTables = driver.findElements(By.tagName("table"));
-
         WebElement tabla = webTables.get(1);
-
         //1. cuantas filas y columnas tiene?
         List<WebElement> filas = tabla.findElement(By.tagName("tbody")).findElements(By.tagName("tr"));
         System.out.println(filas.size());
         List<WebElement> columnas = tabla.findElement(By.tagName("thead")).findElements(By.tagName("th"));
         System.out.println(columnas.size());
-
         //Obtener el webElement due y presionarlo 2 veces para ordenar la tabla
        if (columnas.get(1).getText().contains("First Name")){
             Thread.sleep(2000);
             columnas.get(1).click();
         }
+        for (int i = 0; i < filas.size() ; i++) {
 
+                String nombre = filas.get(i).findElement(By.xpath("//table[2]/tbody[1]/tr["+(i+1)+"]/td[2]")).getText();
+                String apellido = filas.get(i).findElement(By.xpath("//table[2]/tbody[1]/tr["+(i+1)+"]/td[1]")).getText();
+                String deuda = filas.get(i).findElement(By.xpath("//table[2]/tbody[1]/tr["+(i+1)+"]/td[4]")).getText();
+                System.out.println("El usuario : "+nombre+" "+apellido+" Deuda : "+deuda);
+        }
         //table[2]/tbody[1]/tr[1]/td[1]
         // obtener el nombre, apellido y valro de la deuda de la primer a fila
-            String nombre = filas.get(0).findElement(By.xpath("//table[2]/tbody[1]/tr[1]/td[2]")).getText();
+       /*     String nombre = filas.get(0).findElement(By.xpath("//table[2]/tbody[1]/tr[1]/td[2]")).getText();
             String apellido = filas.get(0).findElement(By.xpath("//table[2]/tbody[1]/tr[1]/td[1]")).getText();
             String deuda = filas.get(0).findElement(By.xpath("//table[2]/tbody[1]/tr[1]/td[4]")).getText();
             System.out.println("El usuario : "+nombre+" "+apellido+" "+deuda);
-
-
             String nombre2 = filas.get(1).findElement(By.xpath("//table[2]/tbody[1]/tr[2]/td[2]")).getText();
             String apellido2 = filas.get(1).findElement(By.xpath("//table[2]/tbody[1]/tr[2]/td[1]")).getText();
             String deuda2 = filas.get(1).findElement(By.xpath("//table[2]/tbody[1]/tr[2]/td[4]")).getText();
             System.out.println("El usuario : "+nombre2+" "+apellido2+" "+deuda2);
-
-
-
             String nombre3 = filas.get(2).findElement(By.xpath("//table[2]/tbody[1]/tr[3]/td[2]")).getText();
             String apellido3 = filas.get(2).findElement(By.xpath("//table[2]/tbody[1]/tr[3]/td[1]")).getText();
             String deuda3 = filas.get(2).findElement(By.xpath("//table[2]/tbody[1]/tr[3]/td[4]")).getText();
             System.out.println("El usuario : "+nombre3+" "+apellido3+" "+deuda3);
-
-
-
             String nombre4 = filas.get(3).findElement(By.xpath("//table[2]/tbody[1]/tr[4]/td[2]")).getText();
             String apellido4 = filas.get(3).findElement(By.xpath("//table[2]/tbody[1]/tr[4]/td[1]")).getText();
             String deuda4 = filas.get(3).findElement(By.xpath("//table[2]/tbody[1]/tr[4]/td[4]")).getText();
             System.out.println("El Usuario : "+nombre4+" "+apellido4+" "+deuda4);
-
-
-
-
-
-
-
-
+*/
     }
 
     @AfterEach
