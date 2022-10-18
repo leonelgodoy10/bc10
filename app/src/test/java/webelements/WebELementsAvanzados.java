@@ -26,13 +26,10 @@ public class WebELementsAvanzados {
 
     @FindBy(id = "ui-id-3")
     WebElement btnEnable;
-
     @FindBy(id = "ui-id-4")
     WebElement btnDowloands;
-
     @FindBy(id = "ui-id-5")
     WebElement btnPDF;
-
     @FindBy(xpath = "//form/input[1]")
     WebElement check1;
     @FindBy(xpath = "//form/input[2]")
@@ -158,6 +155,7 @@ public class WebELementsAvanzados {
     @Test
     public void webTables2() throws InterruptedException {
 
+        //driver.navigate().to("https://www.google.com");
         driver.navigate().to("https://the-internet.herokuapp.com/tables");
         List<WebElement> webTables = driver.findElements(By.tagName("table"));
 
