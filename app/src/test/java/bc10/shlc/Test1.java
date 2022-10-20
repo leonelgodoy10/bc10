@@ -10,6 +10,10 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+<<<<<<< HEAD
+=======
+import org.openqa.selenium.edge.EdgeDriver;
+>>>>>>> 8275ac648dc68d7791c2744b383571bd80af4f3f
 
 
 import java.time.Duration;
@@ -26,8 +30,13 @@ public class Test1 {
     @BeforeEach
     void setUp(){
         //Configuracion inicial
+<<<<<<< HEAD
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
+=======
+        WebDriverManager.edgedriver().setup();
+        driver = new EdgeDriver();
+>>>>>>> 8275ac648dc68d7791c2744b383571bd80af4f3f
         driver.manage().deleteAllCookies();
         driver.manage().window().setSize(new Dimension(800, 600));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
@@ -78,8 +87,11 @@ public class Test1 {
             Assertions.assertEquals(nombre, columnas.get(i).getText());
         }
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 8275ac648dc68d7791c2744b383571bd80af4f3f
     }
 
     @AfterEach
