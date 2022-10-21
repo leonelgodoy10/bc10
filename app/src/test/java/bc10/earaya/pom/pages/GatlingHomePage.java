@@ -1,6 +1,7 @@
 package bc10.earaya.pom.pages;
 
 import bc10.earaya.pom.base.SeleniumBase;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -32,6 +33,7 @@ public class GatlingHomePage extends SeleniumBase {
     public void validarDespliegueBotones(){
         estaDesplegado(filterB);
         estaDesplegado(botonAdd);
+
     }
 
     public void validarDespliegueColumnas(){
