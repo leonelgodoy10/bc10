@@ -9,10 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-<<<<<<< HEAD
-=======
-import org.openqa.selenium.edge.EdgeDriver;
->>>>>>> 8275ac648dc68d7791c2744b383571bd80af4f3f
+
 
 
 import java.time.Duration;
@@ -27,13 +24,8 @@ public class Test2 {
     @BeforeEach
     void setUp(){
         //Configuracion inicial
-<<<<<<< HEAD
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-=======
-        WebDriverManager.edgedriver().setup();
-        driver = new EdgeDriver();
->>>>>>> 8275ac648dc68d7791c2744b383571bd80af4f3f
         driver.manage().deleteAllCookies();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(3));
