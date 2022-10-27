@@ -12,7 +12,7 @@ public class HotelTest extends SeleniumTestBase {
     RumboHomePageHotel rumboHomePageHotel;
 
     @Test
-    void funcionalidadPagoFraccionado(){
+    void funcionalidadPagoFraccionadoBH001(){
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
         rumboHomePageHotel.aceptarCookie();
@@ -26,9 +26,13 @@ public class HotelTest extends SeleniumTestBase {
 
     }
     @Test
-    void BH002EncontrarAlojamientoDisponibles(){}
+    void encontrarAlojamientoDisponiblesBH002(){}
     @Test
-    void BH003RegistrarFechaDeEntrada(){}
+    void registrarFechaDeEntradaBH003(){}
     @Test
-    void BH005verMejoresOfertasEnHoteles(){}
+    void buscarHotelBH004(){}
+    @Test
+    void verMejoresOfertasEnHotelesBH005(){}
+    @Test
+    void reservarHotelesQueAdmitenPerrosBH006(){}
 }

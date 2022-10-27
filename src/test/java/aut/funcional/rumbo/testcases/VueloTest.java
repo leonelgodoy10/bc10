@@ -11,7 +11,7 @@ public class VueloTest extends SeleniumTestBase {
     RumboHomePageVuelo rumboHomePageHomeVuelo;
 
     @Test
-    void buscaVueloVacio(){
+    void buscaVueloVacioBV001(){
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarAlHome();
         rumboHomePageHomeVuelo.aceptarCookie();
@@ -23,11 +23,13 @@ public class VueloTest extends SeleniumTestBase {
 
     }
     @Test
-    void BV003ComprarDeVueloTopMasBarato(){}
+    void compraDeVueloTopMasBaratoBV002(){}
     @Test
-    void BV004ViajeEnPrimeraClase(){}
+    void comprarDeVueloTopMasBaratoBV003(){}
     @Test
-    void BV006CantidadDePasajeroMasBebe(){}
+    void viajeEnPrimeraClaseBV004(){}
     @Test
-    void BV005funcionalidadMultidestino(){}
+    void funcionalidadMultidestinoBV005(){}
+    @Test
+    void cantidadDePasajeroMasBebeBV006(){}
 }
