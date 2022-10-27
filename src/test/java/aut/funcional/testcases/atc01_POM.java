@@ -2,11 +2,11 @@ package aut.funcional.testcases;
 
 import aut.funcional.pages.GoogleHomePage;
 import framework.engine.selenium.DriverFactory;
-import framework.engine.selenium.SeleniumTestBase;
+import framework.engine.selenium.FuncionalTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class atc01_POM extends SeleniumTestBase {
+public class atc01_POM extends FuncionalTestBase {
 
     GoogleHomePage googleHomePage;
 
@@ -15,6 +15,6 @@ public class atc01_POM extends SeleniumTestBase {
         googleHomePage = new GoogleHomePage(DriverFactory.getDriver());
         googleHomePage.navegarAlHome();
         googleHomePage.buscarConBotonBuscar("Tsoft");
-        Assertions.assertEquals("Tsoft - Buscar con Google",googleHomePage.getUrlTitle());
+        Assertions.assertEquals("Tsoft - Buscar con Google",googleHomePage.getTitle());
     }
 }

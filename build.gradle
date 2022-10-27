@@ -74,6 +74,7 @@ dependencies {
     testImplementation "io.cucumber:cucumber-junit:${cucumberVersion}"
     testImplementation "io.cucumber:cucumber-java8:${cucumberVersion}"
     testImplementation "io.cucumber:cucumber-junit-platform-engine:${cucumberVersion}"
+    testImplementation "io.cucumber:cucumber-picocontainer:${cucumberVersion}"
     testImplementation "info.cukes:cucumber-java:${infoCukes}"
     testImplementation "info.cukes:cucumber-junit:${infoCukes}"
     testImplementation "info.cukes:cucumber-core:${infoCukes}"

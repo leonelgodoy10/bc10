@@ -1,7 +1,7 @@
 package aut.funcional.testcases;
 
 import framework.engine.selenium.DriverFactory;
-import framework.engine.selenium.SeleniumTestBase;
+import framework.engine.selenium.FuncionalTestBase;
 import io.qameta.allure.Description;
 import io.qameta.allure.Issue;
 import io.qameta.allure.Severity;
@@ -13,7 +13,7 @@ import org.openqa.selenium.WebDriver;
 
 import static framework.engine.utils.Constants.BASE_URL_AUT;
 
-public class TestDemo extends SeleniumTestBase {
+public class TestDemo extends FuncionalTestBase {
 
     WebDriver driver;
 

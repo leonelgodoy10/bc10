@@ -19,18 +19,16 @@ import java.time.Duration;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"pretty", "io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"},
-        glue = {"framework.testing.steps","framework.engine.bdd"},
+        glue = {"framework.testing.bdd.steps","framework.engine.bdd"},
         tags = {""},
         features = {"src/test/java/framework/testing/features"})
 @CommonsLog
 public class CucumberBaseTestRunner {
 
     public static WebDriver driver;
-    private static DriverFactory driverFactory;
 
     public static void setUp(){
-        driverFactory = new DriverFactory();
-        driver = driverFactory.createWebDriver();
+        driver = DriverFactory.inicializarDriver();
         if (driver != null) {
             driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
             driver.manage().window().maximize();

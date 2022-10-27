@@ -1,4 +1,4 @@
-Feature: Cucumber connection test
+Feature: Configuracion BDD
 
 
   @framework
