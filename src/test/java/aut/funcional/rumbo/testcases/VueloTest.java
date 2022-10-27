@@ -23,6 +23,10 @@ public class VueloTest extends SeleniumTestBase {
 
     }
     @Test
+    void BV003ComprarDeVueloTopMasBarato(){}
+    @Test
+    void BV004ViajeEnPrimeraClase(){}
+    @Test
     void BV006CantidadDePasajeroMasBebe(){}
     @Test
     void BV005funcionalidadMultidestino(){}
