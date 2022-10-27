@@ -25,4 +25,8 @@ public class HotelTest extends SeleniumTestBase {
         Assertions.assertEquals("Hoteles | Ofertas de Hoteles baratos | Rumbo",rumboHomePageHotel.textoUrlTitulo());
 
     }
+
+
+
+
 }

@@ -13,7 +13,7 @@ public class CruceroTest extends SeleniumTestBase {
     RumboHomePageCrucero rumboHomePageCrucero;
 
     @Test
-    void despliegueBarraDeslizante() throws InterruptedException {
+    void BC001despliegueBarraDeslizante() throws InterruptedException {
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
         rumboHomePageCrucero.navegarAlHome();
         rumboHomePageCrucero.aceptarCookie();
@@ -26,5 +26,11 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.verTodasLasOfertas();
         Assertions.assertEquals("Cruceros",rumboHomePageCrucero.textoUrlTitulo());
     }
+
+
+
+
+
+
 
 }
