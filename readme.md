@@ -1,2 +1,3 @@
 # desafio
-Jordan Jimenez
+- Jordan Jimenez
+- Leonel Godoy
