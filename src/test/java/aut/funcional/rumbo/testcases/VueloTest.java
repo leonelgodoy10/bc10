@@ -23,4 +23,9 @@ public class VueloTest extends SeleniumTestBase {
 
     }
 
+    @Test
+    void Bv-006CantidadDePasajeroMasBebe(){
+
+    }
+
 }
