@@ -28,8 +28,10 @@ public class CruceroTest extends SeleniumTestBase {
     }
 
 
-
-
+    @Test
+    void BC003ReservaDeCrucero(){}
+    @Test
+    void BC002busquedaCruceroUnaPersonaAdulta(){}
 
 
 
