@@ -27,4 +27,8 @@ public class CruceroTest extends SeleniumTestBase {
         Assertions.assertEquals("Cruceros",rumboHomePageCrucero.textoUrlTitulo());
     }
 
+    @Test
+    void BC002busquedaCruceroUnaPersonaAdulta(){}
+
+
 }
