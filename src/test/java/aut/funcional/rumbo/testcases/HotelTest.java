@@ -27,5 +27,10 @@ public class HotelTest extends SeleniumTestBase {
     }
 
     @Test
+
+    void BH003RegistrarFechaDeEntrada(){}
+
+    @Test
     void BH005verMejoresOfertasEnHoteles(){}
+
 }
