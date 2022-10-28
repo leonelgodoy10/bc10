@@ -37,6 +37,7 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.aceptarCookie();
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
+        rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
     }
     @Test
     void cotizacionDeUnCruceroParaUnaFamiliaBC005(){

@@ -26,12 +26,13 @@ public class HotelTest extends SeleniumTestBase {
 
     }
     @Test
-    void encontrarAlojamientoDisponiblesBH002(){
+    void encontrarAlojamientoDisponiblesBH002() throws InterruptedException {
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
         rumboHomePageHotel.aceptarCookie();
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.aceptarCookie();
+        Thread.sleep(3000);
         rumboHomePageHotel.buscarAlojamientoEn("Buenos Aires");
 
     }

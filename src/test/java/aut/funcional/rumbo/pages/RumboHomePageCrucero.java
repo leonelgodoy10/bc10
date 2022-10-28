@@ -20,6 +20,9 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By navegarOfertasLocator = By.xpath("//body/div[@class='container container-home']/crs-home-offers/section[@class='crs-offers']/header[@class='crs-offers__header']/div[@class='crs-offers__utils']/crs-btn[@classname='crs-offers-btn-next']/button[@class='crs-btn crs-btn--secondary crs-btn--small crs-btn--outline crs-btn--icon crs-offers-btn-next ng-star-inserted']/span[@class='crs-icon ng-star-inserted']/*[1]//*[name()='svg']");
     By verTodasLasOfertasLocator = By.xpath("//a[@title='Ver todas las ofertas']");
 
+    By cualquierDestinoCruceroLocator = By.xpath("//div[@class='p-multiselect-label ng-tns-c52-3 p-placeholder']");
+    By cualquierDestinoBusquedaLocator = By.xpath("//input[@role='textbox']");
+
     //methods
     public void aceptarCookie() {
         click(BtnaceptarCookiesLocator);
@@ -47,6 +50,15 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
     public void scrollPage(int horizontal,int vertical){
         scroll(horizontal,vertical);
+    }
+    public void seleccionarDestinoCrucero(String dato){
+        click(cualquierDestinoCruceroLocator);
+        clear(cualquierDestinoBusquedaLocator);
+        write(dato,cualquierDestinoBusquedaLocator);
+        click(By.xpath("//li[@aria-label='"+dato+"']"));
+    }
+    public void seleccionPeriodo(){
+
     }
 
     public void navegarAlHome() {
