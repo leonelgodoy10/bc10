@@ -27,13 +27,27 @@ public class VueloTest extends SeleniumTestBase {
 
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarYAceptarCookies();
-        rumboHomePageHomeVuelo.scrollear();
+        rumboHomePageHomeVuelo.scrollearUno();
         Thread.sleep(3000);
         rumboHomePageHomeVuelo.clickearTopDestinosDeVuelos();
         rumboHomePageHomeVuelo.clickearVueloABruselas();
         rumboHomePageHomeVuelo.clickearOrigenBox();
         rumboHomePageHomeVuelo.escribirChile();
         rumboHomePageHomeVuelo.clickearArturoBenitez();
+        rumboHomePageHomeVuelo.seleccionarDosAdultos();
+        rumboHomePageHomeVuelo.modificarUnBebe();
+        rumboHomePageHomeVuelo.seleccionarSoloIda();
+        rumboHomePageHomeVuelo.modificarFecha();
+        rumboHomePageHomeVuelo.buscarVuelo();
+        rumboHomePageHomeVuelo.bajarMinimoPrecio();
+        rumboHomePageHomeVuelo.bajarMinimoEscalas();
+        rumboHomePageHomeVuelo.limpiarFiltros();
+        rumboHomePageHomeVuelo.informacionVuelo();
+        rumboHomePageHomeVuelo.scrollearDos();
+        rumboHomePageHomeVuelo.cerrarInformacion();
+        rumboHomePageHomeVuelo.leerMensaje();
+        rumboHomePageHomeVuelo.clickearComprarPasaje();
+        rumboHomePageHomeVuelo.clickearClasic();
 
 
 

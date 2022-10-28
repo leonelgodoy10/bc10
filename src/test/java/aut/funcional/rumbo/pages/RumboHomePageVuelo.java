@@ -39,7 +39,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     }
     public String textoUrlTitulo(){return getUrlTitle();}
     public void navegarAlHome(){navigateTo(BASE_URL_AUT);}
-    public void scrollear(){scroll(0,3500);}
+    public void scrollearUno(){scroll(0,3500);}
     public void clickearTopDestinosDeVuelos(){click(btnTopDestinosDeVuelosLocator);}
     public void clickearVueloABruselas(){click(btnVuelosABruselasLocator);}
     public void clickearOrigenBox(){click(btnOrigenBoxLocator);}
@@ -47,4 +47,42 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     public void clickearArturoBenitez(){click(btnArturoMerinoLocator);}
 
 
+    public void seleccionarDosAdultos() {
+    }
+
+    public void modificarUnBebe() {
+    }
+
+    public void seleccionarSoloIda() {
+    }
+
+    public void modificarFecha() {
+    }
+
+    public void bajarMinimoPrecio() {
+    }
+
+    public void bajarMinimoEscalas() {
+    }
+
+    public void limpiarFiltros() {
+    }
+
+    public void informacionVuelo() {
+    }
+
+    public void scrollearDos() {
+    }
+
+    public void cerrarInformacion() {
+    }
+
+    public void leerMensaje() {
+    }
+
+    public void clickearComprarPasaje() {
+    }
+
+    public void clickearClasic() {
+    }
 }
