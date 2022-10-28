@@ -30,7 +30,7 @@ public class SeleniumWrapper {
         isDisplayed(locator);
         driver.findElement(locator).sendKeys(inputText);
     }
-    public void sendKeys(Keys key, By locator){
+    public void sendKeys(String key, By locator){
         driver.findElement(locator).sendKeys(key);
     }
 
@@ -52,7 +52,6 @@ public class SeleniumWrapper {
             return false;
         }
     }
-
     public Boolean isSelected(By locator) {
         try {
             return driver.findElement(locator).isSelected();
@@ -60,16 +59,20 @@ public class SeleniumWrapper {
             return false;
         }
     }
-
     public void navigateTo(String url){
         driver.navigate().to(url);
     }
     public void scroll (int vertical, int horizontal){
         ((JavascriptExecutor)driver).executeScript("scroll("+vertical+","+horizontal+")");
     }
-
     public String getUrlTitle(){
         return driver.getTitle();
+    }
+
+    public void navegarAceptarCookie(String url,By locator) throws InterruptedException {
+        navigateTo(url);
+        Thread.sleep(3000);
+        click(locator);
     }
 
 }

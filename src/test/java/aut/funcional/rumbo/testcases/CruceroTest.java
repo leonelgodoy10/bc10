@@ -26,14 +26,14 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.verTodasLasOfertas();
         Assertions.assertEquals("Cruceros",rumboHomePageCrucero.textoUrlTitulo());
     }
-    @Test
+    /*@Test
     void busquedaCruceroUnaPersonaAdultaBC002(){}
     @Test
     void reservaDeCruceroBC003(){}
     @Test
     void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004(){}
     @Test
-    void cotizacionDeUnCruceroParaUnaFamiliaBC005(){}
+    void cotizacionDeUnCruceroParaUnaFamiliaBC005(){}*/
     @Test
     void navegacionCrucerosEnOfertaBC006(){}
 

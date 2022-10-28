@@ -23,13 +23,27 @@ public class VueloTest extends SeleniumTestBase {
 
     }
     @Test
-    void compraDeVueloTopMasBaratoBV002(){}
-    @Test
+    void compraDeVueloTopMasBaratoBV002() throws InterruptedException {
+
+        rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
+        rumboHomePageHomeVuelo.navegarYAceptarCookies();
+        rumboHomePageHomeVuelo.scrollear();
+        Thread.sleep(3000);
+        rumboHomePageHomeVuelo.clickearTopDestinosDeVuelos();
+        rumboHomePageHomeVuelo.clickearVueloABruselas();
+        rumboHomePageHomeVuelo.clickearOrigenBox();
+        rumboHomePageHomeVuelo.escribirChile();
+        rumboHomePageHomeVuelo.clickearArturoBenitez();
+
+
+
+    }
+   /* @Test
     void comprarDeVueloTopMasBaratoBV003(){}
     @Test
     void viajeEnPrimeraClaseBV004(){}
     @Test
     void funcionalidadMultidestinoBV005(){}
     @Test
-    void cantidadDePasajeroMasBebeBV006(){}
+    void cantidadDePasajeroMasBebeBV006(){}*/
 }
