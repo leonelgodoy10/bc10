@@ -31,9 +31,21 @@ public class CruceroTest extends SeleniumTestBase {
     @Test
     void reservaDeCruceroBC003(){}
     @Test
-    void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004(){}
+    void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004(){
+        rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
+        rumboHomePageCrucero.navegarAlHome();
+        rumboHomePageCrucero.aceptarCookie();
+        rumboHomePageCrucero.seleccionarVerMas();
+        rumboHomePageCrucero.seleccionarCrucero();
+    }
     @Test
-    void cotizacionDeUnCruceroParaUnaFamiliaBC005(){}
+    void cotizacionDeUnCruceroParaUnaFamiliaBC005(){
+        rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
+        rumboHomePageCrucero.navegarAlHome();
+        rumboHomePageCrucero.aceptarCookie();
+        rumboHomePageCrucero.seleccionarVerMas();
+        rumboHomePageCrucero.seleccionarCrucero();
+    }
     @Test
     void navegacionCrucerosEnOfertaBC006(){}
 

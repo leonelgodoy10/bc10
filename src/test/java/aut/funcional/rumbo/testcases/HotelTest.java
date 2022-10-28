@@ -26,7 +26,16 @@ public class HotelTest extends SeleniumTestBase {
 
     }
     @Test
-    void encontrarAlojamientoDisponiblesBH002(){}
+    void encontrarAlojamientoDisponiblesBH002(){
+        rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
+        rumboHomePageHotel.navegarAlHome();
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.selectorHotel();
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.buscarAlojamientoEn("Buenos Aires");
+
+    }
+
     @Test
     void registrarFechaDeEntradaBH003(){}
     @Test
