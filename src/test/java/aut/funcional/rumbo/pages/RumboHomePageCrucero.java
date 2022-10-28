@@ -42,11 +42,13 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
             click(navegarOfertasLocator);
         }
     }
+
     public void verTodasLasOfertas() {
         click(verTodasLasOfertasLocator);
     }
-    public void scrollPage(int horizontal,int vertical){
-        scroll(horizontal,vertical);
+
+    public void scrollPage(int horizontal, int vertical) {
+        scroll(horizontal, vertical);
     }
 
     public void navegarAlHome() {

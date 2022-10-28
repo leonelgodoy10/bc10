@@ -19,22 +19,32 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.aceptarCookie();
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
-        Assertions.assertEquals("Cruceros. Ofertas de cruceros baratos. Tu crucero en Rumbo",rumboHomePageCrucero.textoUrlTitulo());
-        rumboHomePageCrucero.scrollPage(0,1200);
+        Assertions.assertEquals("Cruceros. Ofertas de cruceros baratos. Tu crucero en Rumbo", rumboHomePageCrucero.textoUrlTitulo());
+        rumboHomePageCrucero.scrollPage(0, 1200);
         Thread.sleep(1000);
         rumboHomePageCrucero.navegarOfertas();
         rumboHomePageCrucero.verTodasLasOfertas();
-        Assertions.assertEquals("Cruceros",rumboHomePageCrucero.textoUrlTitulo());
+        Assertions.assertEquals("Cruceros", rumboHomePageCrucero.textoUrlTitulo());
     }
-    /*@Test
-    void busquedaCruceroUnaPersonaAdultaBC002(){}
+
     @Test
-    void reservaDeCruceroBC003(){}
+    void busquedaCruceroUnaPersonaAdultaBC002() {
+    }
+
     @Test
-    void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004(){}
+    void reservaDeCruceroBC003() {
+    }
+
     @Test
-    void cotizacionDeUnCruceroParaUnaFamiliaBC005(){}*/
+    void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004() {
+    }
+
     @Test
-    void navegacionCrucerosEnOfertaBC006(){}
+    void cotizacionDeUnCruceroParaUnaFamiliaBC005() {
+    }
+
+    @Test
+    void navegacionCrucerosEnOfertaBC006() {
+    }
 
 }
