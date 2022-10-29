@@ -26,25 +26,30 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.verTodasLasOfertas();
         Assertions.assertEquals("Cruceros", rumboHomePageCrucero.textoUrlTitulo());
     }
-
     @Test
-    void busquedaCruceroUnaPersonaAdultaBC002() {
-    }
-
+    void busquedaCruceroUnaPersonaAdultaBC002(){}
     @Test
-    void reservaDeCruceroBC003() {
-    }
-
+    void reservaDeCruceroBC003(){}
     @Test
     void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004() {
+        rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
+        rumboHomePageCrucero.navegarAlHome();
+        rumboHomePageCrucero.aceptarCookie();
+        rumboHomePageCrucero.seleccionarVerMas();
+        rumboHomePageCrucero.seleccionarCrucero();
+        rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
     }
 
     @Test
     void cotizacionDeUnCruceroParaUnaFamiliaBC005() {
+        rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
+        rumboHomePageCrucero.navegarAlHome();
+        rumboHomePageCrucero.aceptarCookie();
+        rumboHomePageCrucero.seleccionarVerMas();
+        rumboHomePageCrucero.seleccionarCrucero();
     }
 
     @Test
-    void navegacionCrucerosEnOfertaBC006() {
-    }
+    void navegacionCrucerosEnOfertaBC006(){}
 
 }

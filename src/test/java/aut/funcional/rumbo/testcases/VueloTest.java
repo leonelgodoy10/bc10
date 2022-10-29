@@ -36,10 +36,26 @@ public class VueloTest extends SeleniumTestBase {
 
     @Test
     void comprarDeVueloTopMasBaratoBV003() {
+        rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
+        rumboHomePageHomeVuelo.navegarAlHome();
+        rumboHomePageHomeVuelo.aceptarCookie();
+        rumboHomePageHomeVuelo.selectorVuelos();
+        rumboHomePageHomeVuelo.aceptarCookie();
     }
 
     @Test
-    void viajeEnPrimeraClaseBV004() {
+    void viajeEnPrimeraClaseBV004() throws InterruptedException {
+        rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
+        rumboHomePageHomeVuelo.navegarAlHome();
+        rumboHomePageHomeVuelo.aceptarCookie();
+        rumboHomePageHomeVuelo.selectorVuelos();
+        rumboHomePageHomeVuelo.aceptarCookie();
+        rumboHomePageHomeVuelo.origenDestinoSeleccion("la paz", "mendoza");
+        rumboHomePageHomeVuelo.agregarAdultos(3);
+        rumboHomePageHomeVuelo.agregarNino("2 años");
+        rumboHomePageHomeVuelo.selectorDeClase("Primera");
+        Thread.sleep(3000);
+
     }
 
     @Test

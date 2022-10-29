@@ -1,6 +1,7 @@
 package framework.engine.selenium;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.devtools.v96.indexeddb.model.Key;
 
 import java.util.List;
@@ -28,7 +29,7 @@ public class SeleniumWrapper {
     }
 
     public void write(String inputText, By locator) {
-        //isDisplayed(locator);
+        isDisplayed(locator);
         driver.findElement(locator).sendKeys(inputText);
     }
 
@@ -70,6 +71,17 @@ public class SeleniumWrapper {
 
     public void scroll(int vertical, int horizontal) {
         ((JavascriptExecutor) driver).executeScript("scroll(" + horizontal + "," + vertical + ")");
+    }
+
+    public void clear(By locator) {
+        WebElement areaDeEscritura = driver.findElement(locator);
+        areaDeEscritura.clear();
+    }
+
+    public void select(By locator, String dato) {
+        WebElement elemento = driver.findElement(locator);
+        Select seleccionar = new Select(elemento);
+        seleccionar.selectByVisibleText(dato);
     }
 
     public String getUrlTitle() {
@@ -114,5 +126,3 @@ public class SeleniumWrapper {
     }
 
 }
-
-
