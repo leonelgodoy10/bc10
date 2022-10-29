@@ -12,6 +12,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     public RumboHomePageHotel(WebDriver driver) {
         super(driver);
     }
+
     //locators
     By BtnaceptarCookiesLocator = By.xpath("//button[@class='iubenda-cs-accept-btn iubenda-cs-btn-primary']");
     By btnHotelLocator = By.xpath("//div[@class='display-1dpcy4y-HubNavigationMenu-styled e10w470p3']//a[@title='Hoteles'][normalize-space()='Hoteles']");
@@ -30,32 +31,38 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     //methods
 
-    public void aceptarCookie(){
+    public void aceptarCookie() {
         click(BtnaceptarCookiesLocator);
     }
-    public void selectorHotel(){
+
+    public void selectorHotel() {
         click(btnHotelLocator);
     }
-    public void selecionarFraccionado(){
+
+    public void selecionarFraccionado() {
         click(pagoFraccionadoLocator);
     }
-    public void echaleUnVistazo(){
+
+    public void echaleUnVistazo() {
         click(btnEchaleUnVistazoLocator);
     }
-    public String textoUrlTitulo(){
+
+    public String textoUrlTitulo() {
         return getUrlTitle();
     }
-    public void navegarAlHome(){
+
+    public void navegarAlHome() {
         navigateTo(BASE_URL_AUT);
     }
-    public void buscarAlojamientoEn(String dato){
+
+    public void buscarAlojamientoEn(String dato) {
         click(buscarAlojamientoEnLocator);
-        write(dato,buscarAlojamientoEnLocator);
+        write(dato, buscarAlojamientoEnLocator);
         click(primeraOpcionDespAlojamientolegadaLocator);
 
     }
 
-    public void fechaCalendario(int i,int s){
+    public void fechaCalendario(int i, int s) {
         click(fechadeEntradaLocator);
         click(seleccionFechaDeEntradaLocator10102022);
         click(fechaDeSalidaLocator);

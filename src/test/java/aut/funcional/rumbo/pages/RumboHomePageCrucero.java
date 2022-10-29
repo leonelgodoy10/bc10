@@ -45,19 +45,23 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
             click(navegarOfertasLocator);
         }
     }
+
     public void verTodasLasOfertas() {
         click(verTodasLasOfertasLocator);
     }
-    public void scrollPage(int horizontal,int vertical){
-        scroll(horizontal,vertical);
+
+    public void scrollPage(int horizontal, int vertical) {
+        scroll(horizontal, vertical);
     }
-    public void seleccionarDestinoCrucero(String dato){
+
+    public void seleccionarDestinoCrucero(String dato) {
         click(cualquierDestinoCruceroLocator);
         clear(cualquierDestinoBusquedaLocator);
-        write(dato,cualquierDestinoBusquedaLocator);
-        click(By.xpath("//li[@aria-label='"+dato+"']"));
+        write(dato, cualquierDestinoBusquedaLocator);
+        click(By.xpath("//li[@aria-label='" + dato + "']"));
     }
-    public void seleccionPeriodo(){
+
+    public void seleccionPeriodo() {
 
     }
 
