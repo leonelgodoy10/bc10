@@ -36,7 +36,7 @@ public class OpenAllWebBrowser {
 
     }
 
-    @Test
+  /*  @Test ::REFACTOR TEST
     void TestNoFoundBrowserException(){
         Properties noBrowser = new Properties();
         noBrowser.put("browser","none");
@@ -44,7 +44,7 @@ public class OpenAllWebBrowser {
         driverFactory = new DriverFactory();
         Assertions.assertThrows(RuntimeException.class,()-> driver = driverFactory.initDriver());
 
-    }
+    }*/
 
 
 }
