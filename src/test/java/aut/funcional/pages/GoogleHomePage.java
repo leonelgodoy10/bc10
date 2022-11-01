@@ -5,8 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 
-import static framework.engine.utils.Constants.BASE_URL_AUT;
-
 public class GoogleHomePage extends SeleniumBase {
 
     public GoogleHomePage(WebDriver driver) {
@@ -29,7 +27,6 @@ public class GoogleHomePage extends SeleniumBase {
         getDriver().findElement(btnBuscarConGoogleLocator).click();
     }
 
-    //methods
 
 
 

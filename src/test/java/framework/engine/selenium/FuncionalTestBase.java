@@ -6,21 +6,15 @@ import org.openqa.selenium.WebDriver;
 
 public class FuncionalTestBase {
 
-    private DriverFactory driverFactory;
-    WebDriver driver;
-
     @BeforeEach
     void webDriverSetup(){
-        driverFactory = new DriverFactory();
-        driver = driverFactory.initDriver();
+        DriverFactory.initDriver();
     }
 
     @AfterEach
     void close(){
         System.out.println("Killing WebDriver");
-        if(driver != null){
-            driver.quit();
-        }
+        DriverFactory.closeDriver();
     }
 }
 
