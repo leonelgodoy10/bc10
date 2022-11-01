@@ -18,7 +18,7 @@ public class OpenAllWebBrowser {
         edgeProperties.put("browser","edge");
         String browserName = edgeProperties.getProperty("browser");
         driverFactory = new DriverFactory();
-        driver = driverFactory.inicializarDriver();
+        driver = driverFactory.initDriver();
         Assertions.assertTrue(driver.getWindowHandle() != null);
         driver.quit();
 
@@ -30,7 +30,7 @@ public class OpenAllWebBrowser {
         firefoxProperties.put("browser","firefox");
         String browserName = firefoxProperties.getProperty("browser");
         driverFactory = new DriverFactory();
-        driver = driverFactory.inicializarDriver();
+        driver = driverFactory.initDriver();
         Assertions.assertTrue(driver.getWindowHandle() != null);
         driver.quit();
 
@@ -42,7 +42,7 @@ public class OpenAllWebBrowser {
         noBrowser.put("browser","none");
         String browserName = noBrowser.getProperty("browser");
         driverFactory = new DriverFactory();
-        Assertions.assertThrows(RuntimeException.class,()-> driver = driverFactory.inicializarDriver());
+        Assertions.assertThrows(RuntimeException.class,()-> driver = driverFactory.initDriver());
 
     }
 

@@ -1,12 +1,8 @@
 package framework.engine.selenium;
 
-import framework.engine.utils.LoadProperties;
 import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
-
-import java.util.Properties;
 
 public class FuncionalTestBase {
 
@@ -16,7 +12,7 @@ public class FuncionalTestBase {
     @BeforeEach
     void webDriverSetup(){
         driverFactory = new DriverFactory();
-        driver = driverFactory.inicializarDriver();
+        driver = driverFactory.initDriver();
     }
 
     @AfterEach

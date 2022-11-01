@@ -1,11 +1,23 @@
 package framework.testing.bdd.pages;
 
-import framework.engine.selenium.SeleniumBase;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.By;
 
-public class BddHomePage extends SeleniumBase {
-    public BddHomePage(WebDriver driver) {
-        super(driver);
+import static framework.engine.selenium.DriverFactory.*;
+
+public class BddHomePage {
+
+    //locators
+    String url = "https://www.google.com";
+    By barraGoogle = By.xpath("//*[@name='q']");
+    By btnGoogle = By.xpath("//*[@name='btnK']");
+
+    //funciones o acciones que podemos hacer en la web -> buscar en barra google
+    public void irAHomePage(){
+        getDriver().navigate().to(url);
+    }
+    public void buscarTexto(String texto){
+        getDriver().findElement(barraGoogle).sendKeys(texto);
+        getDriver().findElement(btnGoogle).click();
     }
     
 

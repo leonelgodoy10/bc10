@@ -28,7 +28,7 @@ public class CucumberBaseTestRunner {
     public static WebDriver driver;
 
     public static void setUp(){
-        driver = DriverFactory.inicializarDriver();
+        driver = DriverFactory.initDriver();
         if (driver != null) {
             driver.manage().timeouts().implicitlyWait(Duration.ofMillis(3000));
             driver.manage().window().maximize();
