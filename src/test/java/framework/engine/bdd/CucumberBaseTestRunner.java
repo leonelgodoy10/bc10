@@ -21,7 +21,7 @@ import java.time.Duration;
 @CucumberOptions(plugin = {"pretty", "io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"},
         glue = {"framework.testing.bdd.steps","framework.engine.bdd"},
         tags = {""},
-        features = {"src/test/java/framework/testing/features"})
+        features = {"src/test/java/framework/testing/bdd/features"})
 @CommonsLog
 public class CucumberBaseTestRunner {
 

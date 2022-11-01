@@ -20,10 +20,8 @@ import java.time.Duration;
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"pretty", "io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"},
         glue = {"framework.testing.bdd.steps","framework.engine.bdd"},
-        tags = {""},
+        tags = {"@framework"},
         features = {"src/test/java/framework/testing/bdd/features"})
 @CommonsLog
 public class BDDRunner {
-
-
 }
