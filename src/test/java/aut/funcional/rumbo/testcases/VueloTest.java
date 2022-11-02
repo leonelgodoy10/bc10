@@ -31,7 +31,6 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.clickearFechaIda();
         rumboHomePageHomeVuelo.buscaridaYVuelta(18, 4, 2023, 10, 5, 2023);
 
-
     }
 
     @Test
@@ -56,7 +55,7 @@ public class VueloTest extends SeleniumTestBase {
     }
 
     @Test
-    void viajeEnPrimeraClaseBV004() {
+    void viajeEnPrimeraClaseBV004() throws InterruptedException {
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarAlHome();
         rumboHomePageHomeVuelo.aceptarCookie();
@@ -65,13 +64,10 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.origenDestinoSeleccion("cancun", "egipto");
         rumboHomePageHomeVuelo.agregarAdultos(3);
         rumboHomePageHomeVuelo.selectorDeClase("Primera");
-<<<<<<< HEAD
         Thread.sleep(3000);
-=======
         //rumboHomePageHomeVuelo.buscaridaYVuelta(21,10,2022,27,10,2022); me falla la seleccion del calendario y se cae la aplicacion
         rumboHomePageHomeVuelo.buscarVuelo();
 
->>>>>>> 4c56c03eaa0f1980ec2a486e1999fa9738ec5eac
     }
 
     @Test
