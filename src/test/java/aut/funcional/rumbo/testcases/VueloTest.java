@@ -29,7 +29,7 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarYAceptarCookies();
         rumboHomePageHomeVuelo.clickearFechaIda();
-        rumboHomePageHomeVuelo.buscaridaYVuelta(18, 4, 2023, 1, 5, 2023);
+        rumboHomePageHomeVuelo.buscaridaYVuelta(18, 4, 2023, 10, 5, 2023);
 
 
     }
@@ -55,7 +55,6 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.agregarNino("2 años");
         rumboHomePageHomeVuelo.selectorDeClase("Primera");
         Thread.sleep(3000);
-
     }
 
     @Test

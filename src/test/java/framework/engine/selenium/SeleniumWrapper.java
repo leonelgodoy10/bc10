@@ -95,16 +95,15 @@ public class SeleniumWrapper {
     }
 
     public void seleccionFechaIda(int diai, int mesi, int anhoi, int diav, int mesv, int anhov, By locator) {
-        if (anhoi == 2022) {
+        if (anhoi == (2022)) {
             if (mesi == 11) {
-                click((By.xpath(("(//button[@type='button'][normalize-space()='" + diai + "'])[2]"))));
+                click((By.xpath(("(//button[@type='button'][normalize-space()='" + diai + "'])[1]"))));
             } else if (mesi == 12) {
                 click(locator);
                 click((By.xpath(("(//button[@type='button'][normalize-space()='" + diai + "'])[2]"))));
             }
         } else if (anhoi == 2023) {
             int NumeroMes = mesi - 1;
-            click(locator);
             click(locator);
             for (int i = 0; i < 12; i++) {
                 if (NumeroMes == i) {
@@ -115,12 +114,16 @@ public class SeleniumWrapper {
                 }
             }
         }
-
-        if (mesi == mesv) {
+        if (mesv == 11 && anhoi == 2022) {
+            click((By.xpath(("(//button[@type='button'][normalize-space()='" + diav + "'])[1]"))));
+        } else if (mesv == 12 && anhov ==2022) {
             click((By.xpath(("(//button[@type='button'][normalize-space()='" + diav + "'])[2]"))));
-        } else {
+        } else if (mesi == mesv){
+            click((By.xpath(("(//button[@type='button'][normalize-space()='" + diav + "'])[2]"))));
+        }else{
             click(locator);
             click((By.xpath(("(//button[@type='button'][normalize-space()='" + diav + "'])[2]"))));
+
         }
 
     }
