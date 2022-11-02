@@ -69,7 +69,7 @@ public class SeleniumWrapper {
         driver.navigate().to(url);
     }
 
-    public void scroll(int vertical, int horizontal) {
+    public void scroll(int horizontal, int vertical) {
         ((JavascriptExecutor) driver).executeScript("scroll(" + horizontal + "," + vertical + ")");
     }
 
