@@ -41,7 +41,7 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.selectorVuelos();
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.origenDestinoSeleccion("arturo merino","mendoza");
-        //rumboHomePageHomeVuelo.buscaridaYVuelta(7,10,2022,30,10,2022);
+        rumboHomePageHomeVuelo.buscaridaYVuelta(7,10,2022,30,10,2022);
         rumboHomePageHomeVuelo.agregarAdultos(1);
         rumboHomePageHomeVuelo.agregarNino("10 años");
         rumboHomePageHomeVuelo.agregarAdultos(1);
