@@ -86,6 +86,15 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(seleccionNinoLocator);
         Thread.sleep(1000);
         click(By.xpath("//li[normalize-space()='" + dato + "']"));
+        click(cierreSeleccionViajeroLocator);
+    }
+
+    public void escalas(String escalaIda, String escalaVuelta) {
+
+    }
+
+    public void mejorBaratoRaido(String filto) {//opciones disponibles son El mejor, Más barato y Más rápido
+        click(By.xpath("//div[@class='listing-sorting-container']//div[@class='sorting-tabs-view__label'][normalize-space()='" + filto + "']"));
     }
 
     public void navegarAlHome() {
