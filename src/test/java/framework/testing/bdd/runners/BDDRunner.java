@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = {"pretty", "io.qameta.allure.cucumber5jvm.AllureCucumber5Jvm"},
-        glue = {"framework.testing.bdd.steps","framework.engine.bdd"},
+        glue = {"framework.testing.bdd.steps"},
         tags = {"@framework"},
         features = {"src/test/java/framework/testing/bdd/features"})
 @CommonsLog
