@@ -31,6 +31,7 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.clickearFechaIda();
         rumboHomePageHomeVuelo.buscaridaYVuelta(18, 4, 2023, 10, 5, 2023);
 
+
     }
 
     @Test
