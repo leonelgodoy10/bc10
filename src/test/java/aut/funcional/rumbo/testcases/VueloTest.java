@@ -34,40 +34,32 @@ public class VueloTest extends SeleniumTestBase {
     }
 
     @Test
-    void comprarDeVueloTopMasBaratoBV003() throws InterruptedException {
+    void busquedaDeVueloFamiliarBV003()  {//Funcionando OK, probar y dar visto bueno
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarAlHome();
-        Thread.sleep(1000);
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
+        rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.origenDestinoSeleccion("arturo merino","mendoza");
-        rumboHomePageHomeVuelo.buscaridaYVuelta(6,11,2022,29,11,2022);
+        rumboHomePageHomeVuelo.buscaridaYVuelta(7,11,2022,30,11,2022);
         rumboHomePageHomeVuelo.agregarAdultos(1);
         rumboHomePageHomeVuelo.agregarNino("10 años");
         rumboHomePageHomeVuelo.agregarAdultos(1);
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
         rumboHomePageHomeVuelo.selectorDeClase("Turista");
         rumboHomePageHomeVuelo.buscarVuelo();
-        Thread.sleep(15000);
         rumboHomePageHomeVuelo.escalasIda("ninguna");
-        rumboHomePageHomeVuelo.escalasIda("1 escala");
-        rumboHomePageHomeVuelo.escalasIda("2 o mas");
-        rumboHomePageHomeVuelo.escalasVuelta("ninguna");
-        rumboHomePageHomeVuelo.escalasVuelta("1 escala");
         rumboHomePageHomeVuelo.escalasVuelta("2 o mas");
         rumboHomePageHomeVuelo.mejorBaratoRaido("Más barato");
-        rumboHomePageHomeVuelo.mejorBaratoRaido(" Más rápido");
-        rumboHomePageHomeVuelo.mejorBaratoRaido("El mejor");
-        Thread.sleep(5000);
-
     }
 
     @Test
-    void viajeEnPrimeraClaseBV004() throws InterruptedException {
+    void viajeEnPrimeraClaseBV004() {//Funcionando OK, probar y dar visto bueno
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarAlHome();
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
+        rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.origenDestinoSeleccion("cancun", "egipto");
         rumboHomePageHomeVuelo.buscaridaYVuelta(21,11,2022,27,11,2022);
         rumboHomePageHomeVuelo.agregarAdultos(3);

@@ -1,8 +1,14 @@
 package aut.funcional.rumbo.pages;
 
+import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static framework.engine.utils.Constants.BASE_URL_AUT;
 
@@ -37,12 +43,16 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By ningunaEscalaVuelta = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='Ninguna']");
     By unaEscalaVueltaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='1 escala']");
     By dosEscalasVueltaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='2 escalas o más']");
-
+    By esperaEscalasLocator = By.xpath("//div[@class='content-layout-view__column-left col-md-3 col-sm-4']");
     //methods
     public void aceptarCookie() {
-        click(BtnaceptarCookiesLocator);
+        if (isDisplayed(BtnaceptarCookiesLocator) == true) {
+            WebElement esperaCookie = findElement(BtnaceptarCookiesLocator);
+            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+            esperar.until(ExpectedConditions.elementToBeClickable(esperaCookie));
+            click(BtnaceptarCookiesLocator);
+        }
     }
-
     public void navegarYAceptarCookies() throws InterruptedException {
         navegarAceptarCookie(BASE_URL_AUT, BtnaceptarCookiesLocator);
     }
@@ -73,6 +83,12 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         write(destino, destinoVueloLocator);
         click(primeraOpcionDestinoLocator);
     }
+    public void seleccionarDestino(String destino){
+        click(destinoVueloLocator);
+        clear(destinoVueloLocator);
+        write(destino, destinoVueloLocator);
+        click(primeraOpcionDestinoLocator);
+    }
 
     public void selectorDeClase(String dato) {
         click(seleccionDeClaseLocator);
@@ -93,16 +109,18 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(cierreSeleccionViajeroLocator);
     }
 
-    public void agregarNino(String dato) throws InterruptedException {
+    public void agregarNino(String dato)  {
         click(seleccionViajeroLocator);
         click(seleccionNinoLocator);
-        Thread.sleep(1000);
+
         click(By.xpath("//li[normalize-space()='" + dato + "']"));
         click(cierreSeleccionViajeroLocator);
     }
 
     public void escalasIda(String escalaIda) {//opciones disponibles, "1 escala" , "2 o mas"
-
+        WebElement escalas = findElement(esperaEscalasLocator);
+        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        esperar.until(ExpectedConditions.visibilityOf(escalas));
 
         if (isDisplayed(sinResultadosPorCriterioDeBusquedaLocator) == false) {
             if (escalaIda == "ninguna") {
