@@ -40,6 +40,15 @@ public class HotelTest extends SeleniumTestBase {
 
     @Test
     void registrarFechaDeEntradaBH003() {
+        rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
+        rumboHomePageHotel.navegarAlHome();
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.selectorHotel();
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.mejorOferta();
+        rumboHomePageHotel.seleccionarMiro();
+
+
     }
 
     @Test

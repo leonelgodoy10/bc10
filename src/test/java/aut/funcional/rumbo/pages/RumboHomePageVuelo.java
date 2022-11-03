@@ -38,6 +38,11 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By unaEscalaVueltaLocator = By.xpath("");
     By dosEscalasVueltaLocator = By.xpath("");
 
+    By seleccionarSoloIdaLocator = By.xpath("//div[@class=\"display-xi36x7-ToggleGroup-ToggleGroup\"]");
+
+
+
+
     //methods
     public void aceptarCookie() {
         click(BtnaceptarCookiesLocator);
@@ -155,5 +160,18 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     public void buscaridaYVuelta(int diaIda, int mesIda, int anhoida, int diaVuelta, int mesVuelta, int anhoVuelta) {
         seleccionFechaIda(diaIda, mesIda, anhoida, diaVuelta, mesVuelta, anhoVuelta, siguienteMesLocator);
     }
+
+    public void seleccionarSoloIda(){
+click(seleccionarSoloIdaLocator);
+
+    }
+
+    public void seleccionarDestino(String destino){
+        click(destinoVueloLocator);
+        clear(destinoVueloLocator);
+        write(destino, destinoVueloLocator);
+        click(primeraOpcionDestinoLocator);
+    }
+
 }
 

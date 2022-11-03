@@ -1,7 +1,6 @@
 package aut.funcional.rumbo.pages;
 
 import framework.engine.selenium.SeleniumWrapper;
-import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -28,7 +27,13 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By seleccionFechaDeEntradaLocator10102022 = By.xpath("//button[@class='display-1yiau9q-Day-styled-Day-styled-Day-styled-Day-styled']");
     By seleccionFechaDeSalidaLocator13102022 = By.xpath("//button[contains(@class,'display-s2qfcl-Day-styled-Day-styled-Day-styled')][normalize-space()='13']");
 
-    //methods
+    By mejoresOfertasLocator = By.xpath("//img[@src=\"https://res.cloudinary.com/lastminute-contenthub/image/upload/c_scale,h_500/c_limit,w_768,h_999999/v1559904128/DAM/Photos/Lifestyle/Spa/eyeem-23764952-89602848.jpg\"]");
+
+    By seleccionarMiroLocator= By .xpath("//img[@src=\"https://res.cloudinary.com/lastminute/image/upload/t_OSE_det_gall/c_limit,w_300,h_999999/q_auto/v1599034451/uxs4ndp1xbquzv1lehau.jpg\"]");
+
+        //methods
+
+
 
     public void aceptarCookie() {
         click(BtnaceptarCookiesLocator);
@@ -58,8 +63,21 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(buscarAlojamientoEnLocator);
         write(dato, buscarAlojamientoEnLocator);
         click(primeraOpcionDespAlojamientolegadaLocator);
-
     }
+
+public void mejorOferta(){ click(mejoresOfertasLocator); }
+        public void seleccionarMiro(){click(seleccionarMiroLocator);}
+
+
+
+
+
+
+
+
+
+
+
 
     public void fechaCalendario(int i, int s) {
         click(fechadeEntradaLocator);
@@ -67,7 +85,10 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(fechaDeSalidaLocator);
         click(seleccionFechaDeSalidaLocator13102022);
 
-    }
+    } }
 
 
-}
+
+
+
+
