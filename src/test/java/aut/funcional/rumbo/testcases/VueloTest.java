@@ -37,21 +37,28 @@ public class VueloTest extends SeleniumTestBase {
     void comprarDeVueloTopMasBaratoBV003() throws InterruptedException {
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarAlHome();
+        Thread.sleep(1000);
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
         rumboHomePageHomeVuelo.origenDestinoSeleccion("arturo merino","mendoza");
-        rumboHomePageHomeVuelo.buscaridaYVuelta(7,11,2022,30,11,2022);
+        rumboHomePageHomeVuelo.buscaridaYVuelta(6,11,2022,29,11,2022);
         rumboHomePageHomeVuelo.agregarAdultos(1);
         rumboHomePageHomeVuelo.agregarNino("10 años");
         rumboHomePageHomeVuelo.agregarAdultos(1);
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
         rumboHomePageHomeVuelo.selectorDeClase("Turista");
         rumboHomePageHomeVuelo.buscarVuelo();
-        Thread.sleep(10000);
+        Thread.sleep(15000);
+        rumboHomePageHomeVuelo.escalasIda("ninguna");
         rumboHomePageHomeVuelo.escalasIda("1 escala");
+        rumboHomePageHomeVuelo.escalasIda("2 o mas");
         rumboHomePageHomeVuelo.escalasVuelta("ninguna");
-        //rumboHomePageHomeVuelo.mejorBaratoRaido("Más barato");
-        Thread.sleep(10000);
+        rumboHomePageHomeVuelo.escalasVuelta("1 escala");
+        rumboHomePageHomeVuelo.escalasVuelta("2 o mas");
+        rumboHomePageHomeVuelo.mejorBaratoRaido("Más barato");
+        rumboHomePageHomeVuelo.mejorBaratoRaido(" Más rápido");
+        rumboHomePageHomeVuelo.mejorBaratoRaido("El mejor");
+        Thread.sleep(5000);
 
     }
 
