@@ -38,7 +38,32 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By unaEscalaVueltaLocator = By.xpath("");
     By dosEscalasVueltaLocator = By.xpath("");
 
+    By seleccionMultidestinoLocator = By.xpath("//a[@class='display-1h4wa6k-FlightTab-styled-ToggleGroup-ToggleGroup-FlightTab-styled']");
+
+    By seleccionVuelaEuropaLocator = By.xpath("(//p[normalize-space()='Ver las ofertas >'])[1]");
     //methods
+
+    By santiagoChileLocator = By.xpath("(//div[normalize-space()='Santiago de Chile, Chile'])[2]");
+
+    By miamiLocator = By.xpath("(//div[normalize-space()='Miami, Estados Unidos'])[1]");
+
+    By origenMultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[1]");
+
+    By destinoMultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[2]");
+
+    By origen2MultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[4]");
+
+    By destino2MultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[5]");
+
+    By seleccionPrimeraOpcMultiLocator = By.xpath("(//div[@class='Stack__StyledStack-sc-oaff2v-0 ecPQEH'])[1]");
+
+    By cerrarMultiDestinoCookieLocator = By.xpath("(//div[@class='ButtonPrimitiveIconContainer__StyledButtonPrimitiveIconContainer-sc-8rx3cv-0 fxbcmo'])[1]");
+
+    By borrarTodoMultiDestinoLocator = By.xpath("//div[contains(text(),'Borrar todos')]");
+
+    By buscarMultivueloLocator = By.xpath("(//div[@class='ButtonPrimitiveContentChildren__StyledButtonPrimitiveContentChildren-sc-1m4y8u8-0 jiqdNk'])[7]");
+
+
     public void aceptarCookie() {
         click(BtnaceptarCookiesLocator);
     }
@@ -155,5 +180,68 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     public void buscaridaYVuelta(int diaIda, int mesIda, int anhoida, int diaVuelta, int mesVuelta, int anhoVuelta) {
         seleccionFechaIda(diaIda, mesIda, anhoida, diaVuelta, mesVuelta, anhoVuelta, siguienteMesLocator);
     }
+
+    public void seleccionVuelaEuropa(){
+    click(seleccionVuelaEuropaLocator);
+    }
+
+    public void seleccionMultidestino(){
+        click(seleccionMultidestinoLocator);
+
+    }
+
+    public void seleccionMultiOrigenDestino(String origen1, String destino1, String origen2, String destino2) throws InterruptedException {
+
+        click(origenMultiVueloLocator);
+        clear(origenMultiVueloLocator);
+        write(origen1, origenMultiVueloLocator);
+        Thread.sleep(3000);
+        click(seleccionPrimeraOpcMultiLocator);
+
+        click(destinoMultiVueloLocator);
+        clear(destinoMultiVueloLocator);
+        write(destino1, destinoMultiVueloLocator);
+        Thread.sleep(3000);
+        click(seleccionPrimeraOpcMultiLocator);
+
+        click(origen2MultiVueloLocator);
+        clear(origen2MultiVueloLocator);
+        write(origen2, origen2MultiVueloLocator);
+        Thread.sleep(3000);
+        click(seleccionPrimeraOpcMultiLocator);
+
+        click(destino2MultiVueloLocator);
+        clear(destino2MultiVueloLocator);
+        write(destino2, destino2MultiVueloLocator);
+        Thread.sleep(3000);
+        click(seleccionPrimeraOpcMultiLocator);
+    }
+
+    public void borrarTodoMultiDestino(){
+        click(borrarTodoMultiDestinoLocator);
+    }
+
+    public void cerrarMultiDestinoCookie(){
+        click(cerrarMultiDestinoCookieLocator);
+    }
+
+    public void buscarMultivuelo(){
+        click(buscarMultivueloLocator);
+    }
+    public void seleccionOrigenSantiagoChile() throws InterruptedException {
+        click(origenVueloLocator);
+        write("Santiago",origenVueloLocator);
+        Thread.sleep(1000);
+        click(santiagoChileLocator);
+    }
+
+    public void seleccionDestinoMiami() throws InterruptedException {
+        click(destinoVueloLocator);
+        write("Miami",destinoVueloLocator);
+        Thread.sleep(1000);
+        click(miamiLocator);
+    }
+
+
 }
 

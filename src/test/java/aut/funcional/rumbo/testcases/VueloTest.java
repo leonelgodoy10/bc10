@@ -69,7 +69,18 @@ public class VueloTest extends SeleniumTestBase {
     }
 
     @Test
-    void funcionalidadMultidestinoBV005() {
+    void funcionalidadMultidestinoBV005() throws InterruptedException {
+        rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
+        rumboHomePageHomeVuelo.navegarAlHome();
+        rumboHomePageHomeVuelo.aceptarCookie();
+        rumboHomePageHomeVuelo.selectorVuelos();
+        rumboHomePageHomeVuelo.seleccionVuelaEuropa();
+        rumboHomePageHomeVuelo.seleccionMultidestino();
+        //rumboHomePageHomeVuelo.cerrarMultiDestinoCookie();
+        rumboHomePageHomeVuelo.borrarTodoMultiDestino();
+        rumboHomePageHomeVuelo.seleccionMultiOrigenDestino("Santiago de Chile","Miami","Buenos Aires","Barcelona");
+        rumboHomePageHomeVuelo.buscarMultivuelo();
+
     }
 
     @Test

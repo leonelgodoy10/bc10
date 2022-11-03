@@ -23,6 +23,16 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By cualquierDestinoCruceroLocator = By.xpath("//div[@class='p-multiselect-label ng-tns-c52-3 p-placeholder']");
     By cualquierDestinoBusquedaLocator = By.xpath("//input[@role='textbox']");
 
+    By seleccionPeriodoLocator = By.xpath("//div[@class='crs-field-dd-calendar ng-star-inserted']");
+
+    By botonSiguienteAñoLocator = By.xpath("//span[@class='p-datepicker-next-icon pi pi-chevron-right ng-tns-c56-10']");
+
+    By seleccionMesJunioLocator = By.xpath("(//span[@class='p-ripple p-element p-monthpicker-month ng-tns-c56-12 ng-star-inserted'])[6]");
+
+
+
+
+
     //methods
     public void aceptarCookie() {
         click(BtnaceptarCookiesLocator);
@@ -62,7 +72,9 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
     public void seleccionPeriodo() {
-
+        click(seleccionPeriodoLocator);
+        click(botonSiguienteAñoLocator);
+        click(seleccionMesJunioLocator);
     }
 
     public void navegarAlHome() {
