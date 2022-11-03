@@ -18,7 +18,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By btnBuscarVueloLocator = By.xpath("//button[normalize-space()='Buscar']");
     By mensajeErrorVueloVacioLocator = By.xpath("//span[@class='display-1jbu58d-ValidationMessage-styled-ValidationMessage-styled-ValidationMessage-styled']");
     By siguienteMesLocator = By.xpath("//button[contains(@aria-label,'Next month')]//*[name()='svg']");
-
     By origenVueloLocator = By.xpath("(//input[@id='mui-1'])[1]");
     By destinoVueloLocator = By.xpath("//input[@id='mui-2']");
     By primeraOpcionOrigenLocator = By.xpath("//li[@id='mui-1-option-0']");
@@ -28,6 +27,16 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By agregarAdultoLocator = By.xpath("//button[@aria-label='Aumentar el número de adultos']//*[name()='svg']");
     By seleccionNinoLocator = By.xpath("//button[@aria-label='Aumentar el número de niños']");
     By cierreSeleccionViajeroLocator = By.xpath("//button[contains(@class,'display-1ug1iap-Dropdown-styled')]");
+    By sinResultadosPorCriterioDeBusquedaLocator = By.xpath("//div[@class='Container__StyledContainer-sc-sb5e2u-0 fzfA-dR NoResultsPanel__Title-sc-148mow5-2 ejrcDf']");
+    By masBaratoLocator = By.xpath("//div[contains(@class,'listing-sorting-container')]//div[contains(@class,'sorting-tabs-view__label')][normalize-space()='Más barato']");
+    By elMejorLocator = By.xpath("//div[contains(@class,'listing-sorting-container')]//div[contains(@class,'sorting-tabs-view__label')][normalize-space()='El mejor']");
+    By masRapidoLocator = By.xpath("//div[contains(@class,'listing-sorting-container')]//div[contains(@class,'sorting-tabs-view__amount')][contains(text(),'903,99 €')]");
+
+    By unaEscalaIdaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way0')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='1 escala']");
+    By dosEscalasIdaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way0')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='2 escalas o más']");
+    By ningunaEscalaVuelta = By.xpath("");
+    By unaEscalaVueltaLocator = By.xpath("");
+    By dosEscalasVueltaLocator = By.xpath("");
 
     //methods
     public void aceptarCookie() {
@@ -71,14 +80,17 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     }
 
     public void agregarAdultos(int nAdultos) {
-        if (nAdultos > 1) {
+        if (isDisplayed(agregarAdultoLocator) == false) {
             click(seleccionViajeroLocator);
+        }
+        if (nAdultos == 1) {
+            click(agregarAdultoLocator);
+        } else {
             for (int i = 1; i < nAdultos; i++) {
                 click(agregarAdultoLocator);
             }
-            click(cierreSeleccionViajeroLocator);
         }
-
+        click(cierreSeleccionViajeroLocator);
     }
 
     public void agregarNino(String dato) throws InterruptedException {
@@ -89,12 +101,41 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(cierreSeleccionViajeroLocator);
     }
 
-    public void escalas(String escalaIda, String escalaVuelta) {
-
+    public void escalasIda(String escalaIda) {//opciones disponibles, "1 escala" , "2 o mas"
+        if (isDisplayed(sinResultadosPorCriterioDeBusquedaLocator) == false) {
+            if (escalaIda == "1 escala") {
+                click(unaEscalaIdaLocator);
+            }
+            if (escalaIda == "2 o mas") {
+                click(dosEscalasIdaLocator);
+            }
+        }
+    }
+    public void escalasVuelta(String escalaVuelta){//opciones disponibles, "ninguna", "1 escala" , "2 o mas"
+        if (isDisplayed(sinResultadosPorCriterioDeBusquedaLocator) == false) {
+            if (escalaVuelta == "ninguna") {
+                click(ningunaEscalaVuelta);
+            }
+            if (escalaVuelta == "1 escala") {
+                click(unaEscalaVueltaLocator);
+            }
+            if (escalaVuelta == "2 o mas") {
+                click(dosEscalasVueltaLocator);
+            }
+        }
     }
 
     public void mejorBaratoRaido(String filto) {//opciones disponibles son El mejor, Más barato y Más rápido
-        click(By.xpath("//div[@class='listing-sorting-container']//div[@class='sorting-tabs-view__label'][normalize-space()='" + filto + "']"));
+
+        if (isDisplayed(sinResultadosPorCriterioDeBusquedaLocator) == false) {
+            if (filto != "El mejor") {
+                if (filto == "Más barato") {
+                    click(masBaratoLocator);
+                } else {
+                    click(masRapidoLocator);
+                }
+            }
+        }
     }
 
     public void navegarAlHome() {

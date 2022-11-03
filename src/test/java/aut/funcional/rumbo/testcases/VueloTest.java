@@ -39,18 +39,19 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.navegarAlHome();
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
-        rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.origenDestinoSeleccion("arturo merino","mendoza");
-        //rumboHomePageHomeVuelo.buscaridaYVuelta(7,10,2022,30,10,2022);
+        rumboHomePageHomeVuelo.buscaridaYVuelta(7,11,2022,30,11,2022);
         rumboHomePageHomeVuelo.agregarAdultos(1);
         rumboHomePageHomeVuelo.agregarNino("10 años");
         rumboHomePageHomeVuelo.agregarAdultos(1);
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
         rumboHomePageHomeVuelo.selectorDeClase("Turista");
         rumboHomePageHomeVuelo.buscarVuelo();
-        Thread.sleep(5000);
-        rumboHomePageHomeVuelo.mejorBaratoRaido("Más barato");
-        Thread.sleep(5000);
+        Thread.sleep(10000);
+        rumboHomePageHomeVuelo.escalasIda("1 escala");
+        rumboHomePageHomeVuelo.escalasVuelta("ninguna");
+        //rumboHomePageHomeVuelo.mejorBaratoRaido("Más barato");
+        Thread.sleep(10000);
 
     }
 
@@ -60,14 +61,11 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.navegarAlHome();
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
-        rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.origenDestinoSeleccion("cancun", "egipto");
+        rumboHomePageHomeVuelo.buscaridaYVuelta(21,11,2022,27,11,2022);
         rumboHomePageHomeVuelo.agregarAdultos(3);
         rumboHomePageHomeVuelo.selectorDeClase("Primera");
-        Thread.sleep(3000);
-        //rumboHomePageHomeVuelo.buscaridaYVuelta(21,10,2022,27,10,2022); me falla la seleccion del calendario y se cae la aplicacion
         rumboHomePageHomeVuelo.buscarVuelo();
-
     }
 
     @Test
