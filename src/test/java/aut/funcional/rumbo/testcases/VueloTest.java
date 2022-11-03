@@ -28,11 +28,32 @@ public class VueloTest extends SeleniumTestBase {
 
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarYAceptarCookies();
-        rumboHomePageHomeVuelo.clickearFechaIda();
-        rumboHomePageHomeVuelo.buscaridaYVuelta(18, 4, 2023, 10, 5, 2023);
+        rumboHomePageHomeVuelo.selectorVuelos();
+        rumboHomePageHomeVuelo.scroll(0,4000);
+        Thread.sleep(2000);
+        rumboHomePageHomeVuelo.clickTopCiudades();
+        rumboHomePageHomeVuelo.buscarCiudadTop("Bruselas");
+        rumboHomePageHomeVuelo.buscarIdaViajeTop("chile");
+        rumboHomePageHomeVuelo.clickearAropuerto();
+        rumboHomePageHomeVuelo.agregarPersonas(4,3,2);
+        rumboHomePageHomeVuelo.modificarFechaIda(20,3,2023);
+        rumboHomePageHomeVuelo.buscar();
+        Thread.sleep(5000);
+        rumboHomePageHomeVuelo.seleccionarMasBarato();
+        Thread.sleep(5000);
+        rumboHomePageHomeVuelo.bajarPrecio();
+        Thread.sleep(3000);
+        rumboHomePageHomeVuelo.bajarEscalaTop();
+        Thread.sleep(3000);
+        rumboHomePageHomeVuelo.limpiarFiltros();
+        rumboHomePageHomeVuelo.informacion();
+        rumboHomePageHomeVuelo.cambiarIframe();
 
 
-    }
+
+
+
+        }
 
     @Test
     void comprarDeVueloTopMasBaratoBV003() throws InterruptedException {
@@ -48,7 +69,7 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
         rumboHomePageHomeVuelo.selectorDeClase("Turista");
         rumboHomePageHomeVuelo.buscarVuelo();
-        Thread.sleep(10000);
+        Thread.sleep(15000);
         rumboHomePageHomeVuelo.escalasIda("1 escala");
         rumboHomePageHomeVuelo.escalasVuelta("ninguna");
         //rumboHomePageHomeVuelo.mejorBaratoRaido("Más barato");
@@ -66,14 +87,20 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.buscaridaYVuelta(21,11,2022,27,11,2022);
         rumboHomePageHomeVuelo.agregarAdultos(3);
         rumboHomePageHomeVuelo.selectorDeClase("Primera");
-        rumboHomePageHomeVuelo.buscarVuelo();
+
     }
 
     @Test
     void funcionalidadMultidestinoBV005() {
+        rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
+        rumboHomePageHomeVuelo.navigateTo("https://vuelos.rumbo.es/flight/shopping/results/1h4xxu4xvxdz4?itinerary.path[1].arrival=SCL&itinerary.path[1].date=20221105&itinerary.path[1].departure=BRU");
+        rumboHomePageHomeVuelo.bajarPrecio();
+        rumboHomePageHomeVuelo.bajarEscalaTop();
+
     }
 
     @Test
     void cantidadDePasajeroMasBebeBV006() {
+
     }
 }

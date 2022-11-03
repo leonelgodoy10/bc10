@@ -1,6 +1,7 @@
 package framework.engine.selenium;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.devtools.v96.indexeddb.model.Key;
 
@@ -116,11 +117,11 @@ public class SeleniumWrapper {
         }
         if (mesv == 11 && anhoi == 2022) {
             click((By.xpath(("(//button[@type='button'][normalize-space()='" + diav + "'])[1]"))));
-        } else if (mesv == 12 && anhov ==2022) {
+        } else if (mesv == 12 && anhov == 2022) {
             click((By.xpath(("(//button[@type='button'][normalize-space()='" + diav + "'])[2]"))));
-        } else if (mesi == mesv){
+        } else if (mesi == mesv) {
             click((By.xpath(("(//button[@type='button'][normalize-space()='" + diav + "'])[2]"))));
-        }else{
+        } else {
             click(locator);
             click((By.xpath(("(//button[@type='button'][normalize-space()='" + diav + "'])[2]"))));
 
@@ -128,4 +129,67 @@ public class SeleniumWrapper {
 
     }
 
-}
+    public void buscarCiudadTop(String ciudadTop) {
+        click(By.xpath("//a[normalize-space()='Vuelos a " + ciudadTop + "']"));
+
+    }
+
+    public void seleccionarfechaIda(int diai, int mesi, int anhoi, By locator) {
+
+        if (anhoi == (2022)) {
+            if (mesi == 11) {
+                click((By.xpath(("//div[@class='monthContainer monthContainerFirst']//div[@class='monthDay monthDayEnabled'][normalize-space()='" + diai + "']"))));
+            } else if (mesi == 12) {
+                click(locator);
+                click((By.xpath(("//div[@class='monthContainer monthContainerFirst']//div[@class='monthDay monthDayEnabled'][normalize-space()='" + diai + "']"))));
+            }
+        } else if (anhoi == 2023) {
+            int NumeroMes = mesi;
+            click(locator);
+            for (int i = 0; i < 12; i++) {
+                if (NumeroMes == i) {
+                    click((By.xpath(("//div[@class='monthContainer monthContainerFirst']//div[@class='monthDay monthDayEnabled'][normalize-space()='" + diai + "']"))));
+                    break;
+                } else {
+                    click(locator);
+                }
+            }
+
+
+        }
+    }
+
+    public void bajarPreciosTop() {
+
+        WebElement barraslider = driver.findElement(By.xpath("//div[@class='price-filter-view__wrapper range-slider__wrapper']//div[@role='slider']"));
+        WebElement to = driver.findElement(By.xpath("//div[@class='price-filter-view__wrapper range-slider__wrapper']//div[@class='lmnRangeSlider lmn-ui-range-slider']"));
+        Actions action = new Actions(driver);
+        int width=barraslider.getSize().getWidth();
+        int xOffset1 = barraslider.getLocation().getX();
+        int yOffset1 =  barraslider.getLocation().getY();
+        int xOffset = to.getLocation().getX();
+        int yOffset =  to.getLocation().getY();
+
+        xOffset =(xOffset-xOffset1)+10;
+        yOffset=(yOffset-yOffset1)+20;
+
+        action.dragAndDropBy(barraslider, xOffset,yOffset).perform();
+
+    }
+
+    public void bajarEscalasTop(){
+
+        WebElement barraslider = driver.findElement(By.xpath("//div[contains(@class,'stop-duration-filter-view__wrapper range-slider__wrapper')]//div[contains(@role,'slider')]"));
+        WebElement to = driver.findElement(By.xpath("//div[contains(@class,'stop-duration-filter-view__wrapper range-slider__wrapper')]//div[contains(@class,'lmnRangeSlider lmn-ui-range-slider')]"));
+        Actions action = new Actions(driver);
+        int width=barraslider.getSize().getWidth();
+        int xOffset1 = barraslider.getLocation().getX();
+        int yOffset1 =  barraslider.getLocation().getY();
+        int xOffset = to.getLocation().getX();
+        int yOffset =  to.getLocation().getY();
+
+        xOffset =(xOffset-xOffset1)+10;
+        yOffset=(yOffset-yOffset1)+20;
+
+        action.dragAndDropBy(barraslider, xOffset,yOffset).perform();
+}}
