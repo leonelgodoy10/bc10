@@ -12,7 +12,7 @@ public class HotelTest extends SeleniumTestBase {
     RumboHomePageHotel rumboHomePageHotel;
 
     @Test
-    void funcionalidadPagoFraccionadoBH001() {
+    void funcionalidadPagoFraccionadoBH001() {//funcionando
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
         rumboHomePageHotel.aceptarCookie();
@@ -27,15 +27,17 @@ public class HotelTest extends SeleniumTestBase {
     }
 
     @Test
-    void encontrarAlojamientoDisponiblesBH002() throws InterruptedException {
+    void encontrarAlojamientoDisponiblesBH002()  {//ok funcionando,
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
         rumboHomePageHotel.aceptarCookie();
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.aceptarCookie();
-        Thread.sleep(3000);
         rumboHomePageHotel.buscarAlojamientoEn("Buenos Aires");
-
+        rumboHomePageHotel.buscaridaYVuelta(10,11,2022,13,11,2022);
+        rumboHomePageHotel.agregarNino("5 años");
+        rumboHomePageHotel.buscarHotel();
+        rumboHomePageHotel.filtroEstrellas(4);
     }
 
     @Test

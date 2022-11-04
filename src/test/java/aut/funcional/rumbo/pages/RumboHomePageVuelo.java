@@ -59,7 +59,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By unaEscalaVueltaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='1 escala']");
     By dosEscalasVueltaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='2 escalas o más']");
     By esperaEscalasLocator = By.xpath("//div[@class='content-layout-view__column-left col-md-3 col-sm-4']");
-
     //methods
     public void aceptarCookie() {
         if (isDisplayed(BtnaceptarCookiesLocator) == true) {
@@ -69,7 +68,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
             click(BtnaceptarCookiesLocator);
         }
     }
-
     public void navegarYAceptarCookies() throws InterruptedException {
         navegarAceptarCookie(BASE_URL_AUT, BtnaceptarCookiesLocator);
     }
@@ -128,7 +126,12 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     }
 
     public void agregarNino(String dato) {
-        click(seleccionViajeroLocator);
+        if (isDisplayed(By.xpath("//span[@class='display-rm8ly8-Room-styled']")) == false) {
+            click(seleccionViajeroLocator);
+        }
+        WebElement esperarNino = findElement(seleccionNinoLocator);
+        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        esperar.until(ExpectedConditions.elementToBeClickable(esperarNino));
         click(seleccionNinoLocator);
 
         click(By.xpath("//li[normalize-space()='" + dato + "']"));
