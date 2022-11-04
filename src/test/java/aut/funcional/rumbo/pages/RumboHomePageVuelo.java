@@ -109,10 +109,14 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(cierreSeleccionViajeroLocator);
     }
 
-    public void agregarNino(String dato)  {
-        click(seleccionViajeroLocator);
+    public void agregarNino(String dato) {
+        if (isDisplayed(By.xpath("//span[@class='display-rm8ly8-Room-styled']")) == false) {
+            click(seleccionViajeroLocator);
+        }
+        WebElement esperarNino = findElement(seleccionNinoLocator);
+        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        esperar.until(ExpectedConditions.elementToBeClickable(esperarNino));
         click(seleccionNinoLocator);
-
         click(By.xpath("//li[normalize-space()='" + dato + "']"));
         click(cierreSeleccionViajeroLocator);
     }
