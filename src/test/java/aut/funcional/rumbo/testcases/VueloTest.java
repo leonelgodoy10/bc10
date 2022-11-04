@@ -20,7 +20,6 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.buscarVuelo();
         Assertions.assertEquals("Introduce ciudad o aeropuerto de destino", rumboHomePageHomeVuelo.mensajesDeErrores());
         Assertions.assertEquals("Vuelos baratos | Buscador de vuelos | Rumbo", rumboHomePageHomeVuelo.textoUrlTitulo());
-
     }
 
     @Test
@@ -29,14 +28,14 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarYAceptarCookies();
         rumboHomePageHomeVuelo.selectorVuelos();
-        rumboHomePageHomeVuelo.scroll(0,4000);
+        rumboHomePageHomeVuelo.scroll(0, 4000);
         Thread.sleep(2000);
         rumboHomePageHomeVuelo.clickTopCiudades();
         rumboHomePageHomeVuelo.buscarCiudadTop("Bruselas");
         rumboHomePageHomeVuelo.buscarIdaViajeTop("chile");
         rumboHomePageHomeVuelo.clickearAropuerto();
-        rumboHomePageHomeVuelo.agregarPersonas(4,3,2);
-        rumboHomePageHomeVuelo.modificarFechaIda(20,3,2023);
+        rumboHomePageHomeVuelo.agregarPersonas(4, 3, 2);
+        rumboHomePageHomeVuelo.modificarFechaIda(20, 3, 2023);
         rumboHomePageHomeVuelo.buscar();
         Thread.sleep(5000);
         rumboHomePageHomeVuelo.seleccionarMasBarato();
@@ -50,46 +49,40 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.cambiarIframe();
         rumboHomePageHomeVuelo.informacionYClick();
         rumboHomePageHomeVuelo.clickearPrecio();
-
-
-
-
-
-        }
+    }
 
     @Test
-    void comprarDeVueloTopMasBaratoBV003() throws InterruptedException {
+    void busquedaDeVueloFamiliarBV003() {//Funcionando OK, probar y dar visto bueno
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarAlHome();
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
-        rumboHomePageHomeVuelo.origenDestinoSeleccion("arturo merino","mendoza");
-        rumboHomePageHomeVuelo.buscaridaYVuelta(7,10,2022,30,10,2022);
+        rumboHomePageHomeVuelo.aceptarCookie();
+        rumboHomePageHomeVuelo.origenDestinoSeleccion("arturo merino", "mendoza");
+        rumboHomePageHomeVuelo.buscaridaYVuelta(7, 11, 2022, 30, 11, 2022);
         rumboHomePageHomeVuelo.agregarAdultos(1);
         rumboHomePageHomeVuelo.agregarNino("10 años");
         rumboHomePageHomeVuelo.agregarAdultos(1);
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
         rumboHomePageHomeVuelo.selectorDeClase("Turista");
         rumboHomePageHomeVuelo.buscarVuelo();
-        Thread.sleep(15000);
-        rumboHomePageHomeVuelo.escalasIda("1 escala");
-        rumboHomePageHomeVuelo.escalasVuelta("ninguna");
-        //rumboHomePageHomeVuelo.mejorBaratoRaido("Más barato");
-        Thread.sleep(10000);
-
+        rumboHomePageHomeVuelo.escalasIda("ninguna");
+        rumboHomePageHomeVuelo.escalasVuelta("2 o mas");
+        rumboHomePageHomeVuelo.mejorBaratoRaido("Más barato");
     }
 
     @Test
-    void viajeEnPrimeraClaseBV004() throws InterruptedException {
+    void viajeEnPrimeraClaseBV004() {//Funcionando OK, probar y dar visto bueno
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarAlHome();
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
+        rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.origenDestinoSeleccion("cancun", "egipto");
-        rumboHomePageHomeVuelo.buscaridaYVuelta(21,11,2022,27,11,2022);
+        rumboHomePageHomeVuelo.buscaridaYVuelta(21, 11, 2022, 27, 11, 2022);
         rumboHomePageHomeVuelo.agregarAdultos(3);
         rumboHomePageHomeVuelo.selectorDeClase("Primera");
-
+        rumboHomePageHomeVuelo.buscarVuelo();
     }
 
     @Test
