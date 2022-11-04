@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import java.util.ArrayList;
+
 import static framework.engine.utils.Constants.BASE_URL_AUT;
 
 public class RumboHomePageHotel extends SeleniumWrapper {
@@ -28,7 +30,21 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By seleccionFechaDeEntradaLocator10102022 = By.xpath("//button[@class='display-1yiau9q-Day-styled-Day-styled-Day-styled-Day-styled']");
     By seleccionFechaDeSalidaLocator13102022 = By.xpath("//button[contains(@class,'display-s2qfcl-Day-styled-Day-styled-Day-styled')][normalize-space()='13']");
 
+    By seleccionHotelesRuralesLocator = By.xpath("//h4[normalize-space()='Hoteles rurales']");
+
+    By seleccionHotelFincaLosLlanosLocator = By.xpath("//span[normalize-space()='Hotel Finca Los Llanos']");
     //methods
+
+   By elegirTipoHabitacionLocator = By.xpath("//button[normalize-space()='Elegir tipo de habitación']");
+
+   By aplicarFiltroSoloAlojamientoLocator = By.xpath("//button[normalize-space()='Solo alojamiento']");
+
+   By aplicarFiltroDesayunoInLocator = By.xpath("//button[normalize-space()='Desayuno incluido']");
+
+   By verDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ver detalles'])[1]");
+
+   By ocultarDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ocultar detalles'])[1]");
+
 
     public void aceptarCookie() {
         click(BtnaceptarCookiesLocator);
@@ -67,6 +83,29 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(fechaDeSalidaLocator);
         click(seleccionFechaDeSalidaLocator13102022);
 
+    }
+
+    public void seleccionHotelesRurales(){
+        click(seleccionHotelesRuralesLocator);
+    }
+
+    public void seleccionHotelFincaLosLlanos(){
+        click(seleccionHotelFincaLosLlanosLocator);
+
+    }
+
+    public void elegirTipoHabitacion(){
+        click(elegirTipoHabitacionLocator);
+    }
+
+    public void aplicarFiltrosHabitacion(){
+        click(aplicarFiltroSoloAlojamientoLocator);
+        click(aplicarFiltroDesayunoInLocator);
+    }
+
+    public void detallesHabitacion(){
+        click(verDetallesHabitacionLocator);
+        click(ocultarDetallesHabitacionLocator);
     }
 
 
