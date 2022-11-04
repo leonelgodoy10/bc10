@@ -55,7 +55,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By masBaratoTopLocator = By.xpath("//div[contains(@class,'content-layout-view__column-right col-md-9')]//li[2]");
     By limpiarFiltrosLocator = By.xpath("//button[contains(@class,'Button-sc-1bbve8d-0 NoResultsByFilterPanel__ClearAll-sc-l2dd88-7 gRWIbt kcMhkS')]");
     By informacionLocator = By.xpath("//div[@class='trip-collection-view__trips-container-top']//div[@class='FullWaySummary__Column-sc-43fbz2-5 FullWaySummary__InfoIcon-sc-43fbz2-12 gYsLQj jFkALV']//*[name()='svg']");
-
+    By  precioLocalizador= By.xpath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[5]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]");
     public void aceptarCookie() {
         click(BtnaceptarCookiesLocator);
     }
@@ -246,9 +246,16 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(informacionLocator);
     }
 
-    public void cambiarIframe() {
-        navigateTo("https://vuelos.rumbo.es/flight/shopping/results/1h4xxu4xvxdz4/details/307634665084356608~307634665084356608SCHv01252315330");
+    public void cambiarIframe() throws InterruptedException {
+        cambiarAIframe();
+    }
+
+    public void informacionYClick() throws InterruptedException {
+
+        mouseEncima();
 
     }
+
+    public void clickearPrecio(){clickearPrecio(precioLocalizador);}
 }
 

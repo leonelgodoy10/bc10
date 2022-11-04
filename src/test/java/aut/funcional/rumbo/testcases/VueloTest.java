@@ -48,6 +48,8 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.limpiarFiltros();
         rumboHomePageHomeVuelo.informacion();
         rumboHomePageHomeVuelo.cambiarIframe();
+        rumboHomePageHomeVuelo.informacionYClick();
+        rumboHomePageHomeVuelo.clickearPrecio();
 
 
 
@@ -91,11 +93,11 @@ public class VueloTest extends SeleniumTestBase {
     }
 
     @Test
-    void funcionalidadMultidestinoBV005() {
+    void funcionalidadMultidestinoBV005() throws InterruptedException {
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
-        rumboHomePageHomeVuelo.navigateTo("https://vuelos.rumbo.es/flight/shopping/results/1h4xxu4xvxdz4?itinerary.path[1].arrival=SCL&itinerary.path[1].date=20221105&itinerary.path[1].departure=BRU");
-        rumboHomePageHomeVuelo.bajarPrecio();
-        rumboHomePageHomeVuelo.bajarEscalaTop();
+        rumboHomePageHomeVuelo.navigateTo("https://vuelos.rumbo.es/flight/shopping/results/1h4xxu4xvxdz4");
+        rumboHomePageHomeVuelo.informacion();
+        rumboHomePageHomeVuelo.cambiarIframe();
 
     }
 
