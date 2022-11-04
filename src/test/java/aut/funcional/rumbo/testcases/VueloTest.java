@@ -6,7 +6,7 @@ import framework.engine.selenium.SeleniumTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class VueloTest extends SeleniumTestBase {
+public class VueloTest extends SeleniumTestBase  {
 
     RumboHomePageVuelo rumboHomePageHomeVuelo;
 
@@ -85,6 +85,7 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
         rumboHomePageHomeVuelo.seleccionarDestino("Buenos aires");
         rumboHomePageHomeVuelo.buscarVuelo();
+
     }
 
 }

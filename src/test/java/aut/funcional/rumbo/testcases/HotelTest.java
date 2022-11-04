@@ -1,13 +1,14 @@
 package aut.funcional.rumbo.testcases;
 
 import aut.funcional.rumbo.pages.RumboHomePageHotel;
-import aut.funcional.rumbo.pages.RumboHomePageVuelo;
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class HotelTest extends SeleniumTestBase {
+public class HotelTest extends SeleniumTestBase   {
 
     RumboHomePageHotel rumboHomePageHotel;
 
@@ -39,17 +40,21 @@ public class HotelTest extends SeleniumTestBase {
     }
 
     @Test
-    void registrarFechaDeEntradaBH003() {
-        rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
-        rumboHomePageHotel.navegarAlHome();
-        rumboHomePageHotel.aceptarCookie();
-        rumboHomePageHotel.selectorHotel();
-        rumboHomePageHotel.aceptarCookie();
-        rumboHomePageHotel.mejorOferta();
-        rumboHomePageHotel.seleccionarMiro();
-
-
+    void registrarFechaDeEntradaBH003() throws InterruptedException {
+            rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
+            rumboHomePageHotel.navegarAlHome();
+            Thread.sleep(2000);
+            rumboHomePageHotel.aceptarCookie();
+            rumboHomePageHotel.selectorHotel();
+            rumboHomePageHotel.seleccionarhotelSpa();
+            Thread.sleep(4000);
+        cambiarPag();
+            rumboHomePageHotel.seleccionarhotelMiro();
+            rumboHomePageHotel.seleccionarTipoHabitacion();
+        rumboHomePageHotel.seleccionarSoloHabitacionDouble();
     }
+
+
 
     @Test
     void buscarHotelBH004() {
@@ -65,4 +70,6 @@ public class HotelTest extends SeleniumTestBase {
     @Test
     void reservarHotelesQueAdmitenPerrosBH006() {
     }
+
+
 }

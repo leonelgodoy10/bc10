@@ -29,7 +29,13 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     By mejoresOfertasLocator = By.xpath("//img[@src=\"https://res.cloudinary.com/lastminute-contenthub/image/upload/c_scale,h_500/c_limit,w_768,h_999999/v1559904128/DAM/Photos/Lifestyle/Spa/eyeem-23764952-89602848.jpg\"]");
 
-    By seleccionarMiroLocator= By .xpath("//img[@src=\"https://res.cloudinary.com/lastminute/image/upload/t_OSE_det_gall/c_limit,w_300,h_999999/q_auto/v1599034451/uxs4ndp1xbquzv1lehau.jpg\"]");
+    By seleccionarSpaLocator= By .xpath("//h4[normalize-space()='Hoteles con spa']");
+
+    By seleccionarMiroLocator = By.xpath("//span[normalize-space()='Hotel Miró']");
+
+    By seleccionartipoHabitacionLocator = By.xpath("//button[@class='Button-sc-1bbve8d-0 bsSjVP SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7 jThHsW']");
+
+    By seleccionarSoloHabitacion = By.xpath("(//span[normalize-space()='Solo habitación'])[1]");
 
         //methods
 
@@ -65,17 +71,13 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(primeraOpcionDespAlojamientolegadaLocator);
     }
 
-public void mejorOferta(){ click(mejoresOfertasLocator); }
-        public void seleccionarMiro(){click(seleccionarMiroLocator);}
 
 
+    public void seleccionarhotelSpa() { click(seleccionarSpaLocator);}
+    public void seleccionarhotelMiro(){click(seleccionarMiroLocator);}
+public  void seleccionarTipoHabitacion(){click(seleccionartipoHabitacionLocator);}
 
-
-
-
-
-
-
+    public void seleccionarSoloHabitacionDouble(){click(seleccionarSoloHabitacion);}
 
 
 
@@ -85,8 +87,10 @@ public void mejorOferta(){ click(mejoresOfertasLocator); }
         click(fechaDeSalidaLocator);
         click(seleccionFechaDeSalidaLocator13102022);
 
-    } }
+    }
 
+
+}
 
 
 
