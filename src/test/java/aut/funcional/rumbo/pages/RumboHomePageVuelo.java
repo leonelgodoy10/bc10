@@ -40,30 +40,26 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By ningunaEscalaIda = By.xpath("//div[contains(@class,'stops-filter-container--way0')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='Ninguna']");
     By unaEscalaIdaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way0')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='1 escala']");
     By dosEscalasIdaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way0')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='2 escalas o más']");
-
-
     By topDestinosVuelosLocator = By.xpath("//h5[normalize-space()='Top destinos de vuelos']");
     By origenVueloLocato2 = By.xpath("/html[1]/body[1]/header[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
-
     By idaLocator = By.xpath("//div[@class='lmn-sw-switcherBox']");
     By opcionChile = By.xpath("//div[@data-value='SCL']");
-
     By adultosTopLocator = By.xpath("//div[@data-type='adults']//span[@class='icon icon-plus']");
     By ninosTopLocator = By.xpath("//div[@data-type='children']//span[@class='icon icon-plus']");
     By bebesTopLocator = By.xpath("//div[@data-type='infants']//span[@class='icon icon-plus']");
     By pestanaPersonasLocator = By.xpath("//div[@class='passengersText lmn-sw-responsive-form-field lmn-sw-tooltip-responsive__text']");
     By fechaIdaCalendarioLocator = By.xpath("//div[normalize-space()='Fecha de ida']");
     By siguienteMesTopLocator = By.xpath("//span[@class='icon icon-arrow_right']");
-
     By buscarTopLocator = By.xpath("//div[contains(text(),'Buscar')]");
     By masBaratoTopLocator = By.xpath("//div[contains(@class,'content-layout-view__column-right col-md-9')]//li[2]");
     By limpiarFiltrosLocator = By.xpath("//button[contains(@class,'Button-sc-1bbve8d-0 NoResultsByFilterPanel__ClearAll-sc-l2dd88-7 gRWIbt kcMhkS')]");
     By informacionLocator = By.xpath("//div[@class='trip-collection-view__trips-container-top']//div[@class='FullWaySummary__Column-sc-43fbz2-5 FullWaySummary__InfoIcon-sc-43fbz2-12 gYsLQj jFkALV']//*[name()='svg']");
-    By  precioLocalizador= By.xpath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[5]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]");
+    By precioLocalizador = By.xpath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[5]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]");
     By ningunaEscalaVuelta = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='Ninguna']");
     By unaEscalaVueltaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='1 escala']");
     By dosEscalasVueltaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='2 escalas o más']");
     By esperaEscalasLocator = By.xpath("//div[@class='content-layout-view__column-left col-md-3 col-sm-4']");
+
     //methods
     public void aceptarCookie() {
         if (isDisplayed(BtnaceptarCookiesLocator) == true) {
@@ -73,6 +69,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
             click(BtnaceptarCookiesLocator);
         }
     }
+
     public void navegarYAceptarCookies() throws InterruptedException {
         navegarAceptarCookie(BASE_URL_AUT, BtnaceptarCookiesLocator);
     }
@@ -103,7 +100,8 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         write(destino, destinoVueloLocator);
         click(primeraOpcionDestinoLocator);
     }
-    public void seleccionarDestino(String destino){
+
+    public void seleccionarDestino(String destino) {
         click(destinoVueloLocator);
         clear(destinoVueloLocator);
         write(destino, destinoVueloLocator);
@@ -129,7 +127,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(cierreSeleccionViajeroLocator);
     }
 
-    public void agregarNino(String dato)  {
+    public void agregarNino(String dato) {
         click(seleccionViajeroLocator);
         click(seleccionNinoLocator);
 
@@ -202,7 +200,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         scroll(horizontal, vertical);
     }
 
-
     public void buscaridaYVuelta(int diaIda, int mesIda, int anhoida, int diaVuelta, int mesVuelta, int anhoVuelta) {
         seleccionFechaIda(diaIda, mesIda, anhoida, diaVuelta, mesVuelta, anhoVuelta, siguienteMesLocator);
     }
@@ -213,8 +210,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
 
     public void buscarTopCiudad(String ciudad) throws InterruptedException {
         buscarCiudadTop(ciudad);
-
-
     }
 
     public void buscarIdaViajeTop(String ciudad) {
@@ -250,13 +245,11 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
                 click(bebesTopLocator);
             }
         }
-
     }
 
     public void modificarFechaIda(int dia, int mes, int anho) {
         click(fechaIdaCalendarioLocator);
         seleccionarfechaIda(dia, mes, anho, siguienteMesTopLocator);
-
     }
 
     public void buscar() {
@@ -277,7 +270,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
 
     public void limpiarFiltros() {
         click(limpiarFiltrosLocator);
-
     }
 
     public void informacion() {
@@ -289,11 +281,11 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     }
 
     public void informacionYClick() throws InterruptedException {
-
         mouseEncima();
-
     }
 
-    public void clickearPrecio(){clickearPrecio(precioLocalizador);}
+    public void clickearPrecio() {
+        clickearPrecio(precioLocalizador);
+    }
 }
 
