@@ -40,22 +40,38 @@ public class CruceroTest extends SeleniumTestBase {
     @Test
     void reservaDeCruceroBC003(){}
     @Test
-    void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004() {
+    void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004() {//ok funcionando, probar
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
         rumboHomePageCrucero.navegarAlHome();
         rumboHomePageCrucero.aceptarCookie();
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
         rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
+        rumboHomePageCrucero.seleccionPeriodo(0,"0");//Significa cualquier destino
+        rumboHomePageCrucero.cualquierDuracion("Cualquier duración");
+        rumboHomePageCrucero.cualquierCompañia("Celebrity Cruises");
+        rumboHomePageCrucero.cualquierPuerto("Ravenna");
+        rumboHomePageCrucero.agregarAdultos(15);
+        rumboHomePageCrucero.agregarJunior(14);
+        rumboHomePageCrucero.agregarNinos(14);
+        rumboHomePageCrucero.agregarBebes(14);
+        rumboHomePageCrucero.buscarCrucero();
     }
 
     @Test
-    void cotizacionDeUnCruceroParaUnaFamiliaBC005() {
+    void cotizacionDeUnCruceroParaUnaFamiliaBC005() {//ok, funcionando, probar
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
         rumboHomePageCrucero.navegarAlHome();
         rumboHomePageCrucero.aceptarCookie();
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
+        rumboHomePageCrucero.seleccionarDestinoCrucero("Sudamérica");
+        rumboHomePageCrucero.seleccionPeriodo(2023,"ene");
+        rumboHomePageCrucero.cualquierDuracion("De 6 a 9 días");
+        rumboHomePageCrucero.cualquierCompañia("MSC Cruceros");
+        rumboHomePageCrucero.cualquierPuerto("Buenos Aires");
+        rumboHomePageCrucero.agregarJunior(1);
+        rumboHomePageCrucero.buscarCrucero();
     }
 
     @Test

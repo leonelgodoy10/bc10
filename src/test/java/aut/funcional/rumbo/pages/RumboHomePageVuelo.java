@@ -1,8 +1,14 @@
 package aut.funcional.rumbo.pages;
 
+import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static framework.engine.utils.Constants.BASE_URL_AUT;
 
@@ -30,13 +36,29 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By sinResultadosPorCriterioDeBusquedaLocator = By.xpath("//div[@class='Container__StyledContainer-sc-sb5e2u-0 fzfA-dR NoResultsPanel__Title-sc-148mow5-2 ejrcDf']");
     By masBaratoLocator = By.xpath("//div[contains(@class,'listing-sorting-container')]//div[contains(@class,'sorting-tabs-view__label')][normalize-space()='Más barato']");
     By elMejorLocator = By.xpath("//div[contains(@class,'listing-sorting-container')]//div[contains(@class,'sorting-tabs-view__label')][normalize-space()='El mejor']");
-    By masRapidoLocator = By.xpath("//div[contains(@class,'listing-sorting-container')]//div[contains(@class,'sorting-tabs-view__amount')][contains(text(),'903,99 €')]");
-
+    By masRapidoLocator = By.xpath("//div[contains(@class,'listing-sorting-container')]//div[contains(@class,'sorting-tabs-view__label')][normalize-space()='Más rápido']");
+    By ningunaEscalaIda = By.xpath("//div[contains(@class,'stops-filter-container--way0')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='Ninguna']");
     By unaEscalaIdaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way0')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='1 escala']");
     By dosEscalasIdaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way0')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='2 escalas o más']");
-    By ningunaEscalaVuelta = By.xpath("");
-    By unaEscalaVueltaLocator = By.xpath("");
-    By dosEscalasVueltaLocator = By.xpath("");
+    By topDestinosVuelosLocator = By.xpath("//h5[normalize-space()='Top destinos de vuelos']");
+    By origenVueloLocato2 = By.xpath("/html[1]/body[1]/header[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/input[1]");
+    By idaLocator = By.xpath("//div[@class='lmn-sw-switcherBox']");
+    By opcionChile = By.xpath("//div[@data-value='SCL']");
+    By adultosTopLocator = By.xpath("//div[@data-type='adults']//span[@class='icon icon-plus']");
+    By ninosTopLocator = By.xpath("//div[@data-type='children']//span[@class='icon icon-plus']");
+    By bebesTopLocator = By.xpath("//div[@data-type='infants']//span[@class='icon icon-plus']");
+    By pestanaPersonasLocator = By.xpath("//div[@class='passengersText lmn-sw-responsive-form-field lmn-sw-tooltip-responsive__text']");
+    By fechaIdaCalendarioLocator = By.xpath("//div[normalize-space()='Fecha de ida']");
+    By siguienteMesTopLocator = By.xpath("//span[@class='icon icon-arrow_right']");
+    By buscarTopLocator = By.xpath("//div[contains(text(),'Buscar')]");
+    By masBaratoTopLocator = By.xpath("//div[contains(@class,'content-layout-view__column-right col-md-9')]//li[2]");
+    By limpiarFiltrosLocator = By.xpath("//button[contains(@class,'Button-sc-1bbve8d-0 NoResultsByFilterPanel__ClearAll-sc-l2dd88-7 gRWIbt kcMhkS')]");
+    By informacionLocator = By.xpath("//div[@class='trip-collection-view__trips-container-top']//div[@class='FullWaySummary__Column-sc-43fbz2-5 FullWaySummary__InfoIcon-sc-43fbz2-12 gYsLQj jFkALV']//*[name()='svg']");
+    By precioLocalizador = By.xpath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[5]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]");
+    By ningunaEscalaVuelta = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='Ninguna']");
+    By unaEscalaVueltaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='1 escala']");
+    By dosEscalasVueltaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='2 escalas o más']");
+    By esperaEscalasLocator = By.xpath("//div[@class='content-layout-view__column-left col-md-3 col-sm-4']");
 
     By seleccionMultidestinoLocator = By.xpath("//a[@class='display-1h4wa6k-FlightTab-styled-ToggleGroup-ToggleGroup-FlightTab-styled']");
 
@@ -65,7 +87,12 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
 
 
     public void aceptarCookie() {
-        click(BtnaceptarCookiesLocator);
+        if (isDisplayed(BtnaceptarCookiesLocator) == true) {
+            WebElement esperaCookie = findElement(BtnaceptarCookiesLocator);
+            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+            esperar.until(ExpectedConditions.elementToBeClickable(esperaCookie));
+            click(BtnaceptarCookiesLocator);
+        }
     }
 
     public void navegarYAceptarCookies() throws InterruptedException {
@@ -99,6 +126,13 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(primeraOpcionDestinoLocator);
     }
 
+    public void seleccionarDestino(String destino) {
+        click(destinoVueloLocator);
+        clear(destinoVueloLocator);
+        write(destino, destinoVueloLocator);
+        click(primeraOpcionDestinoLocator);
+    }
+
     public void selectorDeClase(String dato) {
         click(seleccionDeClaseLocator);
         click(By.xpath("//div[normalize-space()='" + dato + "']"));
@@ -118,34 +152,54 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(cierreSeleccionViajeroLocator);
     }
 
-    public void agregarNino(String dato) throws InterruptedException {
+    public void agregarNino(String dato) {
         click(seleccionViajeroLocator);
         click(seleccionNinoLocator);
-        Thread.sleep(1000);
+
         click(By.xpath("//li[normalize-space()='" + dato + "']"));
         click(cierreSeleccionViajeroLocator);
     }
 
     public void escalasIda(String escalaIda) {//opciones disponibles, "1 escala" , "2 o mas"
+        WebElement escalas = findElement(esperaEscalasLocator);
+        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        esperar.until(ExpectedConditions.visibilityOf(escalas));
+
         if (isDisplayed(sinResultadosPorCriterioDeBusquedaLocator) == false) {
+            if (escalaIda == "ninguna") {
+                if (isDisplayed(ningunaEscalaIda) == true) {
+                    click(ningunaEscalaIda);
+                }
+            }
             if (escalaIda == "1 escala") {
-                click(unaEscalaIdaLocator);
+                if (isDisplayed(unaEscalaIdaLocator) == true) {
+                    click(unaEscalaIdaLocator);
+                }
             }
             if (escalaIda == "2 o mas") {
-                click(dosEscalasIdaLocator);
+                if (isDisplayed(dosEscalasIdaLocator) == true) {
+                    click(dosEscalasIdaLocator);
+                }
             }
         }
     }
-    public void escalasVuelta(String escalaVuelta){//opciones disponibles, "ninguna", "1 escala" , "2 o mas"
+
+    public void escalasVuelta(String escalaVuelta) {//opciones disponibles, "ninguna", "1 escala" , "2 o mas"
         if (isDisplayed(sinResultadosPorCriterioDeBusquedaLocator) == false) {
             if (escalaVuelta == "ninguna") {
-                click(ningunaEscalaVuelta);
+                if (isDisplayed(ningunaEscalaVuelta) == true) {
+                    click(ningunaEscalaVuelta);
+                }
             }
             if (escalaVuelta == "1 escala") {
-                click(unaEscalaVueltaLocator);
+                if (isDisplayed(unaEscalaVueltaLocator) == true) {
+                    click(unaEscalaVueltaLocator);
+                }
             }
             if (escalaVuelta == "2 o mas") {
-                click(dosEscalasVueltaLocator);
+                if (isDisplayed(dosEscalasVueltaLocator) == true) {
+                    click(dosEscalasVueltaLocator);
+                }
             }
         }
     }
@@ -153,12 +207,12 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     public void mejorBaratoRaido(String filto) {//opciones disponibles son El mejor, Más barato y Más rápido
 
         if (isDisplayed(sinResultadosPorCriterioDeBusquedaLocator) == false) {
-            if (filto != "El mejor") {
-                if (filto == "Más barato") {
-                    click(masBaratoLocator);
-                } else {
-                    click(masRapidoLocator);
-                }
+            if (filto == "El mejor") {
+                click(elMejorLocator);
+            } else if (filto == "Más barato") {
+                click(masBaratoLocator);
+            } else {
+                click(masRapidoLocator);
             }
         }
     }
@@ -171,16 +225,11 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         scroll(horizontal, vertical);
     }
 
-
-    public void clickearFechaIda() {
-        click(By.xpath("(//button[@class='display-q24bix-DateInput-styled'])[1]"));
-
-    }
-
     public void buscaridaYVuelta(int diaIda, int mesIda, int anhoida, int diaVuelta, int mesVuelta, int anhoVuelta) {
         seleccionFechaIda(diaIda, mesIda, anhoida, diaVuelta, mesVuelta, anhoVuelta, siguienteMesLocator);
     }
 
+<<<<<<< HEAD
     public void seleccionVuelaEuropa(){
     click(seleccionVuelaEuropaLocator);
     }
@@ -243,5 +292,90 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     }
 
 
+=======
+    public void clickTopCiudades() {
+        click(topDestinosVuelosLocator);
+    }
+
+    public void buscarTopCiudad(String ciudad) throws InterruptedException {
+        buscarCiudadTop(ciudad);
+    }
+
+    public void buscarIdaViajeTop(String ciudad) {
+        click(idaLocator);
+        click(origenVueloLocato2);
+        clear(origenVueloLocato2);
+        write(ciudad, origenVueloLocato2);
+    }
+
+    public void clickearAropuerto() {
+        click(opcionChile);
+    }
+
+    public void agregarPersonas(int Adultos, int ninos, int bebes) throws InterruptedException {
+        int numeroDeClicksAdultos = Adultos;
+        int numeroDeClicksninos = ninos;
+        int numeroDeClicksbebes = bebes;
+
+        click(pestanaPersonasLocator);
+        if (Adultos > 0) {
+            for (int i = 1; i < numeroDeClicksAdultos; i++) {
+                click(adultosTopLocator);
+            }
+
+        }
+        if (ninos > 0) {
+            for (int i = 0; i < numeroDeClicksAdultos - 1; i++) {
+                click(ninosTopLocator);
+            }
+        }
+        if (bebes > 0) {
+            for (int i = 0; i < numeroDeClicksAdultos - 1; i++) {
+                click(bebesTopLocator);
+            }
+        }
+    }
+
+    public void modificarFechaIda(int dia, int mes, int anho) {
+        click(fechaIdaCalendarioLocator);
+        seleccionarfechaIda(dia, mes, anho, siguienteMesTopLocator);
+    }
+
+    public void buscar() {
+        click(buscarTopLocator);
+    }
+
+    public void seleccionarMasBarato() {
+        click(masBaratoTopLocator);
+    }
+
+    public void bajarPrecio() {
+        bajarPreciosTop();
+    }
+
+    public void bajarEscalaTop() {
+        bajarEscalasTop();
+    }
+
+    public void limpiarFiltros() {
+        click(limpiarFiltrosLocator);
+    }
+
+    public void informacion() {
+        click(informacionLocator);
+    }
+
+    public void cambiarIframe() throws InterruptedException {
+        cambiarAIframe();
+    }
+
+    public void informacionYClick() throws InterruptedException {
+        mouseEncima();
+    }
+
+    public void clickearPrecio() {
+        clickearPrecio(precioLocalizador);
+    }
+>>>>>>> 5a27017b4787c3679b99fb843250a265efa7ae70
 }
 
