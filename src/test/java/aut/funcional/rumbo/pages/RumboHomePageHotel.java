@@ -35,7 +35,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     By seleccionartipoHabitacionLocator = By.xpath("//button[@class='Button-sc-1bbve8d-0 bsSjVP SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7 jThHsW']");
 
-    By seleccionarSoloHabitacion = By.xpath("(//span[normalize-space()='Solo habitación'])[1]");
+    By HabitacionDoubleLocator = By.xpath("(//span[normalize-space()='Solo habitación'])[1]");
 
         //methods
 
@@ -77,7 +77,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     public void seleccionarhotelMiro(){click(seleccionarMiroLocator);}
 public  void seleccionarTipoHabitacion(){click(seleccionartipoHabitacionLocator);}
 
-    public void seleccionarSoloHabitacionDouble(){click(seleccionarSoloHabitacion);}
+    public void seleccionarSoloHabitacionDouble(){click(HabitacionDoubleLocator);}
 
 
 
