@@ -27,9 +27,29 @@ public class CruceroTest extends SeleniumTestBase {
         Assertions.assertEquals("Cruceros", rumboHomePageCrucero.textoUrlTitulo());
     }
     @Test
-    void busquedaCruceroUnaPersonaAdultaBC002(){}
+    void busquedaCruceroUnaPersonaAdultaBC002(){
+    }
+
+
     @Test
-    void reservaDeCruceroBC003(){}
+    void reservaDeCruceroBC003() throws InterruptedException {
+        rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
+        rumboHomePageCrucero.navegarAlHome();
+        rumboHomePageCrucero.aceptarCookie();
+        rumboHomePageCrucero.seleccionarVerMas();
+        rumboHomePageCrucero.seleccionarCrucero();
+        rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
+        rumboHomePageCrucero.seleccionPeriodo(2023,"feb");
+        rumboHomePageCrucero.cualquierDuracion("De 6 a 9 días");
+        rumboHomePageCrucero.cualquierCompania("Costa Cruceros");
+rumboHomePageCrucero.seleccionarCasillero();
+rumboHomePageCrucero.seleccionarPuertoBarce();
+        Thread.sleep(1000);
+        rumboHomePageCrucero.agregarAdultos(0);
+        rumboHomePageCrucero.buscarCrucero();
+
+
+    }
     @Test
     void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004() {//ok funcionando, probar
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
@@ -40,7 +60,7 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
         rumboHomePageCrucero.seleccionPeriodo(0,"0");//Significa cualquier destino
         rumboHomePageCrucero.cualquierDuracion("Cualquier duración");
-        rumboHomePageCrucero.cualquierCompañia("Celebrity Cruises");
+        rumboHomePageCrucero.cualquierCompania("Celebrity Cruises");
         rumboHomePageCrucero.cualquierPuerto("Ravenna");
         rumboHomePageCrucero.agregarAdultos(15);
         rumboHomePageCrucero.agregarJunior(14);
@@ -59,7 +79,7 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.seleccionarDestinoCrucero("Sudamérica");
         rumboHomePageCrucero.seleccionPeriodo(2023,"ene");
         rumboHomePageCrucero.cualquierDuracion("De 6 a 9 días");
-        rumboHomePageCrucero.cualquierCompañia("MSC Cruceros");
+        rumboHomePageCrucero.cualquierCompania("MSC Cruceros");
         rumboHomePageCrucero.cualquierPuerto("Buenos Aires");
         rumboHomePageCrucero.agregarJunior(1);
         rumboHomePageCrucero.buscarCrucero();

@@ -1,8 +1,14 @@
 package aut.funcional.rumbo.pages;
 
+import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static framework.engine.utils.Constants.BASE_URL_AUT;
 
@@ -33,9 +39,11 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     By seleccionarMiroLocator = By.xpath("//span[normalize-space()='Hotel Miró']");
 
-    By seleccionartipoHabitacionLocator = By.xpath("//button[@class='Button-sc-1bbve8d-0 bsSjVP SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7 jThHsW']");
+    By tipoHabitacionLocator = By.xpath("//*[@id=\"__next\"]/div[3]/div[8]/nav/div/button");
 
-    By HabitacionDoubleLocator = By.xpath("(//span[normalize-space()='Solo habitación'])[1]");
+
+
+    By HabitacionDoubleLocator = By.xpath(("//span[normalize-space()='Cancelación gratuita'])[1]"));
 
         //methods
 
@@ -73,9 +81,11 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
 
 
+
+
     public void seleccionarhotelSpa() { click(seleccionarSpaLocator);}
     public void seleccionarhotelMiro(){click(seleccionarMiroLocator);}
-public  void seleccionarTipoHabitacion(){click(seleccionartipoHabitacionLocator);}
+public  void seleccionarTipoHabitacion(){click(tipoHabitacionLocator);}
 
     public void seleccionarSoloHabitacionDouble(){click(HabitacionDoubleLocator);}
 
@@ -90,7 +100,15 @@ public  void seleccionarTipoHabitacion(){click(seleccionartipoHabitacionLocator)
     }
 
 
+
+
+
+
+
+
 }
+
+
 
 
 

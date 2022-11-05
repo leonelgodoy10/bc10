@@ -42,6 +42,10 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By agregarBebeLocator = By.xpath("(//button[contains(text(),'+')])[4]");
     By cierrePasajerosLocator = By.xpath("//div[@class='crs-field-dd-occupancy crs_field--occupancy']//div[@class='p-dropdown p-component']");
 
+    By casillerolocator = By.xpath("//span[@class=\"p-multiselect-trigger-icon ng-tns-c52-6 pi pi-chevron-down\"]");
+
+    By barcelocator = By.xpath("//li[@aria-label=\"Barcelona\"]") ;
+
 
     //methods
     public void aceptarCookie() {
@@ -118,7 +122,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         click(By.xpath("//li[@aria-label='" + duracionViaje + "']"));
     }
 
-    public void cualquierCompañia(String nombreCompania) {
+    public void cualquierCompania(String nombreCompania) {
         WebElement esperacompania = findElement(cualquierCompaniaLocator);
         WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
         esperar.until(ExpectedConditions.elementToBeClickable(esperacompania));
@@ -126,7 +130,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         click(companiaTextBoxLocator);
         clear(companiaTextBoxLocator);
         write(nombreCompania, companiaTextBoxLocator);
-        click(By.xpath("//li[@aria-label='" + nombreCompania + "']"));
+        click(By.xpath("//li[@aria-label='" + nombreCompania+"']"));
 
     }
 
@@ -139,7 +143,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         clear(puertoTextBoxLocator);
         write(nombrePuerto, puertoTextBoxLocator);
         esperar.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//li[@aria-label='" + nombrePuerto + "']")));
-        click(By.xpath("//li[@aria-label='" + nombrePuerto + "']"));
+        click(By.xpath("//li[@aria-label='" + nombrePuerto+"']"));
     }
 
     public void agregarAdultos(int nAdultos) {
@@ -200,4 +204,12 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
 
+
+
+
+
+    public  void seleccionarPuertoBarce(){click(barcelocator);}
+
+
+    public void seleccionarCasillero(){click(casillerolocator);}
 }
