@@ -231,6 +231,14 @@ public class SeleniumWrapper {
                 driver.switchTo().defaultContent();
 
         }
+
+
+    }
+    public void cambiarseIframe(By locator) throws InterruptedException {
+        Thread.sleep(5000);
+        driver.switchTo().frame(driver.findElement(locator));
+        Thread.sleep(5000);
+
     }
 
 

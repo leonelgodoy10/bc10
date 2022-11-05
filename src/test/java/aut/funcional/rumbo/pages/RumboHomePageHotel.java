@@ -229,10 +229,12 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     }
 
-    public void valoraciones() {
+    public void valoraciones() throws InterruptedException {
         navigateTo("https://www.mercadolibre.com.ar/");
-        click(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-cp-send'][normalize-space()='Enviar a']"));
-        buscarIframe(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-cp-send'][normalize-space()='Enviar a']"));
+        click(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-link-cp'][normalize-space()='Capital Federal']"));
+        //buscarIframe(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-cp-send'][normalize-space()='Enviar a']"));
+        cambiarseIframe(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-link-cp'][normalize-space()='Capital Federal']"));
+        click(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-link-cp'][normalize-space()='Capital Federal']"));
 
     }
 
