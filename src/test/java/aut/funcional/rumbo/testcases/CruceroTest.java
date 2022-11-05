@@ -42,7 +42,25 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.buscarCrucero();
     }
     @Test
-    void reservaDeCruceroBC003(){}
+    void reservaDeCruceroBC003() throws InterruptedException {
+        rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
+        rumboHomePageCrucero.navegarAlHome();
+        rumboHomePageCrucero.aceptarCookie();
+        rumboHomePageCrucero.seleccionarVerMas();
+        rumboHomePageCrucero.seleccionarCrucero();
+        rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
+        rumboHomePageCrucero.seleccionPeriodo(2023,"feb");
+        rumboHomePageCrucero.cualquierDuracion("De 6 a 9 días");
+        rumboHomePageCrucero.cualquierCompania("Costa Cruceros");
+        rumboHomePageCrucero.seleccionarCasillero();
+        rumboHomePageCrucero.seleccionarPuertoBarce();
+        Thread.sleep(1000);
+        Thread.sleep(1000);
+        rumboHomePageCrucero.agregarAdultos(0);
+        rumboHomePageCrucero.buscarCrucero();
+
+
+    }
     @Test
     void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004() {//ok funcionando, probar
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());

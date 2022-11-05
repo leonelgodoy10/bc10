@@ -6,7 +6,7 @@ import framework.engine.selenium.SeleniumTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class VueloTest extends SeleniumTestBase {
+public class VueloTest extends SeleniumTestBase  {
 
     RumboHomePageVuelo rumboHomePageHomeVuelo;
 
@@ -106,7 +106,20 @@ public class VueloTest extends SeleniumTestBase {
     }
 
     @Test
-    void cantidadDePasajeroMasBebeBV006() {
+    void cantidadDePasajerosMasBebeBV006()throws InterruptedException{
+        rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
+        rumboHomePageHomeVuelo.navegarAlHome();
+        Thread.sleep(1000);
+        rumboHomePageHomeVuelo.aceptarCookie();
+        rumboHomePageHomeVuelo.selectorVuelos();
+        rumboHomePageHomeVuelo.aceptarCookie();
+        rumboHomePageHomeVuelo.seleccionarSoloIda();
+        rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
+        rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
+       rumboHomePageHomeVuelo.seleccionarDestino("Buenos aires");
+        rumboHomePageHomeVuelo.buscarVuelo();  }
 
-    }
+
+
+
 }

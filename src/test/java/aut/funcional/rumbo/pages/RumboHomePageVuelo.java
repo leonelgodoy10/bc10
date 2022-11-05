@@ -59,28 +59,18 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By unaEscalaVueltaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='1 escala']");
     By dosEscalasVueltaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='2 escalas o más']");
     By esperaEscalasLocator = By.xpath("//div[@class='content-layout-view__column-left col-md-3 col-sm-4']");
+    By seleccionarSoloIdaLocator = By.xpath("//div[@class=\"display-xi36x7-ToggleGroup-ToggleGroup\"]");
     By seleccionMultidestinoLocator = By.xpath("//a[@class='display-1h4wa6k-FlightTab-styled-ToggleGroup-ToggleGroup-FlightTab-styled']");
     By seleccionVuelaEuropaLocator = By.xpath("(//p[normalize-space()='Ver las ofertas >'])[1]");
-    //methods
-
     By santiagoChileLocator = By.xpath("(//div[normalize-space()='Santiago de Chile, Chile'])[2]");
-
     By miamiLocator = By.xpath("(//div[normalize-space()='Miami, Estados Unidos'])[1]");
-
     By origenMultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[1]");
-
     By destinoMultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[2]");
-
     By origen2MultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[4]");
-
     By destino2MultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[5]");
-
     By seleccionPrimeraOpcMultiLocator = By.xpath("(//div[@class='Stack__StyledStack-sc-oaff2v-0 ecPQEH'])[1]");
-
     By cerrarMultiDestinoCookieLocator = By.xpath("(//div[@class='ButtonPrimitiveIconContainer__StyledButtonPrimitiveIconContainer-sc-8rx3cv-0 fxbcmo'])[1]");
-
     By borrarTodoMultiDestinoLocator = By.xpath("//div[contains(text(),'Borrar todos')]");
-
     By buscarMultivueloLocator = By.xpath("(//div[@class='ButtonPrimitiveContentChildren__StyledButtonPrimitiveContentChildren-sc-1m4y8u8-0 jiqdNk'])[7]");
 
 
@@ -123,12 +113,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(primeraOpcionDestinoLocator);
     }
 
-    public void seleccionarDestino(String destino) {
-        click(destinoVueloLocator);
-        clear(destinoVueloLocator);
-        write(destino, destinoVueloLocator);
-        click(primeraOpcionDestinoLocator);
-    }
+
 
     public void selectorDeClase(String dato) {
         click(seleccionDeClaseLocator);
@@ -378,5 +363,15 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         clickearPrecio(precioLocalizador);
     }
 
-}
+    public void seleccionarSoloIda(){
+click(seleccionarSoloIdaLocator);
+    }
+
+    public void seleccionarDestino(String destino){
+        click(destinoVueloLocator);
+        clear(destinoVueloLocator);
+        write(destino, destinoVueloLocator);
+        click(primeraOpcionDestinoLocator);
+    }
+    }
 

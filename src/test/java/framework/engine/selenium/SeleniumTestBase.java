@@ -1,7 +1,6 @@
 package framework.engine.selenium;
 
 import framework.engine.utils.LoadProperties;
-import io.qameta.allure.Description;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +14,9 @@ public class SeleniumTestBase {
     private DriverFactory driverFactory;
     WebDriver driver;
     static Properties properties;
+
+    public void cambiarPag(){    ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());    driver.switchTo().window(tabs2.get(0));    driver.close();    driver.switchTo().window(tabs2.get(1));}
+
     public void cambiarPag (){ ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles()); driver.switchTo().window(tabs2.get(0)); driver.close(); driver.switchTo().window(tabs2.get(1));}
 
 
@@ -35,5 +37,7 @@ public class SeleniumTestBase {
     void close() {
         driver.quit();
     }
+
+
 
 }
