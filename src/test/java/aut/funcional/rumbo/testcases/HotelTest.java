@@ -41,7 +41,7 @@ public class HotelTest extends SeleniumTestBase {
     }
 
     @Test
-    void registrarFechaDeEntradaBH003() {
+    void registrarFechaDeEntradaBH003(){
     }
 
     @Test
@@ -75,9 +75,23 @@ public class HotelTest extends SeleniumTestBase {
     @Test
     void verMejoresOfertasEnHotelesBH005() throws InterruptedException {
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
+        rumboHomePageHotel.navegarAlHome();
+        Thread.sleep(2000);
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.selectorHotel();
+        rumboHomePageHotel.seleccionHotelesRurales();
+        Thread.sleep(4000);
+        cambiarPag();
+        rumboHomePageHotel.seleccionHotelFincaLosLlanos();
+        //rumboHomePageHotel.elegirTipoHabitacion();
+        //Thread.sleep(2000);
+        //rumboHomePageHotel.aplicarFiltrosHabitacion();
+        //Thread.sleep(2000);
+        //rumboHomePageHotel.detallesHabitacion();
         rumboHomePageHotel.valoraciones();
 
     }
+
 
     @Test
     void reservarHotelesQueAdmitenPerrosBH006() {

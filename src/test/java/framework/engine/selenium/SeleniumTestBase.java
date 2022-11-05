@@ -7,6 +7,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.WebDriver;
 
+import java.util.ArrayList;
 import java.util.Properties;
 
 public class SeleniumTestBase {
@@ -14,6 +15,8 @@ public class SeleniumTestBase {
     private DriverFactory driverFactory;
     WebDriver driver;
     static Properties properties;
+    public void cambiarPag (){ ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles()); driver.switchTo().window(tabs2.get(0)); driver.close(); driver.switchTo().window(tabs2.get(1));}
+
 
     @BeforeAll
     public static void LoadProperties() {
@@ -26,6 +29,7 @@ public class SeleniumTestBase {
         driverFactory = new DriverFactory();
         driver = driverFactory.inicializarDriver(browserName);
     }
+
 
     @AfterEach
     void close() {
