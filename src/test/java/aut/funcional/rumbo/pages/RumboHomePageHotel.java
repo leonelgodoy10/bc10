@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.sql.Driver;
 import java.time.Duration;
 
+import java.util.ArrayList;
+
 import static framework.engine.utils.Constants.BASE_URL_AUT;
 
 public class RumboHomePageHotel extends SeleniumWrapper {
@@ -28,16 +30,20 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By btnEchaleUnVistazoLocator = By.xpath("//a[normalize-space()='Échale un vistazo']");
     By buscarAlojamientoEnLocator = By.xpath("//input[@id='mui-1']");
     By primeraOpcionDespAlojamientolegadaLocator = By.xpath("//li[@id='mui-1-option-0']");
+    By fechadeEntradaLocator = By.xpath("//button[@class='display-q24bix-DateInput-styled']");
+    By fechaDeSalidaLocator = By.xpath("//button[contains(@class,'display-19sl708-DateInput-styled-DateInput-styled')]");
+    By seleccionFechaDeEntradaLocator10102022 = By.xpath("//button[@class='display-1yiau9q-Day-styled-Day-styled-Day-styled-Day-styled']");
+    By seleccionFechaDeSalidaLocator13102022 = By.xpath("//button[contains(@class,'display-s2qfcl-Day-styled-Day-styled-Day-styled')][normalize-space()='13']");
+    By seleccionHotelesRuralesLocator = By.xpath("//h4[normalize-space()='Hoteles rurales']");
+    By seleccionHotelFincaLosLlanosLocator = By.xpath("//span[normalize-space()='Hotel Finca Los Llanos']");
     By btnBuscar = By.xpath("//button[@type='submit']");
     By siguienteMesLocator = By.xpath("//button[contains(@aria-label,'Next month')]//*[name()='svg']");
-    By fechadeEntradaLocator = By.xpath("//div[contains(@class,'display-oti80i-DateRangePicker-styled')]//div[1]//button[1]");
     By seleccionViajeroLocator = By.xpath("//button[@class='display-vu9q0w-Dropdown-styled']");
     By agregarAdultoLocator = By.xpath("//button[@aria-label='Aumentar el número de adultos']//*[name()='svg']");
     By seleccionNinoLocator = By.xpath("//button[@aria-label='Aumentar el número de niños']");
     By cierreSeleccionViajeroLocator = By.xpath("//button[contains(@class,'display-1ug1iap-Dropdown-styled')]");
     By filtroEstrellasLocator = By.xpath("//span[normalize-space()='Estrellas']");
     By cualquierDestino = By.xpath("//li[@id='mui-1-option-0']");
-
     By filtroPrecio = By.xpath("//span[normalize-space()='Precio']");
     By ceroA300 = By.xpath("//div[normalize-space()='0 - 300']");
     By aplicarLocator = By.xpath("//button[normalize-space()='Aplicar']");
@@ -52,7 +58,6 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By filtroRegimenLocator = By.xpath("//span[normalize-space()='Régimen']");
     By todoIncluidoLocator = By.xpath("//*[name()='path' and contains(@d,'M0.333496 ')]");
     By chipreLocator = By.xpath("//div[@class='sc-BeQoi gVBHRE openx-ui-card-content']");
-
     By limpiarTodosLocator = By.xpath("//button[normalize-space()='Limpiar todos']");
     By avanzarFotosLocator = By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]");
     By verMasLocator = By.xpath("(//a[@class='sc-bZnhIo gcujSs show-more'][normalize-space()='Ver más'])[1]");
@@ -60,6 +65,17 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By parejasLocator = By.xpath("/html/body/header/div/section[2]/div[10]/ul/li[2]/a/span/span[1]");
     By familiasLocator = By.xpath("/html/body/header/div/section[2]/div[10]/ul/li[3]/a/span/span[1]");
     //methods
+
+   By elegirTipoHabitacionLocator = By.xpath("//button[@class='Button-sc-1bbve8d-0 bsSjVP SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7 jThHsW']");
+
+   By aplicarFiltroSoloAlojamientoLocator = By.xpath("//button[normalize-space()='Solo alojamiento']");
+
+   By aplicarFiltroDesayunoInLocator = By.xpath("//button[normalize-space()='Desayuno incluido']");
+
+   By verDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ver detalles'])[1]");
+
+   By ocultarDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ocultar detalles'])[1]");
+
 
     public void aceptarCookie() {
         if (isDisplayed(BtnaceptarCookiesLocator) == true) {
@@ -185,6 +201,29 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     public void filtroCancelacionGratuita() {
 
         click(filtrocancelacionGratuita);
+    }
+
+    public void seleccionHotelesRurales(){
+        click(seleccionHotelesRuralesLocator);
+    }
+
+    public void seleccionHotelFincaLosLlanos(){
+        click(seleccionHotelFincaLosLlanosLocator);
+
+    }
+
+    public void elegirTipoHabitacion(){
+        click(elegirTipoHabitacionLocator);
+    }
+
+    public void aplicarFiltrosHabitacion(){
+        click(aplicarFiltroSoloAlojamientoLocator);
+        click(aplicarFiltroDesayunoInLocator);
+    }
+
+    public void detallesHabitacion(){
+        click(verDetallesHabitacionLocator);
+        click(ocultarDetallesHabitacionLocator);
     }
 
     public void filtrowifiGratis() {
