@@ -74,8 +74,6 @@ public class HotelTest extends SeleniumTestBase {
 
     @Test
     void verMejoresOfertasEnHotelesBH005() throws InterruptedException {
-        rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
-        rumboHomePageHotel.valoraciones();
 
     }
 
