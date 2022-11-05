@@ -1,15 +1,12 @@
 package aut.funcional.rumbo.testcases;
 
 import aut.funcional.rumbo.pages.RumboHomePageCrucero;
-import aut.funcional.rumbo.pages.RumboHomePageVuelo;
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.JavascriptExecutor;
 
 public class CruceroTest extends SeleniumTestBase {
-
     RumboHomePageCrucero rumboHomePageCrucero;
 
     @Test
@@ -27,10 +24,23 @@ public class CruceroTest extends SeleniumTestBase {
         Assertions.assertEquals("Cruceros", rumboHomePageCrucero.textoUrlTitulo());
     }
     @Test
-    void busquedaCruceroUnaPersonaAdultaBC002(){
+    void busquedaCruceroUnaPersonaAdultaBC002() throws InterruptedException {
+        rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
+        rumboHomePageCrucero.navegarAlHome();
+        rumboHomePageCrucero.aceptarCookie();
+        rumboHomePageCrucero.seleccionarVerMas();
+        rumboHomePageCrucero.seleccionarCrucero();
+        rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
+        rumboHomePageCrucero.seleccionPeriodo(2023, "jun");
+        rumboHomePageCrucero.cualquierDuracion("más de 9 días");
+        rumboHomePageCrucero.cualquierCompania("Costa Cruceros");
+        //rumboHomePageCrucero.cualquierPuerto("Barcelona");
+        rumboHomePageCrucero.seleccionarCasillero();
+        rumboHomePageCrucero.seleccionarPuertoBarce();
+        rumboHomePageCrucero.agregarAdultos(1);
+        Thread.sleep(4000);
+        rumboHomePageCrucero.buscarCrucero();
     }
-
-
     @Test
     void reservaDeCruceroBC003() throws InterruptedException {
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
@@ -42,8 +52,8 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.seleccionPeriodo(2023,"feb");
         rumboHomePageCrucero.cualquierDuracion("De 6 a 9 días");
         rumboHomePageCrucero.cualquierCompania("Costa Cruceros");
-rumboHomePageCrucero.seleccionarCasillero();
-rumboHomePageCrucero.seleccionarPuertoBarce();
+        rumboHomePageCrucero.seleccionarCasillero();
+        rumboHomePageCrucero.seleccionarPuertoBarce();
         Thread.sleep(1000);
         Thread.sleep(1000);
         rumboHomePageCrucero.agregarAdultos(0);
@@ -87,6 +97,25 @@ rumboHomePageCrucero.seleccionarPuertoBarce();
     }
 
     @Test
-    void navegacionCrucerosEnOfertaBC006(){}
+    void navegacionCrucerosEnOfertaBC006() throws InterruptedException {
+
+        rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
+        rumboHomePageCrucero.navegarAlHome();
+        rumboHomePageCrucero.aceptarCookie();
+        rumboHomePageCrucero.seleccionarVerMas();
+        rumboHomePageCrucero.seleccionarCrucero();
+        rumboHomePageCrucero.bscCruceros();
+        Thread.sleep(2000);
+        rumboHomePageCrucero.costaCruceros();
+        rumboHomePageCrucero.filtrarRating();
+        rumboHomePageCrucero.ingresarOpcion();
+//        rumboHomePageCrucero.carnivalHorizon();
+//      rumboHomePageCrucero.botonesDesplegables();
+        rumboHomePageCrucero.seleccionarCompanhia();
+        rumboHomePageCrucero.seleccionarPresupuesto();
+        rumboHomePageCrucero.llenarDatos();
+
+
+    }
 
 }

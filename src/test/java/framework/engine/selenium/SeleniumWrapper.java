@@ -75,6 +75,12 @@ public class SeleniumWrapper {
         ((JavascriptExecutor) driver).executeScript("scroll(" + horizontal + "," + vertical + ")");
     }
 
+    public void scrollEncuentra(By locator) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", findElement(locator));
+
+
+    }
+
     public void clear(By locator) {
         WebElement areaDeEscritura = driver.findElement(locator);
         areaDeEscritura.clear();
@@ -210,6 +216,27 @@ public class SeleniumWrapper {
     public void clickearPrecio(By locator) {
 
         click(locator);
+
+    }
+
+    public void buscarIframe(By locator) {
+
+        int size = driver.findElements(By.tagName("iframe")).size();
+        for (int i = 0; i <= size; i++) {
+            int contador = i;
+            driver.switchTo().frame(i);
+            if (isDisplayed(locator)) {
+                System.out.println(contador);
+            } else
+                driver.switchTo().defaultContent();
+
+        }
+
+
+    }
+    public void cambiarseIframe(By locator) throws InterruptedException {
+        driver.switchTo().frame(findElement(locator));
+        Thread.sleep(1500);
 
     }
 
