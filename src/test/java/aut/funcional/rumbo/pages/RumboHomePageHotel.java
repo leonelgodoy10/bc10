@@ -57,7 +57,8 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By avanzarFotosLocator = By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]");
     By verMasLocator = By.xpath("(//a[@class='sc-bZnhIo gcujSs show-more'][normalize-space()='Ver más'])[1]");
     By valoracionesLocator = By.xpath("//a[@role='button']]");
-    By parejasLocator = By.xpath("//div[@class='BrandedPageLayout___StyledDiv-sc-1x8t0fu-2 cTKbIy']");
+    By parejasLocator = By.xpath("/html/body/header/div/section[2]/div[10]/ul/li[2]/a/span/span[1]");
+    By familiasLocator = By.xpath("/html/body/header/div/section[2]/div[10]/ul/li[3]/a/span/span[1]");
     //methods
 
     public void aceptarCookie() {
@@ -230,11 +231,12 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }
 
     public void valoraciones() throws InterruptedException {
-        navigateTo("https://www.mercadolibre.com.ar/");
-        click(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-link-cp'][normalize-space()='Capital Federal']"));
-        //buscarIframe(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-cp-send'][normalize-space()='Enviar a']"));
-        cambiarseIframe(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-link-cp'][normalize-space()='Capital Federal']"));
-        click(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-link-cp'][normalize-space()='Capital Federal']"));
+        navigateTo("https://hotel.rumbo.es/details/hotel/1681696/hotel-only?search.rooms%5B0%5D.adults=3&search.rooms%5B0%5D.children=1&search.rooms%5B0%5D.childrenAge%5B0%5D=2&openx=true&search.departureIntervals=20221120-20221202&search.type=OSE&search.businessProfileId=HOLIDAYSRUMBOES_OSS&search.destinationTag=CIPRO&bf_subsource=S07RRTL0S07PD03&search.accomodationOnly=true&search.checkin=202211-20&search.checkout=202212-02&mealplan=ALL_INCLUSIVE&extReferenceId=2v4rb7n9gdmtfib5pi&extReferenceType=OPENX&hdpSearchId=2v4rb7n9gdmtfib5pi&searchId=589226389&referenceEventId=oss_qprwa9r6wfmarnru2g&sessionId=6994790290714818560");
+        By iframeLocalizador = By.xpath("(//iframe[@id='iFrameResizer0'])[1]");
+        cambiarseIframe(iframeLocalizador);
+        System.out.println(getUrlTitle());
+        click(parejasLocator);
+        click(familiasLocator);
 
     }
 
