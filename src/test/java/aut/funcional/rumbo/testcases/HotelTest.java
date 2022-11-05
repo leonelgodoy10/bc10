@@ -67,8 +67,7 @@ public class HotelTest extends SeleniumTestBase {
         rumboHomePageHotel.seleccionarPais();
         rumboHomePageHotel.limpiarFiltro();
         rumboHomePageHotel.seleccionarHotel();
-
-
+        rumboHomePageHotel.valoraciones();
 
 
 
@@ -76,6 +75,10 @@ public class HotelTest extends SeleniumTestBase {
 
     @Test
     void verMejoresOfertasEnHotelesBH005() {
+        rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.valoraciones();
+
     }
 
     @Test

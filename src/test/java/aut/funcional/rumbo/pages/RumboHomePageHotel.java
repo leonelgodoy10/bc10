@@ -54,9 +54,10 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By chipreLocator = By.xpath("//div[@class='sc-BeQoi gVBHRE openx-ui-card-content']");
 
     By limpiarTodosLocator = By.xpath("//button[normalize-space()='Limpiar todos']");
-    By avanzarFotosLocator = By.xpath("//div[@class='sc-WCkqM dyEyUY']//div[1]//div[1]//div[1]//div[2]");
-    By verMasLocator = By.xpath("//body//div//main//div//div//div//div//div//div//a[2]");
-
+    By avanzarFotosLocator = By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]");
+    By verMasLocator = By.xpath("(//a[@class='sc-bZnhIo gcujSs show-more'][normalize-space()='Ver más'])[1]");
+    By valoracionesLocator = By.xpath("//a[@role='button']]");
+    By parejasLocator = By.xpath("//div[@class='BrandedPageLayout___StyledDiv-sc-1x8t0fu-2 cTKbIy']");
     //methods
 
     public void aceptarCookie() {
@@ -206,14 +207,19 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     }
 
-    public void seleccionarPais() {
+    public void seleccionarPais() throws InterruptedException {
         click(chipreLocator);
+        Thread.sleep(5000);
     }
-    public void limpiarFiltro(){
+
+    public void limpiarFiltro() throws InterruptedException {
         click(limpiarTodosLocator);
+        Thread.sleep(1000);
+
 
     }
-    public void seleccionarHotel(){
+
+    public void seleccionarHotel() {
 
         click(avanzarFotosLocator);
         click(avanzarFotosLocator);
@@ -222,6 +228,16 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(verMasLocator);
 
     }
+
+    public void valoraciones() {
+        navigateTo("https://www.mercadolibre.com.ar/");
+        click(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-cp-send'][normalize-space()='Enviar a']"));
+        buscarIframe(By.xpath("//a[@class='nav-menu-cp nav-menu-cp-logged']//span[@class='nav-menu-cp-send'][normalize-space()='Enviar a']"));
+
+    }
+
+
+
 }
 
 
