@@ -36,6 +36,26 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By seleccionNinoLocator = By.xpath("//button[@aria-label='Aumentar el número de niños']");
     By cierreSeleccionViajeroLocator = By.xpath("//button[contains(@class,'display-1ug1iap-Dropdown-styled')]");
     By filtroEstrellasLocator = By.xpath("//span[normalize-space()='Estrellas']");
+    By cualquierDestino = By.xpath("//li[@id='mui-1-option-0']");
+
+    By filtroPrecio = By.xpath("//span[normalize-space()='Precio']");
+    By ceroA300 = By.xpath("//div[normalize-space()='0 - 300']");
+    By aplicarLocator = By.xpath("//button[normalize-space()='Aplicar']");
+    By casaLocator = By.xpath("//span[normalize-space()='Tipo de alojamiento']");
+    By casa2 = By.xpath("//span[normalize-space()='Casas']");
+    By filtrocancelacionGratuita = By.xpath("//div[contains(text(),'Cancelación gratuita')]");
+    By filtrowifiGratisLocator = By.xpath("//div[contains(text(),'Wifi gratis')]");
+    By filtroValoracionLocator = By.xpath("//div[@id='container_full_width']//div[4]//div[1]//*[name()='svg']");
+    By excelenteLocator = By.xpath("//div[@class='sc-dPyBCJ kmZvLO filter-rating-label-excellent']");
+    By muyBuenoLocator = By.xpath("//div[@class='sc-dPyBCJ kmZvLO filter-rating-label-very-good']");
+    By buenoLocator = By.xpath("//div[@class='sc-dPyBCJ kmZvLO filter-rating-label-good']");
+    By filtroRegimenLocator = By.xpath("//span[normalize-space()='Régimen']");
+    By todoIncluidoLocator = By.xpath("//*[name()='path' and contains(@d,'M0.333496 ')]");
+    By chipreLocator = By.xpath("//div[@class='sc-BeQoi gVBHRE openx-ui-card-content']");
+
+    By limpiarTodosLocator = By.xpath("//button[normalize-space()='Limpiar todos']");
+    By avanzarFotosLocator = By.xpath("//div[@class='sc-WCkqM dyEyUY']//div[1]//div[1]//div[1]//div[2]");
+    By verMasLocator = By.xpath("//body//div//main//div//div//div//div//div//div//a[2]");
 
     //methods
 
@@ -139,5 +159,69 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(By.xpath("//body/div[contains(@class,'sc-bhVIhj ioZiXt custom-overlay-portal')]/div[@class='sc-eGAhfa dMYIUp']/div[" + nRespaldo + "]/div[1]"));
     }
 
+    public void ningunDestino() {
 
+        click(buscarAlojamientoEnLocator);
+        click(cualquierDestino);
+
+    }
+
+    public void filtroDinero() {
+        click(filtroPrecio);
+        click(ceroA300);
+        click(aplicarLocator);
+    }
+
+    public void filtroAlojamiento() {
+        click(casaLocator);
+        click(casa2);
+        click(aplicarLocator);
+
+
+    }
+
+    public void filtroCancelacionGratuita() {
+
+        click(filtrocancelacionGratuita);
+    }
+
+    public void filtrowifiGratis() {
+
+        click(filtrowifiGratisLocator);
+    }
+
+    public void filtroValoracion() {
+        click(filtroValoracionLocator);
+        click(excelenteLocator);
+        click(muyBuenoLocator);
+        click(buenoLocator);
+        click(aplicarLocator);
+
+    }
+
+    public void filtroRegimen() {
+        click(filtroRegimenLocator);
+        click(todoIncluidoLocator);
+        click(aplicarLocator);
+
+    }
+
+    public void seleccionarPais() {
+        click(chipreLocator);
+    }
+    public void limpiarFiltro(){
+        click(limpiarTodosLocator);
+
+    }
+    public void seleccionarHotel(){
+
+        click(avanzarFotosLocator);
+        click(avanzarFotosLocator);
+        click(avanzarFotosLocator);
+        click(avanzarFotosLocator);
+        click(verMasLocator);
+
+    }
 }
+
+

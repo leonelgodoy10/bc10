@@ -87,10 +87,6 @@ public class VueloTest extends SeleniumTestBase {
 
     @Test
     void funcionalidadMultidestinoBV005() throws InterruptedException {
-        rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
-        rumboHomePageHomeVuelo.navigateTo("https://vuelos.rumbo.es/flight/shopping/results/1h4xxu4xvxdz4");
-        rumboHomePageHomeVuelo.informacion();
-        rumboHomePageHomeVuelo.cambiarIframe();
 
     }
 

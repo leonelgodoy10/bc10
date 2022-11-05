@@ -66,6 +66,25 @@ public class CruceroTest extends SeleniumTestBase {
     }
 
     @Test
-    void navegacionCrucerosEnOfertaBC006(){}
+    void navegacionCrucerosEnOfertaBC006() throws InterruptedException {
+
+        rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
+        rumboHomePageCrucero.navegarAlHome();
+        rumboHomePageCrucero.aceptarCookie();
+        rumboHomePageCrucero.seleccionarVerMas();
+        rumboHomePageCrucero.seleccionarCrucero();
+        rumboHomePageCrucero.bscCruceros();
+        Thread.sleep(2000);
+        rumboHomePageCrucero.costaCruceros();
+        rumboHomePageCrucero.filtrarRating();
+        rumboHomePageCrucero.ingresarOpcion();
+//        rumboHomePageCrucero.carnivalHorizon();
+//      rumboHomePageCrucero.botonesDesplegables();
+        rumboHomePageCrucero.seleccionarCompanhia();
+        rumboHomePageCrucero.seleccionarPresupuesto();
+        rumboHomePageCrucero.llenarDatos();
+
+
+    }
 
 }

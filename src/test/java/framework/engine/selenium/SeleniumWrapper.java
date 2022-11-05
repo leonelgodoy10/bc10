@@ -74,6 +74,11 @@ public class SeleniumWrapper {
     public void scroll(int horizontal, int vertical) {
         ((JavascriptExecutor) driver).executeScript("scroll(" + horizontal + "," + vertical + ")");
     }
+    public void scrollEncuentra(By locator){
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", findElement(locator));
+
+
+    }
 
     public void clear(By locator) {
         WebElement areaDeEscritura = driver.findElement(locator);

@@ -41,6 +41,33 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By agregarNinoLocator = By.xpath("(//button[contains(text(),'+')])[3]");
     By agregarBebeLocator = By.xpath("(//button[contains(text(),'+')])[4]");
     By cierrePasajerosLocator = By.xpath("//div[@class='crs-field-dd-occupancy crs_field--occupancy']//div[@class='p-dropdown p-component']");
+    By mscCrucerosLocator = By.xpath("//div[@id='merchandise-1-msc-cruceros']//div[@class='text-price']");
+    By verMasCruceroMscLocator = By.xpath("//span[@class='btn btn-exp']");
+    By crucerosPorElMediterraneoLocator = By.xpath("//a[normalize-space()='cruceros por el Mediterráneo']");
+    By crucerosDevolverLocator = By.xpath("//a[normalize-space()='cruceros']");
+    By costaCrucerosLocator = By.xpath("//span[@class='date'][normalize-space()='Costa Cruceros']");
+    By cruceroPorIslasGriegas = By.xpath("//a[@title='crucero islas griegas ofertas']");
+    By reiniciarBusquedaLocator = By.xpath("//span[normalize-space()='Reiniciar búsqueda']");
+    By buscarCruceroLocator = By.xpath("//span[normalize-space()='Buscar']");
+    By recomendadosLocator = By.xpath("//span[@class='p-dropdown-trigger-icon ng-tns-c43-8 pi pi-chevron-down']");
+    By ratingLocator = By.xpath("//li[@aria-label='Rating']");
+    By cargarMasResultado = By.xpath("//span[normalize-space()='Cargar más resultados']");
+    By volverArribaLocator = By.xpath("//span[normalize-space()='Volver arriba']");
+    By selectorMoverLocator = By.xpath("//crs-carousel[@class='crs-card-departure-dates__carousel swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode']//div[@class='crs-card-departure-date crs-card-departure-date--active']");
+    By descubreElItinirerioLocator = By.xpath("//div[@role='link']//span[@crstextresource='generic.itinerary'][normalize-space()='Itinerario']");
+    By dia1 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 1']");
+    //By dia2 = By.xpath("");
+    By dia3 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 3']");
+    By dia4 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 4']");
+    By dia5 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 5']");
+    //By dia6 = By.xpath("");
+    By dia7 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 7']//span[@class='icon icon-arrow_down']");
+    By companhiaLocator = By.xpath("//span[normalize-space()='Compañia']");
+    By solicitarPresupuesto  = By.xpath("//button[@class='crs-btn crs-btn--cta crs-btn--contain crs-btn--block ng-star-inserted']//span[@class='crs-label ng-star-inserted'][normalize-space()='Solicitar presupuesto']");
+    By barraInsertaNombreLocator = By.xpath("//input[@id='firstname_1667603166336']");
+    By barraApellidoLocator = By.xpath("//input[@id='lastname_1667603166336']");
+    By barraEmailLocator = By.xpath("//input[@id='email_1667603166336']");
+
 
 
     //methods
@@ -198,6 +225,81 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     public void navegarAlHome() {
         navigateTo(BASE_URL_AUT);
     }
+
+    public void bscCruceros(){
+
+        click(mscCrucerosLocator);
+        click(verMasCruceroMscLocator);
+        click(crucerosPorElMediterraneoLocator);
+        click(crucerosDevolverLocator);
+
+    }
+    public void costaCruceros() throws InterruptedException {
+
+        click(costaCrucerosLocator);
+        click(verMasCruceroMscLocator);
+        Thread.sleep(2000);
+        click(cruceroPorIslasGriegas);
+        Thread.sleep(4000);
+        click(reiniciarBusquedaLocator);
+        click(buscarLocator);
+
+    }
+    public void filtrarRating() throws InterruptedException {
+
+        click(recomendadosLocator);
+        click(ratingLocator);
+        Thread.sleep(2000);
+        click(cargarMasResultado);
+        Thread.sleep(2000);
+        click(volverArribaLocator);
+        Thread.sleep(2000);
+    }
+
+    public void ingresarOpcion(){
+
+        click(selectorMoverLocator);
+
+
+    }
+
+    public void carnivalHorizon(){
+
+
+    }
+    public void botonesDesplegables(){
+
+        click(dia1);
+        click(dia1);
+        click(dia3);
+        click(dia3);
+        click(dia4);
+        click(dia4);
+        click(dia5);
+        click(dia5);
+        click(dia7);
+        click(dia7);
+
+    }
+
+    public void seleccionarCompanhia(){
+
+        click(companhiaLocator);
+
+    }
+    public void seleccionarPresupuesto(){
+
+        click(solicitarPresupuesto);
+
+    }
+    public void llenarDatos(){
+
+        click(barraInsertaNombreLocator);
+        click(barraApellidoLocator);
+        click(barraEmailLocator);
+
+    }
+
 
 
 }

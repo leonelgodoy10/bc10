@@ -45,8 +45,31 @@ public class HotelTest extends SeleniumTestBase {
     }
 
     @Test
-    void buscarHotelBH004() {
+    void buscarHotelBH004() throws InterruptedException {
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
+        rumboHomePageHotel.navegarAlHome();
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.selectorHotel();
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.ningunDestino();
+        rumboHomePageHotel.buscaridaYVuelta(20,11,2022,2,12,2022);
+        rumboHomePageHotel.agregarAdultos(3);
+        rumboHomePageHotel.agregarNino("2 años");
+        rumboHomePageHotel.buscarHotel();
+        rumboHomePageHotel.filtroDinero();
+        rumboHomePageHotel.filtroAlojamiento();
+        rumboHomePageHotel.filtroCancelacionGratuita();
+        rumboHomePageHotel.filtrowifiGratis();
+        Thread.sleep(2000);
+        rumboHomePageHotel.filtroValoracion();
+        Thread.sleep(2000);
+        rumboHomePageHotel.filtroRegimen();
+        rumboHomePageHotel.seleccionarPais();
+        rumboHomePageHotel.limpiarFiltro();
+        rumboHomePageHotel.seleccionarHotel();
+
+
+
 
 
     }
