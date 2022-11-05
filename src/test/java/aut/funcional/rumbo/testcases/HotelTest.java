@@ -60,7 +60,6 @@ public class HotelTest extends SeleniumTestBase {
         Thread.sleep(4000);
         cambiarPag();
         rumboHomePageHotel.seleccionHotelFincaLosLlanos();
-        //Thread.sleep(4000);
         //rumboHomePageHotel.elegirTipoHabitacion();
         //Thread.sleep(2000);
         //rumboHomePageHotel.aplicarFiltrosHabitacion();

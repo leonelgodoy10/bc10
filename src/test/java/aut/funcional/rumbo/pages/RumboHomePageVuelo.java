@@ -229,7 +229,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         seleccionFechaIda(diaIda, mesIda, anhoida, diaVuelta, mesVuelta, anhoVuelta, siguienteMesLocator);
     }
 
-<<<<<<< HEAD
     public void seleccionVuelaEuropa(){
     click(seleccionVuelaEuropaLocator);
     }
@@ -292,7 +291,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     }
 
 
-=======
+
     public void clickTopCiudades() {
         click(topDestinosVuelosLocator);
     }
@@ -376,6 +375,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     public void clickearPrecio() {
         clickearPrecio(precioLocalizador);
     }
->>>>>>> 5a27017b4787c3679b99fb843250a265efa7ae70
+
 }
 

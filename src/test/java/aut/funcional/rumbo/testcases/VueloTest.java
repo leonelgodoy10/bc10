@@ -72,7 +72,7 @@ public class VueloTest extends SeleniumTestBase {
     }
 
     @Test
-    void viajeEnPrimeraClaseBV004() {//Funcionando OK, probar y dar visto bueno
+    void viajeEnPrimeraClaseBV004() {//Funcionando OK, probar y dar visto bueno--> Quedó Joshaaa Leo, Ya tu sabes pa':)
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarAlHome();
         rumboHomePageHomeVuelo.aceptarCookie();
@@ -88,21 +88,19 @@ public class VueloTest extends SeleniumTestBase {
     @Test
     void funcionalidadMultidestinoBV005() throws InterruptedException {
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
-<<<<<<< HEAD
         rumboHomePageHomeVuelo.navegarAlHome();
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
         rumboHomePageHomeVuelo.seleccionVuelaEuropa();
         rumboHomePageHomeVuelo.seleccionMultidestino();
-        //rumboHomePageHomeVuelo.cerrarMultiDestinoCookie();
+        rumboHomePageHomeVuelo.cerrarMultiDestinoCookie();
         rumboHomePageHomeVuelo.borrarTodoMultiDestino();
         rumboHomePageHomeVuelo.seleccionMultiOrigenDestino("Santiago de Chile","Miami","Buenos Aires","Barcelona");
         rumboHomePageHomeVuelo.buscarMultivuelo();
-=======
         rumboHomePageHomeVuelo.navigateTo("https://vuelos.rumbo.es/flight/shopping/results/1h4xxu4xvxdz4");
         rumboHomePageHomeVuelo.informacion();
         rumboHomePageHomeVuelo.cambiarIframe();
->>>>>>> 5a27017b4787c3679b99fb843250a265efa7ae70
+
 
     }
 

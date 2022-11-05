@@ -35,7 +35,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By seleccionHotelFincaLosLlanosLocator = By.xpath("//span[normalize-space()='Hotel Finca Los Llanos']");
     //methods
 
-   By elegirTipoHabitacionLocator = By.xpath("//button[normalize-space()='Elegir tipo de habitación']");
+   By elegirTipoHabitacionLocator = By.xpath("//button[@class='Button-sc-1bbve8d-0 bsSjVP SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7 jThHsW']");
 
    By aplicarFiltroSoloAlojamientoLocator = By.xpath("//button[normalize-space()='Solo alojamiento']");
 
