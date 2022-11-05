@@ -45,6 +45,7 @@ public class CruceroTest extends SeleniumTestBase {
 rumboHomePageCrucero.seleccionarCasillero();
 rumboHomePageCrucero.seleccionarPuertoBarce();
         Thread.sleep(1000);
+        Thread.sleep(1000);
         rumboHomePageCrucero.agregarAdultos(0);
         rumboHomePageCrucero.buscarCrucero();
 
