@@ -105,7 +105,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
 
     public void origenDestinoSeleccion(String origen, String destino) {
         click(origenVueloLocator);
-        clear(origenVueloLocator);
+        //clear(origenVueloLocator);
         write(origen, origenVueloLocator);
         click(primeraOpcionOrigenLocator);
         click(destinoVueloLocator);

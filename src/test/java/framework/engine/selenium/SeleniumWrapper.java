@@ -1,12 +1,16 @@
 package framework.engine.selenium;
 
-import gherkin.lexer.Th;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.devtools.v96.indexeddb.model.Key;
+import org.openqa.selenium.support.ui.Wait;
 
+import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
 
 public class SeleniumWrapper {
 
@@ -240,6 +244,8 @@ public class SeleniumWrapper {
         Thread.sleep(1500);
 
     }
-
+    public void esperaMillis(int millis) throws InterruptedException {
+        Thread.sleep(millis);
+    }
 
 }
