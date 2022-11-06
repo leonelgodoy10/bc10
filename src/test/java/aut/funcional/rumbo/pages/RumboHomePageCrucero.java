@@ -46,6 +46,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By costaCrucerosLocator = By.xpath("//span[@class='date'][normalize-space()='Costa Cruceros']");
     By cruceroPorIslasGriegas = By.xpath("//a[@title='crucero islas griegas ofertas']");
     By reiniciarBusquedaLocator = By.xpath("//span[normalize-space()='Reiniciar búsqueda']");
+
     By buscarCruceroLocator = By.xpath("//span[normalize-space()='Buscar']");
     By recomendadosLocator = By.xpath("//span[@class='p-dropdown-trigger-icon ng-tns-c43-8 pi pi-chevron-down']");
     By ratingLocator = By.xpath("//li[@aria-label='Rating']");

@@ -26,7 +26,7 @@ public class HotelTest extends SeleniumTestBase {
     }
 
     @Test
-    void encontrarAlojamientoDisponiblesBH002() {//ok funcionando,
+    void encontrarAlojamientoDisponiblesBH002() throws InterruptedException {//ok funcionando,
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
         rumboHomePageHotel.aceptarCookie();
@@ -106,8 +106,9 @@ public class HotelTest extends SeleniumTestBase {
 
 
     @Test
-    void reservarHotelesQueAdmitenPerrosBH006() {
+    void reservarHotelesQueAdmitenPerrosBH006() throws InterruptedException {
+
+
+
     }
-
-
 }

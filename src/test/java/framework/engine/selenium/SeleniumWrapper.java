@@ -6,7 +6,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.devtools.v96.indexeddb.model.Key;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class SeleniumWrapper {
 
@@ -238,6 +240,42 @@ public class SeleniumWrapper {
     public void cambiarseIframe(By locator) throws InterruptedException {
         driver.switchTo().frame(findElement(locator));
         Thread.sleep(1500);
+
+    }
+
+    public void vovlerOriginal() {
+        driver.switchTo().defaultContent();
+
+    }
+
+    public void hover(By locator) {
+        Actions builder = new Actions(driver);
+        builder.moveToElement(findElement(locator)).perform();
+
+
+    }
+
+    public void cambiarPestanha() {
+
+
+        String mainTab = driver.getWindowHandle();
+        String newTab = "";
+
+        System.out.println("Main Tab: " + mainTab);
+
+        Set<String> handles = driver.getWindowHandles();
+        for (String actual : handles) {
+            System.out.println("--Handle Id: " + actual);
+
+            if (!actual.equalsIgnoreCase(mainTab)) {
+                System.out.println("--Cambiando Tab --");
+                driver.switchTo().window(actual);
+
+                newTab = actual;
+            }
+
+        }
+
 
     }
 

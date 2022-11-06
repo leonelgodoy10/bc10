@@ -2,6 +2,7 @@ package aut.funcional.rumbo.pages;
 
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
+import gherkin.lexer.Th;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -75,7 +76,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By aplicarFiltroDesayunoInLocator = By.xpath("//button[normalize-space()='Desayuno incluido']");
     By verDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ver detalles'])[1]");
     By ocultarDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ocultar detalles'])[1]");
-
+    By iframeHotelLocalizador = By.xpath("(//iframe[@id='iFrameResizer0'])[1]");
 
     public void aceptarCookie() {
         if (isDisplayed(BtnaceptarCookiesLocator) == true) {
@@ -102,8 +103,9 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         return getUrlTitle();
     }
 
-    public void buscarHotel() {
+    public void buscarHotel() throws InterruptedException {
         click(btnBuscar);
+        Thread.sleep(3000);
     }
 
     public void navegarAlHome() {
@@ -283,23 +285,31 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     }
 
-    public void seleccionarHotel() {
-
+    public void seleccionarHotel() throws InterruptedException {
+        hover(avanzarFotosLocator);
+        Thread.sleep(1000);
         click(avanzarFotosLocator);
+        hover(avanzarFotosLocator);
+        Thread.sleep(1000);
         click(avanzarFotosLocator);
+        hover(avanzarFotosLocator);
+        Thread.sleep(1000);
         click(avanzarFotosLocator);
+        hover(avanzarFotosLocator);
+        Thread.sleep(1000);
         click(avanzarFotosLocator);
+        Thread.sleep(1000);
         click(verMasLocator);
 
     }
 
     public void valoraciones() throws InterruptedException {
-        navigateTo("https://hotel.rumbo.es/details/hotel/1681696/hotel-only?search.rooms%5B0%5D.adults=3&search.rooms%5B0%5D.children=1&search.rooms%5B0%5D.childrenAge%5B0%5D=2&openx=true&search.departureIntervals=20221120-20221202&search.type=OSE&search.businessProfileId=HOLIDAYSRUMBOES_OSS&search.destinationTag=CIPRO&bf_subsource=S07RRTL0S07PD03&search.accomodationOnly=true&search.checkin=202211-20&search.checkout=202212-02&mealplan=ALL_INCLUSIVE&extReferenceId=2v4rb7n9gdmtfib5pi&extReferenceType=OPENX&hdpSearchId=2v4rb7n9gdmtfib5pi&searchId=589226389&referenceEventId=oss_qprwa9r6wfmarnru2g&sessionId=6994790290714818560");
-        By iframeLocalizador = By.xpath("(//iframe[@id='iFrameResizer0'])[1]");
-        cambiarseIframe(iframeLocalizador);
-        System.out.println(getUrlTitle());
+        cambiarPestanha();
+        cambiarseIframe(iframeHotelLocalizador);
         click(parejasLocator);
         click(familiasLocator);
+        vovlerOriginal();
+
 
     }
 
