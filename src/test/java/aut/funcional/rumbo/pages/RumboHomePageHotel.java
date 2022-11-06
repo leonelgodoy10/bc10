@@ -60,6 +60,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By filtrocancelacionGratuita = By.xpath("//div[contains(text(),'Cancelación gratuita')]");
     By filtrowifiGratisLocator = By.xpath("//div[contains(text(),'Wifi gratis')]");
     By filtroValoracionLocator = By.xpath("//div[@id='container_full_width']//div[4]//div[1]//*[name()='svg']");
+    By valoracionBuenoLocator = By.xpath("//span[@class='ReviewsSummary__TrustYouLinkText-sc-by8rko-3 jxUPZX']");
     By excelenteLocator = By.xpath("//div[@class='sc-dPyBCJ kmZvLO filter-rating-label-excellent']");
     By muyBuenoLocator = By.xpath("//div[@class='sc-dPyBCJ kmZvLO filter-rating-label-very-good']");
     By buenoLocator = By.xpath("//div[@class='sc-dPyBCJ kmZvLO filter-rating-label-good']");
@@ -77,6 +78,11 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By verDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ver detalles'])[1]");
     By ocultarDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ocultar detalles'])[1]");
     By iframeHotelLocalizador = By.xpath("(//iframe[@id='iFrameResizer0'])[1]");
+    By punto1Locator = By.xpath("(//button[@type='button'])[12]");
+    By punto2Locator = By.xpath("(//button[@type='button'])[13]");
+    By punto3Locator = By.xpath("(//button[@type='button'])[14]");
+    By punto4Locator = By.xpath("(//button[@type='button'])[15]");
+    By elejirTipoHabitacion = By.xpath("//button[@class='Button-sc-1bbve8d-0 bsSjVP SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7 jThHsW']");
 
     public void aceptarCookie() {
         if (isDisplayed(BtnaceptarCookiesLocator) == true) {
@@ -305,11 +311,16 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     public void valoraciones() throws InterruptedException {
         cambiarPestanha();
+        click(valoracionBuenoLocator);
         cambiarseIframe(iframeHotelLocalizador);
         click(parejasLocator);
         click(familiasLocator);
-        vovlerOriginal();
-
+        volverOriginal();
+        click(punto1Locator);
+        click(punto2Locator);
+        click(punto3Locator);
+        click(punto4Locator);
+        click(elegirTipoHabitacionLocator);
 
     }
 

@@ -243,7 +243,10 @@ public class SeleniumWrapper {
 
     }
 
-    public void vovlerOriginal() {
+    public void volverOriginal() {
+        String mainTab = driver.getWindowHandle();
+        System.out.println("Main Tab: " + mainTab);
+
         driver.switchTo().defaultContent();
 
     }
