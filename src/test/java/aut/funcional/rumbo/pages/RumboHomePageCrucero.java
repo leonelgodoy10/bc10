@@ -61,7 +61,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     //By dia6 = By.xpath("");
     By dia7 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 7']//span[@class='icon icon-arrow_down']");
     By companhiaLocator = By.xpath("//span[normalize-space()='Compañia']");
-    By solicitarPresupuesto  = By.xpath("//button[@class='crs-btn crs-btn--cta crs-btn--contain crs-btn--block ng-star-inserted']//span[@class='crs-label ng-star-inserted'][normalize-space()='Solicitar presupuesto']");
+    By solicitarPresupuesto = By.xpath("//button[@class='crs-btn crs-btn--cta crs-btn--contain crs-btn--block ng-star-inserted']//span[@class='crs-label ng-star-inserted'][normalize-space()='Solicitar presupuesto']");
     By barraInsertaNombreLocator = By.xpath("//input[@id='firstname_1667603166336']");
     By barraApellidoLocator = By.xpath("//input[@id='lastname_1667603166336']");
     By barraEmailLocator = By.xpath("//input[@id='email_1667603166336']");
@@ -69,9 +69,9 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By botonSiguienteAñoLocator = By.xpath("//span[@class='p-datepicker-next-icon pi pi-chevron-right ng-tns-c56-10']");
     By seleccionMesJunioLocator = By.xpath("(//span[@class='p-ripple p-element p-monthpicker-month ng-tns-c56-12 ng-star-inserted'])[6]");
     By casillerolocator = By.xpath("//span[@class='p-multiselect-trigger-icon ng-tns-c52-6 pi pi-chevron-down']");
-    By barcelocator = By.xpath("//li[@aria-label='Barcelona']") ;
-    By casillerolocator = By.xpath("//span[@class=\"p-multiselect-trigger-icon ng-tns-c52-6 pi pi-chevron-down\"]");
-    By barcelocator = By.xpath("//li[@aria-label=\"Barcelona\"]") ;
+    By barcelocator = By.xpath("//li[@aria-label='Barcelona']");
+    //By casillerolocator = By.xpath("//span[@class=\"p-multiselect-trigger-icon ng-tns-c52-6 pi pi-chevron-down\"]");
+    //By barcelocator = By.xpath("//li[@aria-label=\"Barcelona\"]");
 
 
     //methods
@@ -124,41 +124,30 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         click(By.xpath("//li[@aria-label='" + cruceroDestino + "']"));
     }
 
-        public void seleccionPeriodo(int anio, String mes) {
-            WebElement esperaPeriodo = findElement(cualquierPeriodoLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaPeriodo));
-            click(cualquierPeriodoLocator);
-            if (anio == 0) {
-                click(By.xpath("//span[normalize-space()='Cualquier periodo']"));
-            }
-            if (anio == 2022) {
-                click(By.xpath("//span[normalize-space()='"+ mes +"'][2]"));
-            }
-            if (anio == 2023) {
-                click(By.xpath("//button[contains(@class,'p-datepicker-next')]"));
-                click(By.xpath("//span[normalize-space()='" + mes + "'][2]"));
-            }
+    public void seleccionPeriodo(int anio, String mes) {
+        WebElement esperaPeriodo = findElement(cualquierPeriodoLocator);
+        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        esperar.until(ExpectedConditions.elementToBeClickable(esperaPeriodo));
+        click(cualquierPeriodoLocator);
+        if (anio == 0) {
+            click(By.xpath("//span[normalize-space()='Cualquier periodo']"));
         }
-
-        public void cualquierDuracion(String duracionViaje) {
-            WebElement esperaDuracion = findElement(cualquierDuracionLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaDuracion));
-            click(cualquierDuracionLocator);
-            click(By.xpath("//li[@aria-label='"+ duracionViaje +"']"));
+        if (anio == 2022) {
+            click(By.xpath("//span[normalize-space()='" + mes + "'][2]"));
         }
+        if (anio == 2023) {
+            click(By.xpath("//button[contains(@class,'p-datepicker-next')]"));
+            click(By.xpath("//span[normalize-space()='" + mes + "'][2]"));
+        }
+    }
 
-        public void cualquierCompania(String nombreCompania) {
-            WebElement esperacompania = findElement(cualquierCompaniaLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperacompania));
-            click(cualquierCompaniaLocator);
-            click(companiaTextBoxLocator);
-            clear(companiaTextBoxLocator);
-            write(nombreCompania, companiaTextBoxLocator);
-            click(By.xpath("//li[@aria-label='"+ nombreCompania +"']"));
-
+    public void cualquierDuracion(String duracionViaje) {
+        WebElement esperaDuracion = findElement(cualquierDuracionLocator);
+        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        esperar.until(ExpectedConditions.elementToBeClickable(esperaDuracion));
+        click(cualquierDuracionLocator);
+        click(By.xpath("//li[@aria-label='" + duracionViaje + "']"));
+    }
 
     public void cualquierCompania(String nombreCompania) {
         WebElement esperacompania = findElement(cualquierCompaniaLocator);
@@ -168,10 +157,9 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         click(companiaTextBoxLocator);
         clear(companiaTextBoxLocator);
         write(nombreCompania, companiaTextBoxLocator);
-        click(By.xpath("//li[@aria-label='" + nombreCompania+"']"));
+        click(By.xpath("//li[@aria-label='" + nombreCompania + "']"));
 
-
-        }
+    }
 
 
     public void cualquierPuerto(String nombrePuerto) {
@@ -183,81 +171,71 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         clear(puertoTextBoxLocator);
         write(nombrePuerto, puertoTextBoxLocator);
         esperar.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//li[@aria-label='" + nombrePuerto + "']")));
-        click(By.xpath("//li[@aria-label='" + nombrePuerto+"']"));
+        click(By.xpath("//li[@aria-label='" + nombrePuerto + "']"));
     }
 
-        public void cualquierPuerto(String nombrePuerto) {
-            WebElement esperaPuerto = findElement(cualquierPuertoLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaPuerto));
-            click(cualquierPuertoLocator);
-            click(puertoTextBoxLocator);
-            clear(puertoTextBoxLocator);
-            write(nombrePuerto, puertoTextBoxLocator);
-            esperar.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//li[@aria-label='"+nombrePuerto+"']")));
-            click(By.xpath("//li[@aria-label='"+nombrePuerto+"']"));
-        }
 
-
-        public void agregarAdultos(int nAdultos) {
-            WebElement esperaPasajero = findElement(pasajerosLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
-            if (nAdultos > 1) {
-                click(pasajerosLocator);
-                for (int i = 0; i < nAdultos; i++) {
-                    click(agregarAdultoLocator);
-                }
+    public void agregarAdultos(int nAdultos) {
+        WebElement esperaPasajero = findElement(pasajerosLocator);
+        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+        if (nAdultos > 1) {
+            click(pasajerosLocator);
+            for (int i = 0; i < nAdultos; i++) {
+                click(agregarAdultoLocator);
             }
-            click(cierrePasajerosLocator);
         }
+        click(cierrePasajerosLocator);
+    }
 
-        public void agregarJunior(int nJunior) {
-            WebElement esperaPasajero = findElement(pasajerosLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
-            if (nJunior > 1) {
-                click(pasajerosLocator);
-                for (int i = 0; i < nJunior; i++) {
-                    click(agregarJuniorLocator);
-                }
+    public void agregarJunior(int nJunior) {
+        WebElement esperaPasajero = findElement(pasajerosLocator);
+        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+        if (nJunior > 1) {
+            click(pasajerosLocator);
+            for (int i = 0; i < nJunior; i++) {
+                click(agregarJuniorLocator);
             }
-            click(cierrePasajerosLocator);
         }
+        click(cierrePasajerosLocator);
+    }
 
-        public void agregarNinos(int nNinos) {
-            WebElement esperaPasajero = findElement(pasajerosLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
-            if (nNinos > 1) {
-                click(pasajerosLocator);
-                for (int i = 0; i < nNinos; i++) {
-                    click(agregarNinoLocator);
-                }
+    public void agregarNinos(int nNinos) {
+        WebElement esperaPasajero = findElement(pasajerosLocator);
+        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+        if (nNinos > 1) {
+            click(pasajerosLocator);
+            for (int i = 0; i < nNinos; i++) {
+                click(agregarNinoLocator);
             }
-            click(cierrePasajerosLocator);
         }
+        click(cierrePasajerosLocator);
+    }
 
-        public void agregarBebes(int nBebes) {
-            WebElement esperaPasajero = findElement(pasajerosLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
-            if (nBebes > 1) {
-                click(pasajerosLocator);
-                for (int i = 0; i < nBebes; i++) {
-                    click(agregarBebeLocator);
-                }
+    public void agregarBebes(int nBebes) {
+        WebElement esperaPasajero = findElement(pasajerosLocator);
+        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+        if (nBebes > 1) {
+            click(pasajerosLocator);
+            for (int i = 0; i < nBebes; i++) {
+                click(agregarBebeLocator);
             }
-            click(cierrePasajerosLocator);
         }
+        click(cierrePasajerosLocator);
+    }
 
-        public void navegarAlHome() {
-            navigateTo(BASE_URL_AUT);
-        }
+    public void navegarAlHome() {
+        navigateTo(BASE_URL_AUT);
+    }
 
-        public  void seleccionarPuertoBarce(){click(barcelocator);}
+    public void seleccionarPuertoBarce() {
+        click(barcelocator);
+    }
 
-    public void bscCruceros(){
+    public void bscCruceros() {
 
         click(mscCrucerosLocator);
         click(verMasCruceroMscLocator);
@@ -265,6 +243,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         click(crucerosDevolverLocator);
 
     }
+
     public void costaCruceros() throws InterruptedException {
 
         click(costaCrucerosLocator);
@@ -276,6 +255,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         click(buscarLocator);
 
     }
+
     public void filtrarRating() throws InterruptedException {
 
         click(recomendadosLocator);
@@ -287,30 +267,23 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         Thread.sleep(2000);
     }
 
-    public void ingresarOpcion(){
+    public void ingresarOpcion() {
 
         click(selectorMoverLocator);
 
 
     }
 
-    public void carnivalHorizon(){
-
+    public void carnivalHorizon() {
 
     }
-    public void botonesDesplegables(){
 
 
+    public void seleccionarCasillero() {
+        click(casillerolocator);
+    }
 
-
-
-
-    public  void seleccionarPuertoBarce(){click(barcelocator);}
-
-
-    public void seleccionarCasillero(){click(casillerolocator);}
-}
-
+    public void botonesDesplegables() {
         click(dia1);
         click(dia1);
         click(dia3);
@@ -324,17 +297,19 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
 
     }
 
-    public void seleccionarCompanhia(){
+    public void seleccionarCompanhia() {
 
         click(companhiaLocator);
 
     }
-    public void seleccionarPresupuesto(){
+
+    public void seleccionarPresupuesto() {
 
         click(solicitarPresupuesto);
 
     }
-    public void llenarDatos(){
+
+    public void llenarDatos() {
 
         click(barraInsertaNombreLocator);
         click(barraApellidoLocator);
@@ -343,7 +318,4 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
 
-
-        public void seleccionarCasillero(){click(casillerolocator);}
-
-    }
+}

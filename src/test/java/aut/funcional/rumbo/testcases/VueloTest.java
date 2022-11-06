@@ -6,7 +6,7 @@ import framework.engine.selenium.SeleniumTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class VueloTest extends SeleniumTestBase  {
+public class VueloTest extends SeleniumTestBase {
 
     RumboHomePageVuelo rumboHomePageHomeVuelo;
 
@@ -95,18 +95,17 @@ public class VueloTest extends SeleniumTestBase  {
         rumboHomePageHomeVuelo.seleccionMultidestino();
         rumboHomePageHomeVuelo.cerrarMultiDestinoCookie();
         rumboHomePageHomeVuelo.borrarTodoMultiDestino();
-        rumboHomePageHomeVuelo.seleccionMultiOrigenDestino("Santiago de Chile","Miami","Buenos Aires","Barcelona");
+        rumboHomePageHomeVuelo.seleccionMultiOrigenDestino("Santiago de Chile", "Miami", "Buenos Aires", "Barcelona");
         rumboHomePageHomeVuelo.buscarMultivuelo();
         rumboHomePageHomeVuelo.navigateTo("https://vuelos.rumbo.es/flight/shopping/results/1h4xxu4xvxdz4");
         rumboHomePageHomeVuelo.informacion();
         rumboHomePageHomeVuelo.cambiarIframe();
 
 
-
     }
 
     @Test
-    void cantidadDePasajerosMasBebeBV006()throws InterruptedException{
+    void cantidadDePasajerosMasBebeBV006() throws InterruptedException {
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarAlHome();
         Thread.sleep(1000);
@@ -116,10 +115,9 @@ public class VueloTest extends SeleniumTestBase  {
         rumboHomePageHomeVuelo.seleccionarSoloIda();
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
-       rumboHomePageHomeVuelo.seleccionarDestino("Buenos aires");
-        rumboHomePageHomeVuelo.buscarVuelo();  }
-
-
+        rumboHomePageHomeVuelo.seleccionarDestino("Buenos aires");
+        rumboHomePageHomeVuelo.buscarVuelo();
+    }
 
 
 }

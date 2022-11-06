@@ -1,11 +1,12 @@
 package aut.funcional.rumbo.testcases;
+
 import aut.funcional.rumbo.pages.RumboHomePageHotel;
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumTestBase;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class HotelTest extends SeleniumTestBase   {
+public class HotelTest extends SeleniumTestBase {
 
     RumboHomePageHotel rumboHomePageHotel;
 
@@ -41,22 +42,18 @@ public class HotelTest extends SeleniumTestBase   {
     @Test
     void registrarFechaDeEntradaBH003() throws InterruptedException {
 
-            rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
-            rumboHomePageHotel.navegarAlHome();
-            Thread.sleep(2000);
-            rumboHomePageHotel.aceptarCookie();
-            rumboHomePageHotel.selectorHotel();
-            rumboHomePageHotel.seleccionarhotelSpa();
-            Thread.sleep(4000);
-            cambiarPag();
-            rumboHomePageHotel.seleccionarhotelMiro();
-            rumboHomePageHotel.seleccionarTipoHabitacion();
-            rumboHomePageHotel.seleccionarSoloHabitacionDouble();
-
-
-    void registrarFechaDeEntradaBH003(){
+        rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
+        rumboHomePageHotel.navegarAlHome();
+        Thread.sleep(2000);
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.selectorHotel();
+        rumboHomePageHotel.seleccionarhotelSpa();
+        Thread.sleep(4000);
+        //cambiarPag();
+        rumboHomePageHotel.seleccionarhotelMiro();
+        rumboHomePageHotel.seleccionarTipoHabitacion();
+        rumboHomePageHotel.seleccionarSoloHabitacionDouble();
     }
-
 
 
     @Test
@@ -96,7 +93,7 @@ public class HotelTest extends SeleniumTestBase   {
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.seleccionHotelesRurales();
         Thread.sleep(4000);
-        cambiarPag();
+        //cambiarPag();
         rumboHomePageHotel.seleccionHotelFincaLosLlanos();
         //rumboHomePageHotel.elegirTipoHabitacion();
         //Thread.sleep(2000);
@@ -111,8 +108,6 @@ public class HotelTest extends SeleniumTestBase   {
     @Test
     void reservarHotelesQueAdmitenPerrosBH006() {
     }
-
-
 
 
 }

@@ -82,6 +82,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
             click(BtnaceptarCookiesLocator);
         }
     }
+
     public void navegarYAceptarCookies() throws InterruptedException {
         navegarAceptarCookie(BASE_URL_AUT, BtnaceptarCookiesLocator);
     }
@@ -112,7 +113,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         write(destino, destinoVueloLocator);
         click(primeraOpcionDestinoLocator);
     }
-
 
 
     public void selectorDeClase(String dato) {
@@ -216,11 +216,11 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         seleccionFechaIda(diaIda, mesIda, anhoida, diaVuelta, mesVuelta, anhoVuelta, siguienteMesLocator);
     }
 
-    public void seleccionVuelaEuropa(){
-    click(seleccionVuelaEuropaLocator);
+    public void seleccionVuelaEuropa() {
+        click(seleccionVuelaEuropaLocator);
     }
 
-    public void seleccionMultidestino(){
+    public void seleccionMultidestino() {
         click(seleccionMultidestinoLocator);
 
     }
@@ -252,31 +252,31 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(seleccionPrimeraOpcMultiLocator);
     }
 
-    public void borrarTodoMultiDestino(){
+    public void borrarTodoMultiDestino() {
         click(borrarTodoMultiDestinoLocator);
     }
 
-    public void cerrarMultiDestinoCookie(){
+    public void cerrarMultiDestinoCookie() {
         click(cerrarMultiDestinoCookieLocator);
     }
 
-    public void buscarMultivuelo(){
+    public void buscarMultivuelo() {
         click(buscarMultivueloLocator);
     }
+
     public void seleccionOrigenSantiagoChile() throws InterruptedException {
         click(origenVueloLocator);
-        write("Santiago",origenVueloLocator);
+        write("Santiago", origenVueloLocator);
         Thread.sleep(1000);
         click(santiagoChileLocator);
     }
 
     public void seleccionDestinoMiami() throws InterruptedException {
         click(destinoVueloLocator);
-        write("Miami",destinoVueloLocator);
+        write("Miami", destinoVueloLocator);
         Thread.sleep(1000);
         click(miamiLocator);
     }
-
 
 
     public void clickTopCiudades() {
@@ -363,15 +363,15 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         clickearPrecio(precioLocalizador);
     }
 
-    public void seleccionarSoloIda(){
-click(seleccionarSoloIdaLocator);
+    public void seleccionarSoloIda() {
+        click(seleccionarSoloIdaLocator);
     }
 
-    public void seleccionarDestino(String destino){
+    public void seleccionarDestino(String destino) {
         click(destinoVueloLocator);
         clear(destinoVueloLocator);
         write(destino, destinoVueloLocator);
         click(primeraOpcionDestinoLocator);
     }
-    }
+}
 

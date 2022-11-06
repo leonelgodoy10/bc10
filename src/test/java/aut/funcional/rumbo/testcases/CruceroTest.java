@@ -23,6 +23,7 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.verTodasLasOfertas();
         Assertions.assertEquals("Cruceros", rumboHomePageCrucero.textoUrlTitulo());
     }
+
     @Test
     void busquedaCruceroUnaPersonaAdultaBC002() throws InterruptedException {
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
@@ -41,6 +42,7 @@ public class CruceroTest extends SeleniumTestBase {
         Thread.sleep(4000);
         rumboHomePageCrucero.buscarCrucero();
     }
+
     @Test
     void reservaDeCruceroBC003() throws InterruptedException {
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
@@ -49,7 +51,7 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
         rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
-        rumboHomePageCrucero.seleccionPeriodo(2023,"feb");
+        rumboHomePageCrucero.seleccionPeriodo(2023, "feb");
         rumboHomePageCrucero.cualquierDuracion("De 6 a 9 días");
         rumboHomePageCrucero.cualquierCompania("Costa Cruceros");
         rumboHomePageCrucero.seleccionarCasillero();
@@ -61,6 +63,7 @@ public class CruceroTest extends SeleniumTestBase {
 
 
     }
+
     @Test
     void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004() {//ok funcionando, probar
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
@@ -69,7 +72,7 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
         rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
-        rumboHomePageCrucero.seleccionPeriodo(0,"0");//Significa cualquier destino
+        rumboHomePageCrucero.seleccionPeriodo(0, "0");//Significa cualquier destino
         rumboHomePageCrucero.cualquierDuracion("Cualquier duración");
         rumboHomePageCrucero.cualquierCompania("Celebrity Cruises");
         rumboHomePageCrucero.cualquierPuerto("Ravenna");
@@ -88,7 +91,7 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
         rumboHomePageCrucero.seleccionarDestinoCrucero("Sudamérica");
-        rumboHomePageCrucero.seleccionPeriodo(2023,"ene");
+        rumboHomePageCrucero.seleccionPeriodo(2023, "ene");
         rumboHomePageCrucero.cualquierDuracion("De 6 a 9 días");
         rumboHomePageCrucero.cualquierCompania("MSC Cruceros");
         rumboHomePageCrucero.cualquierPuerto("Buenos Aires");
