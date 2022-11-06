@@ -249,11 +249,10 @@ public class SeleniumWrapper {
         Thread.sleep(millis);
     }
 
-    public void volverOriginal() {
-        String mainTab = driver.getWindowHandle();
-        System.out.println("Main Tab: " + mainTab);
+    public void volverOriginal() throws InterruptedException {
 
         driver.switchTo().defaultContent();
+        Thread.sleep(2000);
 
     }
 

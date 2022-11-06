@@ -315,6 +315,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         cambiarseIframe(iframeHotelLocalizador);
         click(parejasLocator);
         click(familiasLocator);
+        Thread.sleep(1500);
         volverOriginal();
         click(punto1Locator);
         click(punto2Locator);

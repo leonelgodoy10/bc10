@@ -117,11 +117,10 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.costaCruceros();
         rumboHomePageCrucero.filtrarRating();
         rumboHomePageCrucero.ingresarOpcion();
-//        rumboHomePageCrucero.carnivalHorizon();
-//      rumboHomePageCrucero.botonesDesplegables();
+        rumboHomePageCrucero.carnivalHorizon();
+        rumboHomePageCrucero.botonesDesplegables();
         rumboHomePageCrucero.seleccionarCompanhia();
         rumboHomePageCrucero.seleccionarPresupuesto();
-        rumboHomePageCrucero.llenarDatos();
 
 
     }

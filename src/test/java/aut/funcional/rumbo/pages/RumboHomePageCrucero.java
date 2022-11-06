@@ -53,14 +53,14 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By cargarMasResultado = By.xpath("//span[normalize-space()='Cargar más resultados']");
     By volverArribaLocator = By.xpath("//span[normalize-space()='Volver arriba']");
     By selectorMoverLocator = By.xpath("//crs-carousel[@class='crs-card-departure-dates__carousel swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode']//div[@class='crs-card-departure-date crs-card-departure-date--active']");
-    By descubreElItinirerioLocator = By.xpath("//div[@role='link']//span[@crstextresource='generic.itinerary'][normalize-space()='Itinerario']");
+    By descubreElItinirerioLocator = By.xpath("//button[@class='crs-btn crs-btn--link crs-btn--text ng-star-inserted']");
     By dia1 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 1']");
     //By dia2 = By.xpath("");
     By dia3 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 3']");
     By dia4 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 4']");
     By dia5 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 5']");
     //By dia6 = By.xpath("");
-    By dia7 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 7']//span[@class='icon icon-arrow_down']");
+    By dia7 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 7']");
     By companhiaLocator = By.xpath("//span[normalize-space()='Compañia']");
     By solicitarPresupuesto = By.xpath("//button[@class='crs-btn crs-btn--cta crs-btn--contain crs-btn--block ng-star-inserted']//span[@class='crs-label ng-star-inserted'][normalize-space()='Solicitar presupuesto']");
     By barraInsertaNombreLocator = By.xpath("//input[@id='firstname_1667603166336']");
@@ -281,7 +281,12 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
 
     }
 
-    public void carnivalHorizon() {
+    public void carnivalHorizon() throws InterruptedException {
+
+        cambiarPestanha();
+        click(descubreElItinirerioLocator);
+        Thread.sleep(1500);
+
 
     }
 
@@ -316,13 +321,6 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
 
     }
 
-    public void llenarDatos() {
-
-        click(barraInsertaNombreLocator);
-        click(barraApellidoLocator);
-        click(barraEmailLocator);
-
-    }
 
 
 }
