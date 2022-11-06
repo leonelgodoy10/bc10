@@ -15,9 +15,12 @@ public class SeleniumTestBase {
     WebDriver driver;
     static Properties properties;
 
-    public void cambiarPag(){    ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());    driver.switchTo().window(tabs2.get(0));    driver.close();    driver.switchTo().window(tabs2.get(1));}
-
-    public void cambiarPag (){ ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles()); driver.switchTo().window(tabs2.get(0)); driver.close(); driver.switchTo().window(tabs2.get(1));}
+    public void cambiarPag() {
+        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs2.get(0));
+        driver.close();
+        driver.switchTo().window(tabs2.get(1));
+    }
 
 
     @BeforeAll
@@ -37,7 +40,6 @@ public class SeleniumTestBase {
     void close() {
         driver.quit();
     }
-
 
 
 }
