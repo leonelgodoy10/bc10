@@ -24,16 +24,16 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By crucerosLocator = By.xpath("//div[contains(@class,'display-1dpcy4y-HubNavigationMenu-styled e10w470p3')]//a[contains(@title,'Cruceros')][normalize-space()='Cruceros']");
     By navegarOfertasLocator = By.xpath("//body/div[@class='container container-home']/crs-home-offers/section[@class='crs-offers']/header[@class='crs-offers__header']/div[@class='crs-offers__utils']/crs-btn[@classname='crs-offers-btn-next']/button[@class='crs-btn crs-btn--secondary crs-btn--small crs-btn--outline crs-btn--icon crs-offers-btn-next ng-star-inserted']/span[@class='crs-icon ng-star-inserted']/*[1]//*[name()='svg']");
     By verTodasLasOfertasLocator = By.xpath("//a[@title='Ver todas las ofertas']");
-    By buscarLocator = By.xpath("//button[@class='crs-btn crs-btn--cta crs-btn--contain crs-btn--block ng-star-inserted']");
+    By buscarLocator = By.xpath("//crs-btn[@color='cta']");
     By destinoCruceroLocator = By.xpath("//div[@class='p-multiselect-label ng-tns-c52-3 p-placeholder']");
     By cualquierDestinoBusquedaLocator = By.xpath("//input[@role='textbox']");
     By cualquierPeriodoLocator = By.xpath("//span[normalize-space()='Cualquier periodo']");
     By cualquierDuracionLocator = By.xpath("//span[@id='pr_id_1_label']");
     By cualquierCompaniaLocator = By.xpath("//div[@class='ng-tns-c52-5 crs_field--cruiseline p-multiselect p-component']");
     By companiaTextBoxLocator = By.xpath("//input[@role='textbox']");
-    By cualquierPuertoLocator = By.xpath("//div[@class='ng-tns-c52-6 crs_field--ports p-multiselect p-component']");
+    By cualquierPuertoLocator = By.xpath("//crs-multi-select[@formcontrolname='ports']");
     By puertoTextBoxLocator = By.xpath("//input[@role='textbox']");
-    By pasajerosLocator = By.xpath("//div[@class='crs-field-dd-occupancy crs_field--occupancy']//div[@class='p-dropdown p-component']");
+    By pasajerosLocator = By.xpath("//crs-occupancy-dd-selector[@formcontrolname='occupancy']");
     By agregarAdultoLocator = By.xpath("(//button[contains(text(),'+')])[1]");
     By agregarJuniorLocator = By.xpath("(//button[contains(text(),'+')])[2]");
     By agregarNinoLocator = By.xpath("(//button[contains(text(),'+')])[3]");
@@ -163,69 +163,75 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
 
-    public void cualquierPuerto(String nombrePuerto) {
+    public void cualquierPuerto(String nombrePuerto) throws InterruptedException {
         WebElement esperaPuerto = findElement(cualquierPuertoLocator);
         WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
         esperar.until(ExpectedConditions.elementToBeClickable(esperaPuerto));
         click(cualquierPuertoLocator);
+        esperaMillis(200);
         click(puertoTextBoxLocator);
         clear(puertoTextBoxLocator);
+        esperaMillis(200);
         write(nombrePuerto, puertoTextBoxLocator);
-        esperar.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//li[@aria-label='" + nombrePuerto + "']")));
+        esperaMillis(200);
         click(By.xpath("//li[@aria-label='" + nombrePuerto + "']"));
+
     }
 
 
     public void agregarAdultos(int nAdultos) {
-        WebElement esperaPasajero = findElement(pasajerosLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+
         if (nAdultos > 1) {
             click(pasajerosLocator);
-            for (int i = 0; i < nAdultos; i++) {
+            WebElement esperaPasajero = findElement(agregarAdultoLocator);
+            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+            for (int i = 2; i < nAdultos; i++) {
                 click(agregarAdultoLocator);
             }
         }
-        click(cierrePasajerosLocator);
+        click(pasajerosLocator);
     }
 
     public void agregarJunior(int nJunior) {
-        WebElement esperaPasajero = findElement(pasajerosLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+
         if (nJunior > 1) {
             click(pasajerosLocator);
+            WebElement esperaPasajero = findElement(agregarJuniorLocator);
+            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
             for (int i = 0; i < nJunior; i++) {
                 click(agregarJuniorLocator);
             }
         }
-        click(cierrePasajerosLocator);
+        click(pasajerosLocator);
     }
 
     public void agregarNinos(int nNinos) {
-        WebElement esperaPasajero = findElement(pasajerosLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
         if (nNinos > 1) {
             click(pasajerosLocator);
+            WebElement esperaPasajero = findElement(agregarNinoLocator);
+            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
             for (int i = 0; i < nNinos; i++) {
                 click(agregarNinoLocator);
             }
         }
-        click(cierrePasajerosLocator);
+        click(pasajerosLocator);
     }
 
     public void agregarBebes(int nBebes) {
-        WebElement esperaPasajero = findElement(pasajerosLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+
         if (nBebes > 1) {
             click(pasajerosLocator);
+            WebElement esperaPasajero = findElement(agregarBebeLocator);
+            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
             for (int i = 0; i < nBebes; i++) {
                 click(agregarBebeLocator);
             }
         }
-        click(cierrePasajerosLocator);
+        click(pasajerosLocator);
     }
 
     public void navegarAlHome() {
