@@ -72,7 +72,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By cerrarMultiDestinoCookieLocator = By.xpath("(//div[@class='ButtonPrimitiveIconContainer__StyledButtonPrimitiveIconContainer-sc-8rx3cv-0 fxbcmo'])[1]");
     By borrarTodoMultiDestinoLocator = By.xpath("//button[@class='ButtonPrimitive__StyledButtonPrimitive-sc-1lbd19y-0 jsYoLw']//div[@class='ButtonPrimitiveContent__StyledButtonPrimitiveContent-sc-1r81o9a-0 ZYrQU']");
     By buscarMultivueloLocator = By.xpath("//div[contains(text(),'Buscar')]");
-
+    By mensajeErrorNinho = By.xpath("//span[@role='alert']");
 
     public void aceptarCookie() {
         if (isDisplayed(BtnaceptarCookiesLocator) == true) {
@@ -373,6 +373,10 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         clear(destinoVueloLocator);
         write(destino, destinoVueloLocator);
         click(primeraOpcionDestinoLocator);
+    }
+    public String errorMensajeNinho(){
+        click(seleccionViajeroLocator);
+        return getText(mensajeErrorNinho);
     }
 }
 
