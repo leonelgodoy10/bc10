@@ -107,8 +107,15 @@ public class HotelTest extends SeleniumTestBase {
 
     @Test
     void reservarHotelesQueAdmitenPerrosBH006() throws InterruptedException {
-
-
+        rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
+        rumboHomePageHotel.navegarAlHome();
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.selectorHotel();
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.scroll(0,1700);
+        rumboHomePageHotel.navegarPerros();
+        rumboHomePageHotel.quienReserva("Leonel","Godoy","leonelgodoy@gmail.com","56","987654321");
+        rumboHomePageHotel.husped("Jordan","Jimenez");
 
     }
 }
