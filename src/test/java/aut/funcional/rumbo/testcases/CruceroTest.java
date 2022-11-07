@@ -122,7 +122,6 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.seleccionarCompanhia();
         rumboHomePageCrucero.seleccionarPresupuesto();
 
-
     }
 
 }

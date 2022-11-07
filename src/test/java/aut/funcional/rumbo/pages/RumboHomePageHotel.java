@@ -44,6 +44,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By tipoHabitacionLocator = By.xpath("document.querySelector(\".Button-sc-1bbve8d-0.bsSjVP.SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7.jThHsW\")");
 
     By HabitacionDoubleLocator = By.xpath("(//span[normalize-space()='Solo habitación'])[1]");
+
     By seleccionHotelesRuralesLocator = By.xpath("//h4[normalize-space()='Hoteles rurales']");
     By seleccionHotelFincaLosLlanosLocator = By.xpath("//span[normalize-space()='Hotel Finca Los Llanos']");
     By btnBuscar = By.xpath("//button[@type='submit']");
@@ -70,20 +71,21 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By todoIncluidoLocator = By.xpath("//*[name()='path' and contains(@d,'M0.333496 ')]");
     By chipreLocator = By.xpath("//div[@class='sc-BeQoi gVBHRE openx-ui-card-content']");
     By limpiarTodosLocator = By.xpath("//button[normalize-space()='Limpiar todos']");
-    By avanzarFotosLocator = By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/img[1]");
+    By avanzarFotosLocator = By.xpath("/html[1]/body[1]/div[1]/main[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[2]/img[1]");
+
     By verMasLocator = By.xpath("(//a[@class='sc-bZnhIo gcujSs show-more'][normalize-space()='Ver más'])[1]");
-    By parejasLocator = By.xpath("/html/body/header/div/section[2]/div[10]/ul/li[2]/a/span/span[1]");
-    By familiasLocator = By.xpath("/html/body/header/div/section[2]/div[10]/ul/li[3]/a/span/span[1]");
-    By elegirTipoHabitacionLocator = By.xpath("//button[@class='Button-sc-1bbve8d-0 bsSjVP SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7 jThHsW']");
+    By parejasLocator = By.xpath("/html/body/header/div/section[2]/div[10]/ul/li[2]");
+    By familiasLocator = By.xpath("/html/body/header/div/section[2]/div[10]/ul/li[3]");
+    By elegirTipoHabitacionLocator = By.xpath("//button[normalize-space()='Elegir tipo de habitación']");
     By aplicarFiltroSoloAlojamientoLocator = By.xpath("//button[normalize-space()='Solo alojamiento']");
     By aplicarFiltroDesayunoInLocator = By.xpath("//button[normalize-space()='Desayuno incluido']");
     By verDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ver detalles'])[1]");
     By ocultarDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ocultar detalles'])[1]");
     By iframeHotelLocalizador = By.xpath("(//iframe[@id='iFrameResizer0'])[1]");
-    By punto1Locator = By.xpath("(//button[@type='button'])[12]");
-    By punto2Locator = By.xpath("(//button[@type='button'])[13]");
-    By punto3Locator = By.xpath("(//button[@type='button'])[14]");
-    By punto4Locator = By.xpath("(//button[@type='button'])[15]");
+    By punto1Locator = By.xpath("(//button[@type='button'])[14]");
+    By punto2Locator = By.xpath("(//button[@type='button'])[15]");
+    By punto3Locator = By.xpath("(//button[@type='button'])[16]");
+    By punto4Locator = By.xpath("(//button[@type='button'])[17]");
     By elejirTipoHabitacion = By.xpath("//button[@class='Button-sc-1bbve8d-0 bsSjVP SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7 jThHsW']");
     By hotelesQueAdmitenPerrosLocator = By.xpath("(//a[contains(@data-kind,'hub-anchor')])[60]");
     By hotelCivisJaimeILocator = By.xpath("//span[normalize-space()='Hotel Civis Jaime I']");
@@ -142,11 +144,14 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
 
     public void seleccionarhotelSpa() {
+        cambiarPestanha();
         click(seleccionarSpaLocator);
     }
 
     public void seleccionarhotelMiro() {
+        cambiarPestanha();
         click(seleccionarMiroLocator);
+
     }
 
 
@@ -156,7 +161,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }*/
 
     public void seleccionarSoloHabitacionDouble() throws InterruptedException {
-        cambiarseIframe(iframeHotelLocalizador);
+        esperaPorLocator(HabitacionDoubleLocator,10);
         click(HabitacionDoubleLocator);
     }
 
@@ -226,7 +231,6 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }
 
     public void ningunDestino() {
-
         click(buscarAlojamientoEnLocator);
         click(cualquierDestino);
 
@@ -329,16 +333,23 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     public void valoraciones() throws InterruptedException {
         cambiarPestanha();
+        Thread.sleep(5000);
         click(valoracionBuenoLocator);
         cambiarseIframe(iframeHotelLocalizador);
+        Thread.sleep(15000);
         click(parejasLocator);
         click(familiasLocator);
         Thread.sleep(1500);
         volverOriginal();
+        Thread.sleep(1500);
         click(punto1Locator);
+        Thread.sleep(500);
         click(punto2Locator);
+        Thread.sleep(500);
         click(punto3Locator);
+        Thread.sleep(500);
         click(punto4Locator);
+        Thread.sleep(500);
         click(elegirTipoHabitacionLocator);
 
     }

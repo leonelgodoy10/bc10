@@ -48,11 +48,11 @@ public class HotelTest extends SeleniumTestBase {
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.seleccionarhotelSpa();
         Thread.sleep(2000);
-        cambiarPag();
+        //cambiarPag();
         rumboHomePageHotel.seleccionarhotelMiro();
         rumboHomePageHotel.elegirTipoHabitacion();
         Thread.sleep(2000);
-//rumboHomePageHotel.seleccionarSoloHabitacionDouble();
+        rumboHomePageHotel.seleccionarSoloHabitacionDouble();
 
     }
 
@@ -79,12 +79,18 @@ public class HotelTest extends SeleniumTestBase {
         rumboHomePageHotel.filtroRegimen();
         rumboHomePageHotel.seleccionarPais();
         rumboHomePageHotel.limpiarFiltro();
+        Thread.sleep(2000);
         rumboHomePageHotel.seleccionarHotel();
         rumboHomePageHotel.valoraciones();
 
+    }
+    @Test
+    void prueba() throws InterruptedException {
+        rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
+        rumboHomePageHotel.navigateTo("https://hotel.rumbo.es/details/hotel/1681696/hotel-only?search.rooms%5B0%5D.adults=3&search.rooms%5B0%5D.children=1&search.rooms%5B0%5D.childrenAge%5B0%5D=2&openx=true&search.departureIntervals=20221120-20221202&search.type=OSE&search.businessProfileId=HOLIDAYSRUMBOES_OSS&search.destinationTag=CIPRO&bf_subsource=S07RRTL0S07PD03&search.accomodationOnly=true&search.checkin=202211-20&search.checkout=202212-02&extReferenceId=dq3p3wr1g0r2xxfhd1&extReferenceType=OPENX&hdpSearchId=dq3p3wr1g0r2xxfhd1&searchId=592065057&referenceEventId=oss_5deuo69qehn6g9qha1&sessionId=6995407856915093504");
+        rumboHomePageHotel.valoraciones();
 
     }
-
     @Test
     void verMejoresOfertasEnHotelesBH005() throws InterruptedException {
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
@@ -96,13 +102,12 @@ public class HotelTest extends SeleniumTestBase {
         Thread.sleep(4000);
         cambiarPag();
         rumboHomePageHotel.seleccionHotelFincaLosLlanos();
-      //  rumboHomePageHotel.seleccionarTipoHabitacion();
         rumboHomePageHotel.elegirTipoHabitacion();
-        //Thread.sleep(2000);
-        //rumboHomePageHotel.aplicarFiltrosHabitacion();
-        //Thread.sleep(2000);
-        //rumboHomePageHotel.detallesHabitacion();
-       // rumboHomePageHotel.valoraciones();
+        Thread.sleep(2000);
+        rumboHomePageHotel.aplicarFiltrosHabitacion();
+        Thread.sleep(2000);
+        rumboHomePageHotel.detallesHabitacion();
+        rumboHomePageHotel.valoraciones();
 
     }
 
