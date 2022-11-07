@@ -41,7 +41,6 @@ public class HotelTest extends SeleniumTestBase {
 
     @Test
     void registrarFechaDeEntradaBH003() throws InterruptedException {
-
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
         Thread.sleep(2000);
@@ -49,7 +48,7 @@ public class HotelTest extends SeleniumTestBase {
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.seleccionarhotelSpa();
         Thread.sleep(4000);
-        //cambiarPag();
+        cambiarPag();
         rumboHomePageHotel.seleccionarhotelMiro();
         rumboHomePageHotel.seleccionarTipoHabitacion();
         rumboHomePageHotel.seleccionarSoloHabitacionDouble();

@@ -113,8 +113,10 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.selectorVuelos();
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.seleccionarSoloIda();
+        Thread.sleep(8000);
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
-        rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
+        Thread.sleep(4000);
+        //rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
         rumboHomePageHomeVuelo.seleccionarDestino("Buenos aires");
         rumboHomePageHomeVuelo.buscarVuelo();
     }
