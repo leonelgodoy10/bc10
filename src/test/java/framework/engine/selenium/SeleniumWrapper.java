@@ -293,4 +293,11 @@ public class SeleniumWrapper {
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(timeEspera));
     }
 
+    public void cambiarPag() {
+        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs2.get(0));
+        driver.close();
+        driver.switchTo().window(tabs2.get(1));
+    }
+
 }

@@ -100,14 +100,14 @@ public class HotelTest extends SeleniumTestBase {
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.seleccionHotelesRurales();
         Thread.sleep(4000);
-        cambiarPag();
+        rumboHomePageHotel.cambiarPag();
         rumboHomePageHotel.seleccionHotelFincaLosLlanos();
         rumboHomePageHotel.elegirTipoHabitacion();
         Thread.sleep(2000);
         rumboHomePageHotel.aplicarFiltrosHabitacion();
         Thread.sleep(2000);
         rumboHomePageHotel.detallesHabitacion();
-        rumboHomePageHotel.valoraciones();
+
 
     }
 
