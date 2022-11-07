@@ -354,9 +354,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(By.xpath("//span[normalize-space()='"+tipoTransporte+"']"));
     }
 
-    public void cambiarIframe() throws InterruptedException {
-        cambiarAIframe();
-    }
+
 
     public void informacionYClick() throws InterruptedException {
         mouseEncima();

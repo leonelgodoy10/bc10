@@ -45,10 +45,9 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.bajarEscalaTop();
         Thread.sleep(3000);
         rumboHomePageHomeVuelo.limpiarFiltros();
-        rumboHomePageHomeVuelo.verFiltro();
-        rumboHomePageHomeVuelo.cambiarIframe();
-        rumboHomePageHomeVuelo.informacionYClick();
-        rumboHomePageHomeVuelo.clickearPrecio();
+        //rumboHomePageHomeVuelo.verFiltro();
+        //rumboHomePageHomeVuelo.informacionYClick();
+        //rumboHomePageHomeVuelo.clickearPrecio();
     }
 
     @Test

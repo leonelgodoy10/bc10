@@ -24,7 +24,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By crucerosLocator = By.xpath("//div[contains(@class,'display-1dpcy4y-HubNavigationMenu-styled e10w470p3')]//a[contains(@title,'Cruceros')][normalize-space()='Cruceros']");
     By navegarOfertasLocator = By.xpath("//body/div[@class='container container-home']/crs-home-offers/section[@class='crs-offers']/header[@class='crs-offers__header']/div[@class='crs-offers__utils']/crs-btn[@classname='crs-offers-btn-next']/button[@class='crs-btn crs-btn--secondary crs-btn--small crs-btn--outline crs-btn--icon crs-offers-btn-next ng-star-inserted']/span[@class='crs-icon ng-star-inserted']/*[1]//*[name()='svg']");
     By verTodasLasOfertasLocator = By.xpath("//a[@title='Ver todas las ofertas']");
-    By buscarLocator = By.xpath("//crs-btn[@color='cta']");
+    By buscarLocator = By.xpath("//span[normalize-space()='Buscar']");
     By destinoCruceroLocator = By.xpath("//div[@class='p-multiselect-label ng-tns-c52-3 p-placeholder']");
     By cualquierDestinoBusquedaLocator = By.xpath("//input[@role='textbox']");
     By cualquierPeriodoLocator = By.xpath("//span[normalize-space()='Cualquier periodo']");
@@ -59,8 +59,9 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By dia3 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 3']");
     By dia4 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 4']");
     By dia5 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 5']");
-    //By dia6 = By.xpath("");
+    By dia6 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 6']");
     By dia7 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 7']");
+    By dia9 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 9']");
     By companhiaLocator = By.xpath("//span[normalize-space()='Compañia']");
     By solicitarPresupuesto = By.xpath("//button[@class='crs-btn crs-btn--cta crs-btn--contain crs-btn--block ng-star-inserted']//span[@class='crs-label ng-star-inserted'][normalize-space()='Solicitar presupuesto']");
     By barraInsertaNombreLocator = By.xpath("//input[@id='firstname_1667603166336']");
@@ -298,14 +299,16 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     public void botonesDesplegables() {
         click(dia1);
         click(dia1);
-        click(dia3);
-        click(dia3);
         click(dia4);
         click(dia4);
         click(dia5);
         click(dia5);
+        click(dia6);
         click(dia7);
         click(dia7);
+        click(dia7);
+        click(dia9);
+        click(dia9);
 
     }
 
