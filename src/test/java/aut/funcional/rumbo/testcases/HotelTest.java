@@ -41,18 +41,19 @@ public class HotelTest extends SeleniumTestBase {
 
     @Test
     void registrarFechaDeEntradaBH003() throws InterruptedException {
-
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
         Thread.sleep(2000);
         rumboHomePageHotel.aceptarCookie();
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.seleccionarhotelSpa();
-        Thread.sleep(4000);
-        //cambiarPag();
+        Thread.sleep(2000);
+        cambiarPag();
         rumboHomePageHotel.seleccionarhotelMiro();
-        rumboHomePageHotel.seleccionarTipoHabitacion();
-        rumboHomePageHotel.seleccionarSoloHabitacionDouble();
+        rumboHomePageHotel.elegirTipoHabitacion();
+        Thread.sleep(2000);
+//rumboHomePageHotel.seleccionarSoloHabitacionDouble();
+
     }
 
 
@@ -95,12 +96,13 @@ public class HotelTest extends SeleniumTestBase {
         Thread.sleep(4000);
         //cambiarPag();
         rumboHomePageHotel.seleccionHotelFincaLosLlanos();
-        //rumboHomePageHotel.elegirTipoHabitacion();
+      //  rumboHomePageHotel.seleccionarTipoHabitacion();
+        rumboHomePageHotel.elegirTipoHabitacion();
         //Thread.sleep(2000);
         //rumboHomePageHotel.aplicarFiltrosHabitacion();
         //Thread.sleep(2000);
         //rumboHomePageHotel.detallesHabitacion();
-        rumboHomePageHotel.valoraciones();
+       // rumboHomePageHotel.valoraciones();
 
     }
 
