@@ -2,9 +2,8 @@ package framework.engine.selenium;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.*;
+
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -285,6 +284,13 @@ public class SeleniumWrapper {
         }
 
 
+    }
+    public void esperaPorLocator(By locator,int maxTime){
+        WebElement esperarLocator = new WebDriverWait(DriverFactory.getDriver(),Duration.ofSeconds(maxTime))
+                .until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+    public void esperaImplicitaMillis(int timeEspera){
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(timeEspera));
     }
 
 }
