@@ -2,6 +2,7 @@ package aut.funcional.rumbo.pages;
 
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
+import gherkin.lexer.Th;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -59,6 +60,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By filtrocancelacionGratuita = By.xpath("//div[contains(text(),'Cancelación gratuita')]");
     By filtrowifiGratisLocator = By.xpath("//div[contains(text(),'Wifi gratis')]");
     By filtroValoracionLocator = By.xpath("//div[@id='container_full_width']//div[4]//div[1]//*[name()='svg']");
+    By valoracionBuenoLocator = By.xpath("//span[@class='ReviewsSummary__TrustYouLinkText-sc-by8rko-3 jxUPZX']");
     By excelenteLocator = By.xpath("//div[@class='sc-dPyBCJ kmZvLO filter-rating-label-excellent']");
     By muyBuenoLocator = By.xpath("//div[@class='sc-dPyBCJ kmZvLO filter-rating-label-very-good']");
     By buenoLocator = By.xpath("//div[@class='sc-dPyBCJ kmZvLO filter-rating-label-good']");
@@ -75,7 +77,12 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By aplicarFiltroDesayunoInLocator = By.xpath("//button[normalize-space()='Desayuno incluido']");
     By verDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ver detalles'])[1]");
     By ocultarDetallesHabitacionLocator = By.xpath("(//div[normalize-space()='Ocultar detalles'])[1]");
-
+    By iframeHotelLocalizador = By.xpath("(//iframe[@id='iFrameResizer0'])[1]");
+    By punto1Locator = By.xpath("(//button[@type='button'])[12]");
+    By punto2Locator = By.xpath("(//button[@type='button'])[13]");
+    By punto3Locator = By.xpath("(//button[@type='button'])[14]");
+    By punto4Locator = By.xpath("(//button[@type='button'])[15]");
+    By elejirTipoHabitacion = By.xpath("//button[@class='Button-sc-1bbve8d-0 bsSjVP SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7 jThHsW']");
 
     public void aceptarCookie() {
         if (isDisplayed(BtnaceptarCookiesLocator) == true) {
@@ -102,8 +109,9 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         return getUrlTitle();
     }
 
-    public void buscarHotel() {
+    public void buscarHotel() throws InterruptedException {
         click(btnBuscar);
+        Thread.sleep(3000);
     }
 
     public void navegarAlHome() {
@@ -283,23 +291,37 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     }
 
-    public void seleccionarHotel() {
-
+    public void seleccionarHotel() throws InterruptedException {
+        hover(avanzarFotosLocator);
+        Thread.sleep(1000);
         click(avanzarFotosLocator);
+        hover(avanzarFotosLocator);
+        Thread.sleep(1000);
         click(avanzarFotosLocator);
+        hover(avanzarFotosLocator);
+        Thread.sleep(1000);
         click(avanzarFotosLocator);
+        hover(avanzarFotosLocator);
+        Thread.sleep(1000);
         click(avanzarFotosLocator);
+        Thread.sleep(1000);
         click(verMasLocator);
 
     }
 
     public void valoraciones() throws InterruptedException {
-        navigateTo("https://hotel.rumbo.es/details/hotel/1681696/hotel-only?search.rooms%5B0%5D.adults=3&search.rooms%5B0%5D.children=1&search.rooms%5B0%5D.childrenAge%5B0%5D=2&openx=true&search.departureIntervals=20221120-20221202&search.type=OSE&search.businessProfileId=HOLIDAYSRUMBOES_OSS&search.destinationTag=CIPRO&bf_subsource=S07RRTL0S07PD03&search.accomodationOnly=true&search.checkin=202211-20&search.checkout=202212-02&mealplan=ALL_INCLUSIVE&extReferenceId=2v4rb7n9gdmtfib5pi&extReferenceType=OPENX&hdpSearchId=2v4rb7n9gdmtfib5pi&searchId=589226389&referenceEventId=oss_qprwa9r6wfmarnru2g&sessionId=6994790290714818560");
-        By iframeLocalizador = By.xpath("(//iframe[@id='iFrameResizer0'])[1]");
-        cambiarseIframe(iframeLocalizador);
-        System.out.println(getUrlTitle());
+        cambiarPestanha();
+        click(valoracionBuenoLocator);
+        cambiarseIframe(iframeHotelLocalizador);
         click(parejasLocator);
         click(familiasLocator);
+        Thread.sleep(1500);
+        volverOriginal();
+        click(punto1Locator);
+        click(punto2Locator);
+        click(punto3Locator);
+        click(punto4Locator);
+        click(elegirTipoHabitacionLocator);
 
     }
 

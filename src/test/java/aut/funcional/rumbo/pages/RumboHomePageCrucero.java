@@ -24,16 +24,16 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By crucerosLocator = By.xpath("//div[contains(@class,'display-1dpcy4y-HubNavigationMenu-styled e10w470p3')]//a[contains(@title,'Cruceros')][normalize-space()='Cruceros']");
     By navegarOfertasLocator = By.xpath("//body/div[@class='container container-home']/crs-home-offers/section[@class='crs-offers']/header[@class='crs-offers__header']/div[@class='crs-offers__utils']/crs-btn[@classname='crs-offers-btn-next']/button[@class='crs-btn crs-btn--secondary crs-btn--small crs-btn--outline crs-btn--icon crs-offers-btn-next ng-star-inserted']/span[@class='crs-icon ng-star-inserted']/*[1]//*[name()='svg']");
     By verTodasLasOfertasLocator = By.xpath("//a[@title='Ver todas las ofertas']");
-    By buscarLocator = By.xpath("//button[@class='crs-btn crs-btn--cta crs-btn--contain crs-btn--block ng-star-inserted']");
+    By buscarLocator = By.xpath("//crs-btn[@color='cta']");
     By destinoCruceroLocator = By.xpath("//div[@class='p-multiselect-label ng-tns-c52-3 p-placeholder']");
     By cualquierDestinoBusquedaLocator = By.xpath("//input[@role='textbox']");
     By cualquierPeriodoLocator = By.xpath("//span[normalize-space()='Cualquier periodo']");
     By cualquierDuracionLocator = By.xpath("//span[@id='pr_id_1_label']");
     By cualquierCompaniaLocator = By.xpath("//div[@class='ng-tns-c52-5 crs_field--cruiseline p-multiselect p-component']");
     By companiaTextBoxLocator = By.xpath("//input[@role='textbox']");
-    By cualquierPuertoLocator = By.xpath("//div[@class='ng-tns-c52-6 crs_field--ports p-multiselect p-component']");
+    By cualquierPuertoLocator = By.xpath("//crs-multi-select[@formcontrolname='ports']");
     By puertoTextBoxLocator = By.xpath("//input[@role='textbox']");
-    By pasajerosLocator = By.xpath("//div[@class='crs-field-dd-occupancy crs_field--occupancy']//div[@class='p-dropdown p-component']");
+    By pasajerosLocator = By.xpath("//crs-occupancy-dd-selector[@formcontrolname='occupancy']");
     By agregarAdultoLocator = By.xpath("(//button[contains(text(),'+')])[1]");
     By agregarJuniorLocator = By.xpath("(//button[contains(text(),'+')])[2]");
     By agregarNinoLocator = By.xpath("(//button[contains(text(),'+')])[3]");
@@ -46,20 +46,21 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By costaCrucerosLocator = By.xpath("//span[@class='date'][normalize-space()='Costa Cruceros']");
     By cruceroPorIslasGriegas = By.xpath("//a[@title='crucero islas griegas ofertas']");
     By reiniciarBusquedaLocator = By.xpath("//span[normalize-space()='Reiniciar búsqueda']");
+
     By buscarCruceroLocator = By.xpath("//span[normalize-space()='Buscar']");
     By recomendadosLocator = By.xpath("//span[@class='p-dropdown-trigger-icon ng-tns-c43-8 pi pi-chevron-down']");
     By ratingLocator = By.xpath("//li[@aria-label='Rating']");
     By cargarMasResultado = By.xpath("//span[normalize-space()='Cargar más resultados']");
     By volverArribaLocator = By.xpath("//span[normalize-space()='Volver arriba']");
     By selectorMoverLocator = By.xpath("//crs-carousel[@class='crs-card-departure-dates__carousel swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode']//div[@class='crs-card-departure-date crs-card-departure-date--active']");
-    By descubreElItinirerioLocator = By.xpath("//div[@role='link']//span[@crstextresource='generic.itinerary'][normalize-space()='Itinerario']");
+    By descubreElItinirerioLocator = By.xpath("//button[@class='crs-btn crs-btn--link crs-btn--text ng-star-inserted']");
     By dia1 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 1']");
     //By dia2 = By.xpath("");
     By dia3 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 3']");
     By dia4 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 4']");
     By dia5 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 5']");
     //By dia6 = By.xpath("");
-    By dia7 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 7']//span[@class='icon icon-arrow_down']");
+    By dia7 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 7']");
     By companhiaLocator = By.xpath("//span[normalize-space()='Compañia']");
     By solicitarPresupuesto = By.xpath("//button[@class='crs-btn crs-btn--cta crs-btn--contain crs-btn--block ng-star-inserted']//span[@class='crs-label ng-star-inserted'][normalize-space()='Solicitar presupuesto']");
     By barraInsertaNombreLocator = By.xpath("//input[@id='firstname_1667603166336']");
@@ -162,69 +163,75 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
 
-    public void cualquierPuerto(String nombrePuerto) {
+    public void cualquierPuerto(String nombrePuerto) throws InterruptedException {
         WebElement esperaPuerto = findElement(cualquierPuertoLocator);
         WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
         esperar.until(ExpectedConditions.elementToBeClickable(esperaPuerto));
         click(cualquierPuertoLocator);
+        esperaMillis(200);
         click(puertoTextBoxLocator);
         clear(puertoTextBoxLocator);
+        esperaMillis(200);
         write(nombrePuerto, puertoTextBoxLocator);
-        esperar.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//li[@aria-label='" + nombrePuerto + "']")));
+        esperaMillis(200);
         click(By.xpath("//li[@aria-label='" + nombrePuerto + "']"));
+
     }
 
 
     public void agregarAdultos(int nAdultos) {
-        WebElement esperaPasajero = findElement(pasajerosLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+
         if (nAdultos > 1) {
             click(pasajerosLocator);
-            for (int i = 0; i < nAdultos; i++) {
+            WebElement esperaPasajero = findElement(agregarAdultoLocator);
+            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+            for (int i = 2; i < nAdultos; i++) {
                 click(agregarAdultoLocator);
             }
         }
-        click(cierrePasajerosLocator);
+        click(pasajerosLocator);
     }
 
     public void agregarJunior(int nJunior) {
-        WebElement esperaPasajero = findElement(pasajerosLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+
         if (nJunior > 1) {
             click(pasajerosLocator);
+            WebElement esperaPasajero = findElement(agregarJuniorLocator);
+            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
             for (int i = 0; i < nJunior; i++) {
                 click(agregarJuniorLocator);
             }
         }
-        click(cierrePasajerosLocator);
+        click(pasajerosLocator);
     }
 
     public void agregarNinos(int nNinos) {
-        WebElement esperaPasajero = findElement(pasajerosLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
         if (nNinos > 1) {
             click(pasajerosLocator);
+            WebElement esperaPasajero = findElement(agregarNinoLocator);
+            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
             for (int i = 0; i < nNinos; i++) {
                 click(agregarNinoLocator);
             }
         }
-        click(cierrePasajerosLocator);
+        click(pasajerosLocator);
     }
 
     public void agregarBebes(int nBebes) {
-        WebElement esperaPasajero = findElement(pasajerosLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+
         if (nBebes > 1) {
             click(pasajerosLocator);
+            WebElement esperaPasajero = findElement(agregarBebeLocator);
+            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
+            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
             for (int i = 0; i < nBebes; i++) {
                 click(agregarBebeLocator);
             }
         }
-        click(cierrePasajerosLocator);
+        click(pasajerosLocator);
     }
 
     public void navegarAlHome() {
@@ -274,7 +281,12 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
 
     }
 
-    public void carnivalHorizon() {
+    public void carnivalHorizon() throws InterruptedException {
+
+        cambiarPestanha();
+        click(descubreElItinirerioLocator);
+        Thread.sleep(1500);
+
 
     }
 
@@ -309,13 +321,6 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
 
     }
 
-    public void llenarDatos() {
-
-        click(barraInsertaNombreLocator);
-        click(barraApellidoLocator);
-        click(barraEmailLocator);
-
-    }
 
 
 }
