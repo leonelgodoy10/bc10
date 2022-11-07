@@ -41,19 +41,19 @@ public class HotelTest extends SeleniumTestBase {
 
     @Test
     void registrarFechaDeEntradaBH003() throws InterruptedException {
-
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
         Thread.sleep(2000);
         rumboHomePageHotel.aceptarCookie();
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.seleccionarhotelSpa();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         cambiarPag();
         rumboHomePageHotel.seleccionarhotelMiro();
-        rumboHomePageHotel.seleccionarTipoHabitacion();
+        rumboHomePageHotel.elegirTipoHabitacion();
         Thread.sleep(2000);
-        rumboHomePageHotel.seleccionarSoloHabitacionDouble();
+//rumboHomePageHotel.seleccionarSoloHabitacionDouble();
+
     }
 
 
@@ -96,22 +96,28 @@ public class HotelTest extends SeleniumTestBase {
         Thread.sleep(4000);
         cambiarPag();
         rumboHomePageHotel.seleccionHotelFincaLosLlanos();
+      //  rumboHomePageHotel.seleccionarTipoHabitacion();
         rumboHomePageHotel.elegirTipoHabitacion();
-        Thread.sleep(1000);
-        rumboHomePageHotel.aplicarFiltrosHabitacion();
-        Thread.sleep(2000);
-        rumboHomePageHotel.detallesHabitacion();
-        Thread.sleep(5000);
-        //rumboHomePageHotel.valoraciones();
         //Thread.sleep(2000);
+        //rumboHomePageHotel.aplicarFiltrosHabitacion();
+        //Thread.sleep(2000);
+        //rumboHomePageHotel.detallesHabitacion();
+       // rumboHomePageHotel.valoraciones();
 
     }
 
 
     @Test
     void reservarHotelesQueAdmitenPerrosBH006() throws InterruptedException {
-
-
+        rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
+        rumboHomePageHotel.navegarAlHome();
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.selectorHotel();
+        rumboHomePageHotel.aceptarCookie();
+        rumboHomePageHotel.scroll(0,1700);
+        rumboHomePageHotel.navegarPerros();
+        rumboHomePageHotel.quienReserva("Leonel","Godoy","leonelgodoy@gmail.com","56","987654321");
+        rumboHomePageHotel.husped("Jordan","Jimenez");
 
     }
 }

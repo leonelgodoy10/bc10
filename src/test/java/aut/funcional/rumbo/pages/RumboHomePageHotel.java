@@ -40,8 +40,10 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By seleccionFechaDeSalidaLocator13102022 = By.xpath("//button[contains(@class,'display-s2qfcl-Day-styled-Day-styled-Day-styled')][normalize-space()='13']");
     By seleccionarSpaLocator = By.xpath("//h4[normalize-space()='Hoteles con spa']");
     By seleccionarMiroLocator = By.xpath("//span[normalize-space()='Hotel Miró']");
-    By tipoHabitacionLocator = By.xpath("/html[1]/body[1]/div[2]/div[2]/div[7]/nav[1]/div[1]/button[1]");
-    By HabitacionDoubleLocator = By.xpath(("//span[normalize-space()='Cancelación gratuita'])[1]"));
+
+    By tipoHabitacionLocator = By.xpath("document.querySelector(\".Button-sc-1bbve8d-0.bsSjVP.SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7.jThHsW\")");
+
+    By HabitacionDoubleLocator = By.xpath("(//span[normalize-space()='Solo habitación'])[1]");
     By seleccionHotelesRuralesLocator = By.xpath("//h4[normalize-space()='Hoteles rurales']");
     By seleccionHotelFincaLosLlanosLocator = By.xpath("//span[normalize-space()='Hotel Finca Los Llanos']");
     By btnBuscar = By.xpath("//button[@type='submit']");
@@ -83,6 +85,17 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By punto3Locator = By.xpath("(//button[@type='button'])[14]");
     By punto4Locator = By.xpath("(//button[@type='button'])[15]");
     By elejirTipoHabitacion = By.xpath("//button[@class='Button-sc-1bbve8d-0 bsSjVP SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7 jThHsW']");
+    By hotelesQueAdmitenPerrosLocator = By.xpath("(//a[contains(@data-kind,'hub-anchor')])[60]");
+    By hotelCivisJaimeILocator = By.xpath("//span[normalize-space()='Hotel Civis Jaime I']");
+    By fotosHotelCivisJaimeLocator = By.xpath("//body/div[@id='__next']/div[@class='BrandedPageLayout___StyledDiv-sc-1x8t0fu-2 cTKbIy']/div[@class='Hero__HeroStyled-sc-1pqg2ch-8 mZMqZ']/div[@class='Hero__Gallery-sc-1pqg2ch-10 cEoXF']/div[@class='HeroGallery___StyledDiv3-sc-1k5pun7-8 ldFqfm']/div[1]");
+    By navegarFotosCivisJaimeLocator = By.xpath("//div[@class='ImageGalleryModal___StyledDiv4-sc-1ayv6ho-11 ctrivU']//button[1]");
+    By cierreFotosCivisJaemeLocator = By.xpath("//*[name()='path' and contains(@d,'M47.41406,')]");
+    By verTodosLosServiciosHotelLocator = By.xpath("//span[normalize-space()='Ver todos los servicios']");
+    By elegirTipoDeHabitacionLocator = By.xpath("//button[normalize-space()='Elegir tipo de habitación']");
+    By soloAlojamientoLocator = By.xpath("//button[normalize-space()='Solo alojamiento']");
+    By mejorPrecioHotelLocator = By.xpath("//span[normalize-space()='¡Mejor precio!']");
+    By cancelacionDeHotelCovid19 = By.xpath("//label[@class='toggle-password-container']//span[@class='check']");
+    By ingresoRegistroLocator = By.xpath("//div[contains(@class,'widget-wrapper widget-wrapper--contact')]");
 
     public void aceptarCookie() {
         if (isDisplayed(BtnaceptarCookiesLocator) == true) {
@@ -136,12 +149,14 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(seleccionarMiroLocator);
     }
 
-    public void seleccionarTipoHabitacion() {
+
+  /*  public void seleccionarTipoHabitacion() {
         cambiarPestanha();
         click(tipoHabitacionLocator);
-    }
+    }*/
 
-    public void seleccionarSoloHabitacionDouble() {
+    public void seleccionarSoloHabitacionDouble() throws InterruptedException {
+        cambiarseIframe(iframeHotelLocalizador);
         click(HabitacionDoubleLocator);
     }
 
@@ -326,6 +341,66 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(punto4Locator);
         click(elegirTipoHabitacionLocator);
 
+    }
+
+    public void navegarPerros() {
+        esperaPorLocator(hotelesQueAdmitenPerrosLocator, 10);
+        click(hotelesQueAdmitenPerrosLocator);
+        cambiarPestanha();
+        scroll(0, 500);
+        esperaPorLocator(hotelCivisJaimeILocator, 10);
+        click(hotelCivisJaimeILocator);
+        cambiarPestanha();
+        click(fotosHotelCivisJaimeLocator);
+        navegarFotos(39);
+        click(cierreFotosCivisJaemeLocator);
+        click(verTodosLosServiciosHotelLocator);
+        despliegueDeServiciosHotel("Internet");
+        despliegueDeServiciosHotel("Parking");
+        despliegueDeServiciosHotel("Comida & bebida");
+        despliegueDeServiciosHotel("Servicios de limpieza ");
+        despliegueDeServiciosHotel("General ");
+        esperaPorLocator(elegirTipoDeHabitacionLocator, 10);
+        click(elegirTipoDeHabitacionLocator);
+        esperaPorLocator(soloAlojamientoLocator, 10);
+        click(soloAlojamientoLocator);
+        esperaPorLocator(mejorPrecioHotelLocator, 10);
+        click(mejorPrecioHotelLocator);
+    }
+
+    public void navegarFotos(int nFotos) {
+        for (int i = 0; i < nFotos; i++) {
+            click(navegarFotosCivisJaimeLocator);
+            esperaImplicitaMillis(200);
+        }
+    }
+
+    public void despliegueDeServiciosHotel(String servicio) {
+        click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+        esperaImplicitaMillis(200);
+        click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+    }
+
+    public void quienReserva(String nombre, String apellido, String mail, String codePais, String nTelefono) throws InterruptedException {
+        esperaPorLocator(ingresoRegistroLocator, 10);
+        write(nombre, By.xpath("//input[@name='name']"));
+        write(apellido, By.xpath("//input[@name='surname']"));
+        write(mail, By.xpath("//input[@id='contact-email']"));
+        click(By.xpath("(//div[@class='arrow down'])[1]"));
+        click(By.xpath("//div[@class='selected-dial-code']"));
+        esperaMillis(200);
+        click(By.xpath("//li[@data-dial-code='" + codePais + "']"));
+        esperaMillis(200);
+        write(nTelefono, By.xpath("//input[@name='phone']"));
+    }
+
+    public void husped(String nombre, String apellido) {
+        click(By.xpath("//span[contains(text(),'Estoy reservando para otra persona.')]"));
+        write(nombre, By.xpath("//input[@name='groups.1.travellers.1.name']"));
+        write(apellido, By.xpath("//input[@name='groups.1.travellers.1.surname']"));
+        scroll(0, 900);
+        //falta dar el click, pero no me funca
+        //click(cancelacionDeHotelCovid19);
     }
 
 
