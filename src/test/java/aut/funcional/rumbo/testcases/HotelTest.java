@@ -47,11 +47,13 @@ public class HotelTest extends SeleniumTestBase {
         rumboHomePageHotel.aceptarCookie();
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.seleccionarhotelSpa();
-        Thread.sleep(4000);
+        Thread.sleep(2000);
         cambiarPag();
         rumboHomePageHotel.seleccionarhotelMiro();
-        rumboHomePageHotel.seleccionarTipoHabitacion();
-        rumboHomePageHotel.seleccionarSoloHabitacionDouble();
+        rumboHomePageHotel.elegirTipoHabitacion();
+        Thread.sleep(2000);
+//rumboHomePageHotel.seleccionarSoloHabitacionDouble();
+
     }
 
 
@@ -94,12 +96,13 @@ public class HotelTest extends SeleniumTestBase {
         Thread.sleep(4000);
         //cambiarPag();
         rumboHomePageHotel.seleccionHotelFincaLosLlanos();
-        //rumboHomePageHotel.elegirTipoHabitacion();
+      //  rumboHomePageHotel.seleccionarTipoHabitacion();
+        rumboHomePageHotel.elegirTipoHabitacion();
         //Thread.sleep(2000);
         //rumboHomePageHotel.aplicarFiltrosHabitacion();
         //Thread.sleep(2000);
         //rumboHomePageHotel.detallesHabitacion();
-        rumboHomePageHotel.valoraciones();
+       // rumboHomePageHotel.valoraciones();
 
     }
 

@@ -42,7 +42,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By seleccionarMiroLocator = By.xpath("//span[normalize-space()='Hotel Miró']");
     By tipoHabitacionLocator = By.xpath("document.querySelector(\".Button-sc-1bbve8d-0.bsSjVP.SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7.jThHsW\")");
 
-    By HabitacionDoubleLocator = By.xpath(("//span[normalize-space()='Cancelación gratuita'])[1]"));
+    By HabitacionDoubleLocator = By.xpath("(//span[normalize-space()='Solo habitación'])[1]");
     By seleccionHotelesRuralesLocator = By.xpath("//h4[normalize-space()='Hoteles rurales']");
     By seleccionHotelFincaLosLlanosLocator = By.xpath("//span[normalize-space()='Hotel Finca Los Llanos']");
     By btnBuscar = By.xpath("//button[@type='submit']");
@@ -137,11 +137,13 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(seleccionarMiroLocator);
     }
 
-    public void seleccionarTipoHabitacion() {
+  /*  public void seleccionarTipoHabitacion() {
+        cambiarPestanha();
         click(tipoHabitacionLocator);
-    }
+    }*/
 
-    public void seleccionarSoloHabitacionDouble() {
+    public void seleccionarSoloHabitacionDouble() throws InterruptedException {
+        cambiarseIframe(iframeHotelLocalizador);
         click(HabitacionDoubleLocator);
     }
 
@@ -246,6 +248,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }
 
     public void elegirTipoHabitacion() {
+        cambiarPestanha();
         click(elegirTipoHabitacionLocator);
     }
 
