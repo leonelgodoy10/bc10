@@ -95,9 +95,13 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
         rumboHomePageCrucero.seleccionarDestinoCrucero("Sudamérica");
+        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.seleccionPeriodo(2023, "ene");
+        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.cualquierDuracion("De 6 a 9 días");
+        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.cualquierCompania("MSC Cruceros");
+        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.cualquierPuerto("Buenos Aires");
         rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.agregarJunior(1);

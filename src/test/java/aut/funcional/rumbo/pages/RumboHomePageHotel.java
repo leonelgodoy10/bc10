@@ -161,6 +161,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }*/
 
     public void seleccionarSoloHabitacionDouble() throws InterruptedException {
+
         esperaPorLocator(HabitacionDoubleLocator,10);
         click(HabitacionDoubleLocator);
     }
