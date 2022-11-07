@@ -142,10 +142,12 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
 
     public void seleccionarhotelSpa() {
+        cambiarPestanha();
         click(seleccionarSpaLocator);
     }
 
     public void seleccionarhotelMiro() {
+        cambiarPestanha();
         click(seleccionarMiroLocator);
     }
 
@@ -156,7 +158,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }*/
 
     public void seleccionarSoloHabitacionDouble() throws InterruptedException {
-        cambiarseIframe(iframeHotelLocalizador);
+
         click(HabitacionDoubleLocator);
     }
 

@@ -53,7 +53,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By buscarTopLocator = By.xpath("//div[contains(text(),'Buscar')]");
     By masBaratoTopLocator = By.xpath("//div[contains(@class,'content-layout-view__column-right col-md-9')]//li[2]");
     By limpiarFiltrosLocator = By.xpath("//button[contains(@class,'Button-sc-1bbve8d-0 NoResultsByFilterPanel__ClearAll-sc-l2dd88-7 gRWIbt kcMhkS')]");
-    By informacionLocator = By.xpath("//div[@class='trip-collection-view__trips-container-top']//div[@class='FullWaySummary__Column-sc-43fbz2-5 FullWaySummary__InfoIcon-sc-43fbz2-12 gYsLQj jFkALV']//*[name()='svg']");
+    By informacionLocator = By.xpath("//button[@class='ButtonPrimitive__StyledButtonPrimitive-sc-1lbd19y-0 iCPnjG']");
     By precioLocalizador = By.xpath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[5]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]");
     By ningunaEscalaVuelta = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='Ninguna']");
     By unaEscalaVueltaLocator = By.xpath("//div[contains(@class,'stops-filter-container--way1')]//span[contains(@class,'checkboxlist-filter-view__desc desc')][normalize-space()='1 escala']");
@@ -70,8 +70,8 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By destino2MultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[5]");
     By seleccionPrimeraOpcMultiLocator = By.xpath("(//div[@class='Stack__StyledStack-sc-oaff2v-0 ecPQEH'])[1]");
     By cerrarMultiDestinoCookieLocator = By.xpath("(//div[@class='ButtonPrimitiveIconContainer__StyledButtonPrimitiveIconContainer-sc-8rx3cv-0 fxbcmo'])[1]");
-    By borrarTodoMultiDestinoLocator = By.xpath("//div[contains(text(),'Borrar todos')]");
-    By buscarMultivueloLocator = By.xpath("(//div[@class='ButtonPrimitiveContentChildren__StyledButtonPrimitiveContentChildren-sc-1m4y8u8-0 jiqdNk'])[7]");
+    By borrarTodoMultiDestinoLocator = By.xpath("//button[@class='ButtonPrimitive__StyledButtonPrimitive-sc-1lbd19y-0 jsYoLw']//div[@class='ButtonPrimitiveContent__StyledButtonPrimitiveContent-sc-1r81o9a-0 ZYrQU']");
+    By buscarMultivueloLocator = By.xpath("//div[contains(text(),'Buscar')]");
 
 
     public void aceptarCookie() {
@@ -221,6 +221,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     }
 
     public void seleccionMultidestino() {
+        cambiarPestanha();
         click(seleccionMultidestinoLocator);
 
     }
@@ -228,31 +229,27 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     public void seleccionMultiOrigenDestino(String origen1, String destino1, String origen2, String destino2) throws InterruptedException {
 
         click(origenMultiVueloLocator);
-        clear(origenMultiVueloLocator);
+        esperaMillis(200);
+
         write(origen1, origenMultiVueloLocator);
-        //Thread.sleep(3000);
         click(seleccionPrimeraOpcMultiLocator);
 
         click(destinoMultiVueloLocator);
-        clear(destinoMultiVueloLocator);
-        write(destino1, destinoMultiVueloLocator);
-        //Thread.sleep(3000);
-        click(seleccionPrimeraOpcMultiLocator);
+        esperaMillis(200);
 
-        click(origen2MultiVueloLocator);
-        clear(origen2MultiVueloLocator);
-        write(origen2, origen2MultiVueloLocator);
-        //Thread.sleep(3000);
+        write(destino1, destinoMultiVueloLocator);
         click(seleccionPrimeraOpcMultiLocator);
 
         click(destino2MultiVueloLocator);
-        clear(destino2MultiVueloLocator);
+        esperaMillis(200);
+
         write(destino2, destino2MultiVueloLocator);
-        //Thread.sleep(3000);
         click(seleccionPrimeraOpcMultiLocator);
     }
 
     public void borrarTodoMultiDestino() {
+        cambiarPestanha();
+        esperaPorLocator(borrarTodoMultiDestinoLocator,5);
         click(borrarTodoMultiDestinoLocator);
     }
 
@@ -347,8 +344,14 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(limpiarFiltrosLocator);
     }
 
-    public void informacion() {
+    public void verFiltro() {
         click(informacionLocator);
+    }
+    public void deseleccionarTransporte(String tipoTransporte){
+        if (isDisplayed(By.xpath("//span[normalize-space()='Autobús']")) == false) {
+            click(By.xpath("//div[contains(text(),'Transporte')]"));
+        }
+        click(By.xpath("//span[normalize-space()='"+tipoTransporte+"']"));
     }
 
     public void cambiarIframe() throws InterruptedException {
