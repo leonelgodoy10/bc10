@@ -74,9 +74,9 @@ public class HotelTest extends SeleniumTestBase {
         rumboHomePageHotel.filtroCancelacionGratuita();
         rumboHomePageHotel.filtrowifiGratis();
         Thread.sleep(2000);
-        rumboHomePageHotel.filtroValoracion();
+        //rumboHomePageHotel.filtroValoracion();
         Thread.sleep(2000);
-        rumboHomePageHotel.filtroRegimen();
+        //rumboHomePageHotel.filtroRegimen();
         rumboHomePageHotel.seleccionarPais();
         rumboHomePageHotel.limpiarFiltro();
         Thread.sleep(2000);

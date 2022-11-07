@@ -342,16 +342,11 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(familiasLocator);
         Thread.sleep(1500);
         volverOriginal();
-        Thread.sleep(1500);
+        Thread.sleep(2000);
         click(punto1Locator);
-        Thread.sleep(500);
+        Thread.sleep(2000);
         click(punto2Locator);
-        Thread.sleep(500);
-        click(punto3Locator);
-        Thread.sleep(500);
-        click(punto4Locator);
-        Thread.sleep(500);
-        //click(elegirTipoHabitacionLocator);
+
 
     }
 

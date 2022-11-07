@@ -53,7 +53,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By cargarMasResultado = By.xpath("//span[normalize-space()='Cargar más resultados']");
     By volverArribaLocator = By.xpath("//span[normalize-space()='Volver arriba']");
     By selectorMoverLocator = By.xpath("//crs-carousel[@class='crs-card-departure-dates__carousel swiper-initialized swiper-horizontal swiper-pointer-events swiper-free-mode']//div[@class='crs-card-departure-date crs-card-departure-date--active']");
-    By descubreElItinirerioLocator = By.xpath("//button[@class='crs-btn crs-btn--link crs-btn--text ng-star-inserted']");
+    By descubreElItinirerioLocator = By.xpath("//span[@class='crs-label ng-star-inserted'][normalize-space()='descubre el itinerario']");
     By dia1 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 1']");
     //By dia2 = By.xpath("");
     By dia3 = By.xpath("//button[@aria-label='Expand or collapse itinerary day 3']");
@@ -287,8 +287,6 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         cambiarPestanha();
         click(descubreElItinirerioLocator);
         Thread.sleep(1500);
-
-
     }
 
 
@@ -297,19 +295,41 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
     public void botonesDesplegables() {
-        click(dia1);
-        click(dia1);
-        click(dia4);
-        click(dia4);
-        click(dia5);
-        click(dia5);
-        click(dia6);
-        click(dia7);
-        click(dia7);
-        click(dia7);
-        click(dia9);
-        click(dia9);
-
+        if (isDisplayed(dia1) == true) {
+            esperaPorLocator(dia1, 2);
+            click(dia1);
+            click(dia1);
+        }
+        if (isDisplayed(dia1) == true) {
+            esperaPorLocator(dia1, 2);
+            click(dia1);
+            click(dia1);
+            if (isDisplayed(dia4) == true) {
+                esperaPorLocator(dia4, 2);
+                click(dia4);
+                click(dia4);
+            }
+            if (isDisplayed(dia5) == true) {
+                esperaPorLocator(dia5, 2);
+                click(dia5);
+                click(dia5);
+            }
+            if (isDisplayed(dia6) == true) {
+                esperaPorLocator(dia6, 2);
+                click(dia6);
+                click(dia6);
+            }
+            if (isDisplayed(dia7) == true) {
+                esperaPorLocator(dia7, 2);
+                click(dia7);
+                click(dia7);
+            }
+            if (isDisplayed(dia9) == true) {
+                esperaPorLocator(dia9, 2);
+                click(dia9);
+                click(dia9);
+            }
+        }
     }
 
     public void seleccionarCompanhia() {
@@ -323,7 +343,6 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         click(solicitarPresupuesto);
 
     }
-
 
 
 }
