@@ -1,12 +1,17 @@
 package framework.engine.selenium;
 
-import gherkin.lexer.Th;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.devtools.v96.indexeddb.model.Key;
-
+import org.openqa.selenium.support.ui.Wait;
+import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+import static java.util.concurrent.TimeUnit.MILLISECONDS;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Set;
 
 public class SeleniumWrapper {
 
@@ -240,6 +245,46 @@ public class SeleniumWrapper {
         Thread.sleep(1500);
 
     }
+    public void esperaMillis(int millis) throws InterruptedException {
+        Thread.sleep(millis);
+    }
 
+    public void volverOriginal() throws InterruptedException {
+
+        driver.switchTo().defaultContent();
+        Thread.sleep(2000);
+
+    }
+
+    public void hover(By locator) {
+        Actions builder = new Actions(driver);
+        builder.moveToElement(findElement(locator)).perform();
+
+
+    }
+
+    public void cambiarPestanha() {
+
+
+        String mainTab = driver.getWindowHandle();
+        String newTab = "";
+
+        System.out.println("Main Tab: " + mainTab);
+
+        Set<String> handles = driver.getWindowHandles();
+        for (String actual : handles) {
+            System.out.println("--Handle Id: " + actual);
+
+            if (!actual.equalsIgnoreCase(mainTab)) {
+                System.out.println("--Cambiando Tab --");
+                driver.switchTo().window(actual);
+
+                newTab = actual;
+            }
+
+        }
+
+
+    }
 
 }
