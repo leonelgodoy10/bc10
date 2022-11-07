@@ -45,7 +45,7 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.bajarEscalaTop();
         Thread.sleep(3000);
         rumboHomePageHomeVuelo.limpiarFiltros();
-        rumboHomePageHomeVuelo.informacion();
+        rumboHomePageHomeVuelo.verFiltro();
         rumboHomePageHomeVuelo.cambiarIframe();
         rumboHomePageHomeVuelo.informacionYClick();
         rumboHomePageHomeVuelo.clickearPrecio();
@@ -93,13 +93,15 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.selectorVuelos();
         rumboHomePageHomeVuelo.seleccionVuelaEuropa();
         rumboHomePageHomeVuelo.seleccionMultidestino();
-        //rumboHomePageHomeVuelo.cerrarMultiDestinoCookie();
         rumboHomePageHomeVuelo.borrarTodoMultiDestino();
         rumboHomePageHomeVuelo.seleccionMultiOrigenDestino("Santiago de Chile", "Miami", "Buenos Aires", "Barcelona");
         rumboHomePageHomeVuelo.buscarMultivuelo();
-        rumboHomePageHomeVuelo.navigateTo("https://vuelos.rumbo.es/flight/shopping/results/1h4xxu4xvxdz4");
-        rumboHomePageHomeVuelo.informacion();
-        rumboHomePageHomeVuelo.cambiarIframe();
+        rumboHomePageHomeVuelo.cerrarMultiDestinoCookie();
+        rumboHomePageHomeVuelo.verFiltro();
+        rumboHomePageHomeVuelo.deseleccionarTransporte("Autobús");
+        rumboHomePageHomeVuelo.deseleccionarTransporte("Tren");
+        rumboHomePageHomeVuelo.verFiltro();
+
 
 
     }
