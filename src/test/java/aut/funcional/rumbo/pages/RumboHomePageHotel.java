@@ -39,7 +39,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By seleccionFechaDeSalidaLocator13102022 = By.xpath("//button[contains(@class,'display-s2qfcl-Day-styled-Day-styled-Day-styled')][normalize-space()='13']");
     By seleccionarSpaLocator = By.xpath("//h4[normalize-space()='Hoteles con spa']");
     By seleccionarMiroLocator = By.xpath("//span[normalize-space()='Hotel Miró']");
-    By tipoHabitacionLocator = By.xpath("//*[@id=\"__next\"]/div[3]/div[8]/nav/div/button");
+    By tipoHabitacionLocator = By.xpath("/html[1]/body[1]/div[2]/div[2]/div[7]/nav[1]/div[1]/button[1]");
     By HabitacionDoubleLocator = By.xpath(("//span[normalize-space()='Cancelación gratuita'])[1]"));
     By seleccionHotelesRuralesLocator = By.xpath("//h4[normalize-space()='Hoteles rurales']");
     By seleccionHotelFincaLosLlanosLocator = By.xpath("//span[normalize-space()='Hotel Finca Los Llanos']");
