@@ -358,9 +358,11 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         esperaPorLocator(hotelCivisJaimeILocator, 10);
         click(hotelCivisJaimeILocator);
         cambiarPestanha();
+        esperaPorLocator(fotosHotelCivisJaimeLocator,10);
         click(fotosHotelCivisJaimeLocator);
         navegarFotos(39);
         click(cierreFotosCivisJaemeLocator);
+        esperaPorLocator(verTodosLosServiciosHotelLocator,10);
         click(verTodosLosServiciosHotelLocator);
         despliegueDeServiciosHotel("Internet");
         despliegueDeServiciosHotel("Parking");
@@ -369,9 +371,9 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         despliegueDeServiciosHotel("General ");
         esperaPorLocator(elegirTipoDeHabitacionLocator, 10);
         click(elegirTipoDeHabitacionLocator);
-        esperaPorLocator(soloAlojamientoLocator, 10);
+        esperaPorLocator(soloAlojamientoLocator, 25);
         click(soloAlojamientoLocator);
-        esperaPorLocator(mejorPrecioHotelLocator, 10);
+        esperaPorLocator(mejorPrecioHotelLocator, 20);
         click(mejorPrecioHotelLocator);
     }
 
