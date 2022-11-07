@@ -230,25 +230,25 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(origenMultiVueloLocator);
         clear(origenMultiVueloLocator);
         write(origen1, origenMultiVueloLocator);
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         click(seleccionPrimeraOpcMultiLocator);
 
         click(destinoMultiVueloLocator);
         clear(destinoMultiVueloLocator);
         write(destino1, destinoMultiVueloLocator);
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         click(seleccionPrimeraOpcMultiLocator);
 
         click(origen2MultiVueloLocator);
         clear(origen2MultiVueloLocator);
         write(origen2, origen2MultiVueloLocator);
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         click(seleccionPrimeraOpcMultiLocator);
 
         click(destino2MultiVueloLocator);
         clear(destino2MultiVueloLocator);
         write(destino2, destino2MultiVueloLocator);
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
         click(seleccionPrimeraOpcMultiLocator);
     }
 

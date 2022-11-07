@@ -93,7 +93,7 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.selectorVuelos();
         rumboHomePageHomeVuelo.seleccionVuelaEuropa();
         rumboHomePageHomeVuelo.seleccionMultidestino();
-        rumboHomePageHomeVuelo.cerrarMultiDestinoCookie();
+        //rumboHomePageHomeVuelo.cerrarMultiDestinoCookie();
         rumboHomePageHomeVuelo.borrarTodoMultiDestino();
         rumboHomePageHomeVuelo.seleccionMultiOrigenDestino("Santiago de Chile", "Miami", "Buenos Aires", "Barcelona");
         rumboHomePageHomeVuelo.buscarMultivuelo();

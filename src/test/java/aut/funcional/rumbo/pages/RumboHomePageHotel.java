@@ -40,6 +40,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By seleccionFechaDeSalidaLocator13102022 = By.xpath("//button[contains(@class,'display-s2qfcl-Day-styled-Day-styled-Day-styled')][normalize-space()='13']");
     By seleccionarSpaLocator = By.xpath("//h4[normalize-space()='Hoteles con spa']");
     By seleccionarMiroLocator = By.xpath("//span[normalize-space()='Hotel Miró']");
+
     By tipoHabitacionLocator = By.xpath("document.querySelector(\".Button-sc-1bbve8d-0.bsSjVP.SubNavigation___StyledScrollToIdButton-sc-1sfp8me-7.jThHsW\")");
 
     By HabitacionDoubleLocator = By.xpath("(//span[normalize-space()='Solo habitación'])[1]");
@@ -147,6 +148,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     public void seleccionarhotelMiro() {
         click(seleccionarMiroLocator);
     }
+
 
   /*  public void seleccionarTipoHabitacion() {
         cambiarPestanha();
@@ -268,8 +270,9 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(aplicarFiltroDesayunoInLocator);
     }
 
-    public void detallesHabitacion() {
+    public void detallesHabitacion() throws InterruptedException {
         click(verDetallesHabitacionLocator);
+        Thread.sleep(4000);
         click(ocultarDetallesHabitacionLocator);
     }
 
