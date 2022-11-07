@@ -107,19 +107,17 @@ public class VueloTest extends SeleniumTestBase {
     }
 
     @Test
-    void cantidadDePasajerosMasBebeBV006() throws InterruptedException {
+    void cantidadDePasajerosMasBebeBV006()  {
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
         rumboHomePageHomeVuelo.navegarAlHome();
-        Thread.sleep(1000);
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.seleccionarSoloIda();
-        Thread.sleep(8000);
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
-        Thread.sleep(4000);
-        //rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
+        rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
         rumboHomePageHomeVuelo.seleccionarDestino("Buenos aires");
+        Assertions.assertEquals("El número de bebés (edad 0-1) no puede ser superior al de adultos.",rumboHomePageHomeVuelo.errorMensajeNinho());
         rumboHomePageHomeVuelo.buscarVuelo();
     }
 
