@@ -137,6 +137,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }
 
     public void seleccionarTipoHabitacion() {
+        cambiarPestanha();
         click(tipoHabitacionLocator);
     }
 
@@ -245,6 +246,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }
 
     public void elegirTipoHabitacion() {
+        cambiarPestanha();
         click(elegirTipoHabitacionLocator);
     }
 
@@ -253,8 +255,9 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(aplicarFiltroDesayunoInLocator);
     }
 
-    public void detallesHabitacion() {
+    public void detallesHabitacion() throws InterruptedException {
         click(verDetallesHabitacionLocator);
+        Thread.sleep(4000);
         click(ocultarDetallesHabitacionLocator);
     }
 
