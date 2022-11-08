@@ -73,7 +73,6 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.seleccionPeriodo(0, "0");//Significa cualquier destino
         rumboHomePageCrucero.cualquierDuracion("Cualquier duración");
         rumboHomePageCrucero.cualquierCompania("Celebrity Cruises");
-        //rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.cualquierPuerto("Ravenna");
         rumboHomePageCrucero.agregarAdultos(15);
         rumboHomePageCrucero.agregarJunior(14);

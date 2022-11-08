@@ -243,7 +243,7 @@ public class SeleniumWrapper {
     public void volverOriginal() throws InterruptedException {
 
         driver.switchTo().defaultContent();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
 
     }
 

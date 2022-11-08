@@ -2,7 +2,6 @@ package aut.funcional.equipo1.rumbo.pages;
 
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
-import gherkin.lexer.Th;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,14 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-
-import org.openqa.selenium.WindowType;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.sql.Driver;
-import java.time.Duration;
-import java.util.ArrayList;
 
 import static framework.engine.utils.Constants.BASE_URL_AUT;
 
@@ -28,7 +19,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }
 
     //locators
-    By BtnaceptarCookiesLocator = By.xpath("//button[@class='iubenda-cs-accept-btn iubenda-cs-btn-primary']");
+    By btnAceptarCookiesLocator = By.xpath("//button[@class='iubenda-cs-accept-btn iubenda-cs-btn-primary']");
     By btnHotelLocator = By.xpath("//div[@class='display-1dpcy4y-HubNavigationMenu-styled e10w470p3']//a[@title='Hoteles'][normalize-space()='Hoteles']");
     By pagoFraccionadoLocator = By.xpath("//body/div/div[contains(@class,'e19fnmvl0 display-f38482-HubRow-withBoxModel-withBoxModel e1gf7ux32')]/div[contains(@class,'hub-container mobile e1gf7ux30 display-1d1x1j2-Container-layouts-layouts-HubRow-HubRow eg3h3jz0')]/div[contains(@class,'e5okb9y0 display-vdrm12-Row-styles-scrollbars-Row-styles e1sskiuc0')]/div[4]/div[1]/div[3]/a[1]");
     By btnEchaleUnVistazoLocator = By.xpath("//a[normalize-space()='Échale un vistazo']");
@@ -100,23 +91,24 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     By ingresoRegistroLocator = By.xpath("//div[contains(@class,'widget-wrapper widget-wrapper--contact')]");
 
     public void aceptarCookie() {
-        if (isDisplayed(BtnaceptarCookiesLocator) == true) {
-            WebElement esperaCookie = findElement(BtnaceptarCookiesLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaCookie));
-            click(BtnaceptarCookiesLocator);
+        if (isDisplayed(btnAceptarCookiesLocator) == true) {
+            esperaPorClick(btnAceptarCookiesLocator,15);
+            click(btnAceptarCookiesLocator);
         }
     }
 
     public void selectorHotel() {
+        esperaPorClick(btnHotelLocator,15);
         click(btnHotelLocator);
     }
 
     public void selecionarFraccionado() {
+        esperaPorClick(pagoFraccionadoLocator,15);
         click(pagoFraccionadoLocator);
     }
 
     public void echaleUnVistazo() {
+        esperaPorClick(btnEchaleUnVistazoLocator,15);
         click(btnEchaleUnVistazoLocator);
     }
 
@@ -124,9 +116,9 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         return getUrlTitle();
     }
 
-    public void buscarHotel() throws InterruptedException {
+    public void buscarHotel()  {
+        esperaPorClick(btnBuscar,20);
         click(btnBuscar);
-        Thread.sleep(3000);
     }
 
     public void navegarAlHome() {
@@ -134,22 +126,23 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }
 
     public void buscarAlojamientoEn(String dato) {
-        WebElement esperarAlojamiento = findElement(buscarAlojamientoEnLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperarAlojamiento));
+        esperaPorClick(buscarAlojamientoEnLocator,15);
         click(buscarAlojamientoEnLocator);
         write(dato, buscarAlojamientoEnLocator);
+        esperaPorClick(primeraOpcionDespAlojamientolegadaLocator,15);
         click(primeraOpcionDespAlojamientolegadaLocator);
     }
 
 
     public void seleccionarhotelSpa() {
         cambiarPestanha();
+        esperaPorClick(seleccionarSpaLocator,20);
         click(seleccionarSpaLocator);
     }
 
     public void seleccionarhotelMiro() {
         cambiarPestanha();
+        esperaPorClick(seleccionarMiroLocator,20);
         click(seleccionarMiroLocator);
 
     }
@@ -160,9 +153,8 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         click(tipoHabitacionLocator);
     }*/
 
-    public void seleccionarSoloHabitacionDouble() throws InterruptedException {
-
-        esperaPorLocator(HabitacionDoubleLocator,10);
+    public void seleccionarSoloHabitacionDouble()  {
+        esperaPorLocator(HabitacionDoubleLocator,20);
         click(HabitacionDoubleLocator);
     }
 
@@ -199,9 +191,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         if (isDisplayed(By.xpath("//span[@class='display-rm8ly8-Room-styled']")) == false) {
             click(seleccionViajeroLocator);
         }
-        WebElement esperarNino = findElement(seleccionNinoLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperarNino));
+        esperaPorClick(seleccionNinoLocator,15);
         click(seleccionNinoLocator);
         click(By.xpath("//li[normalize-space()='" + dato + "']"));
         click(cierreSeleccionViajeroLocator);
@@ -232,57 +222,72 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }
 
     public void ningunDestino() {
+        esperaPorClick(buscarAlojamientoEnLocator,20);
         click(buscarAlojamientoEnLocator);
+        esperaPorClick(cualquierDestino,20);
         click(cualquierDestino);
 
     }
 
     public void filtroDinero() {
+        esperaPorClick(filtroPrecio,15);
         click(filtroPrecio);
+        esperaPorClick(ceroA300,15);
         click(ceroA300);
+        esperaPorClick(aplicarLocator,15);
         click(aplicarLocator);
     }
 
     public void filtroAlojamiento() {
+        esperaPorClick(casaLocator,15);
         click(casaLocator);
+        esperaPorClick(casa2,15);
         click(casa2);
+        esperaPorClick(aplicarLocator,15);
         click(aplicarLocator);
 
 
     }
 
     public void filtroCancelacionGratuita() {
-
+        esperaPorClick(filtrocancelacionGratuita,20);
         click(filtrocancelacionGratuita);
     }
 
     public void seleccionHotelesRurales() {
+        esperaPorClick(seleccionHotelesRuralesLocator,20);
         click(seleccionHotelesRuralesLocator);
     }
 
     public void seleccionHotelFincaLosLlanos() {
+        cambiarPestanha();
+        esperaPorClick(seleccionHotelFincaLosLlanosLocator,20);
         click(seleccionHotelFincaLosLlanosLocator);
 
     }
 
     public void elegirTipoHabitacion() {
         cambiarPestanha();
+        esperaPorClick(elegirTipoHabitacionLocator,20);
         click(elegirTipoHabitacionLocator);
     }
 
     public void aplicarFiltrosHabitacion() {
+        esperaPorClick(aplicarFiltroSoloAlojamientoLocator,20);
         click(aplicarFiltroSoloAlojamientoLocator);
+        esperaPorClick(aplicarFiltroDesayunoInLocator,20);
         click(aplicarFiltroDesayunoInLocator);
     }
 
-    public void detallesHabitacion() throws InterruptedException {
+    public void detallesHabitacion() {
+        esperaPorClick(verDetallesHabitacionLocator,20);
         click(verDetallesHabitacionLocator);
-        Thread.sleep(4000);
+        esperaPorClick(ocultarDetallesHabitacionLocator,20);
         click(ocultarDetallesHabitacionLocator);
     }
 
     public void filtrowifiGratis() {
-
+        esperaPorClick(filtrowifiGratisLocator,20);
         click(filtrowifiGratisLocator);
     }
 
@@ -303,77 +308,92 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }
 
     public void seleccionarPais() throws InterruptedException {
+        esperaPorClick(chipreLocator,40);
         click(chipreLocator);
-        Thread.sleep(5000);
+        //Thread.sleep(5000);
     }
 
     public void limpiarFiltro() throws InterruptedException {
+        esperaPorClick(limpiarTodosLocator,20);
         click(limpiarTodosLocator);
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
 
 
     }
 
     public void seleccionarHotel() throws InterruptedException {
+
         hover(avanzarFotosLocator);
         Thread.sleep(1000);
+
         click(avanzarFotosLocator);
         hover(avanzarFotosLocator);
         Thread.sleep(1000);
+
         click(avanzarFotosLocator);
         hover(avanzarFotosLocator);
         Thread.sleep(1000);
+
         click(avanzarFotosLocator);
         hover(avanzarFotosLocator);
         Thread.sleep(1000);
+
         click(avanzarFotosLocator);
         Thread.sleep(1000);
+
         click(verMasLocator);
 
     }
 
     public void valoraciones() throws InterruptedException {
         cambiarPestanha();
-        Thread.sleep(5000);
+        esperaPorLocator(By.xpath("//h1[normalize-space()='King Evelthon Beach Hotel & Resort']"),40);
+        //Thread.sleep(5000);
+        esperaPorClick(valoracionBuenoLocator,20);
         click(valoracionBuenoLocator);
         cambiarseIframe(iframeHotelLocalizador);
         Thread.sleep(15000);
+        esperaPorClick(parejasLocator,20);
         click(parejasLocator);
+        esperaPorClick(familiasLocator,20);
         click(familiasLocator);
-        Thread.sleep(1500);
+        //Thread.sleep(1500);
         volverOriginal();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
+        esperaPorClick(punto1Locator,20);
         click(punto1Locator);
         Thread.sleep(2000);
+        //Thread.sleep(2000);
+        esperaPorClick(punto2Locator,20);
         click(punto2Locator);
 
 
     }
 
-    public void navegarPerros() throws InterruptedException {
-        esperaPorLocator(hotelesQueAdmitenPerrosLocator, 10);
+    public void navegarPerros()  {
+        esperaPorClick(hotelesQueAdmitenPerrosLocator, 25);
         click(hotelesQueAdmitenPerrosLocator);
         cambiarPestanha();
         scroll(0, 500);
-        esperaPorLocator(hotelCivisJaimeILocator, 10);
+        esperaPorClick(hotelCivisJaimeILocator, 25);
         click(hotelCivisJaimeILocator);
         cambiarPestanha();
-        esperaPorLocator(fotosHotelCivisJaimeLocator,10);
+        esperaPorClick(fotosHotelCivisJaimeLocator,25);
         click(fotosHotelCivisJaimeLocator);
         navegarFotos(39);
         click(cierreFotosCivisJaemeLocator);
-        esperaPorLocator(verTodosLosServiciosHotelLocator,10);
+        esperaPorClick(verTodosLosServiciosHotelLocator,25);
         click(verTodosLosServiciosHotelLocator);
         despliegueDeServiciosHotel("Internet");
         despliegueDeServiciosHotel("Parking");
         despliegueDeServiciosHotel("Comida & bebida");
         despliegueDeServiciosHotel("Servicios de limpieza ");
         despliegueDeServiciosHotel("General ");
-        esperaPorLocator(elegirTipoDeHabitacionLocator, 15);
+        esperaPorClick(elegirTipoDeHabitacionLocator, 30);
         click(elegirTipoDeHabitacionLocator);
-        esperaPorLocator(soloAlojamientoLocator, 25);
+        esperaPorClick(soloAlojamientoLocator, 30);
         click(soloAlojamientoLocator);
-        esperaPorLocator(mejorPrecioHotelLocator, 20);
+        esperaPorClick(mejorPrecioHotelLocator, 30);
         click(mejorPrecioHotelLocator);
     }
 
@@ -384,23 +404,43 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         }
     }
 
-    public void despliegueDeServiciosHotel(String servicio) throws InterruptedException {
+    public void despliegueDeServiciosHotel(String servicio)  {
 
-        click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
-        esperaMillis(200);
-        click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+        if (servicio == "Internet") {
+            click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+            esperaPorLocator(By.xpath("//div[normalize-space()='WiFi gratis']"),5);
+            click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+        }
+        if (servicio == "Parking") {
+            click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+            esperaPorLocator(By.xpath("//div[normalize-space()='Parking privado']"),5);
+            click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+        }
+        if (servicio == "Comida & bebida") {
+            click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+            esperaPorLocator(By.xpath("//div[normalize-space()='Snack-bar']"),5);
+            click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+        }
+        if (servicio == "Servicios de limpieza ") {
+            click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+            esperaPorLocator(By.xpath("//div[normalize-space()='Servicio de planchado']"),5);
+            click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+        }
+        if (servicio == "General ") {
+            click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+            esperaPorLocator(By.xpath("//div[normalize-space()='Prohibido fumar en todo el alojamiento']"),5);
+            click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
+        }
     }
 
-    public void quienReserva(String nombre, String apellido, String mail, String codePais, String nTelefono) throws InterruptedException {
-        esperaPorLocator(ingresoRegistroLocator, 10);
+    public void quienReserva(String nombre, String apellido, String mail, String codePais, String nTelefono)  {
+        esperaPorLocator(ingresoRegistroLocator, 30);
         write(nombre, By.xpath("//input[@name='name']"));
         write(apellido, By.xpath("//input[@name='surname']"));
         write(mail, By.xpath("//input[@id='contact-email']"));
         click(By.xpath("(//div[@class='arrow down'])[1]"));
         click(By.xpath("//div[@class='selected-dial-code']"));
-        esperaMillis(200);
         click(By.xpath("//li[@data-dial-code='" + codePais + "']"));
-        esperaMillis(200);
         write(nTelefono, By.xpath("//input[@name='phone']"));
     }
 
@@ -409,8 +449,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         write(nombre, By.xpath("//input[@name='groups.1.travellers.1.name']"));
         write(apellido, By.xpath("//input[@name='groups.1.travellers.1.surname']"));
         scroll(0, 900);
-        //falta dar el click, pero no me funca
-        //click(cancelacionDeHotelCovid19);
+
     }
 
 

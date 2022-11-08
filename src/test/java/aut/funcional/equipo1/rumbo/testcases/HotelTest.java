@@ -17,6 +17,7 @@ public class HotelTest extends SeleniumTestBase {
         rumboHomePageHotel.aceptarCookie();
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.aceptarCookie();
+        Assertions.assertEquals("Hoteles | Ofertas de Hoteles baratos | Rumbo",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.selecionarFraccionado();
         rumboHomePageHotel.echaleUnVistazo();
         Assertions.assertEquals("Pago fraccionado | Rumbo", rumboHomePageHotel.textoUrlTitulo());
@@ -26,34 +27,37 @@ public class HotelTest extends SeleniumTestBase {
     }
 
     @Test
-    void encontrarAlojamientoDisponiblesBH002() throws InterruptedException {//ok funcionando,
+    void encontrarAlojamientoDisponiblesBH002()  {//ok funcionando,
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
         rumboHomePageHotel.aceptarCookie();
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.aceptarCookie();
+        Assertions.assertEquals("Hoteles | Ofertas de Hoteles baratos | Rumbo",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.buscarAlojamientoEn("Buenos Aires");
         rumboHomePageHotel.buscaridaYVuelta(10, 11, 2022, 13, 11, 2022);
         rumboHomePageHotel.agregarNino("5 años");
         rumboHomePageHotel.buscarHotel();
         rumboHomePageHotel.filtroEstrellas(4);
+        Assertions.assertEquals("Inspírate para tus viajes en 2022/2023 | lastminute.com",rumboHomePageHotel.textoUrlTitulo());
     }
 
     @Test
-    void registrarFechaDeEntradaBH003() throws InterruptedException {
+    void registrarFechaDeEntradaBH003()  {
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
-        Thread.sleep(2000);
         rumboHomePageHotel.aceptarCookie();
         rumboHomePageHotel.selectorHotel();
+        rumboHomePageHotel.aceptarCookie();
+        Assertions.assertEquals("Hoteles | Ofertas de Hoteles baratos | Rumbo",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.seleccionarhotelSpa();
-        Thread.sleep(2000);
-        //cambiarPag();
+        Assertions.assertEquals("Hoteles | Ofertas de Hoteles baratos | Rumbo",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.seleccionarhotelMiro();
+        Assertions.assertEquals("Hoteles con spa | Rumbo",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.elegirTipoHabitacion();
-        Thread.sleep(2000);
+        Assertions.assertEquals("Hotel Miro - Bilbao - Rumbo",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.seleccionarSoloHabitacionDouble();
-
+        Assertions.assertEquals("Hotel Miro - Bilbao - Rumbo",rumboHomePageHotel.textoUrlTitulo());
     }
 
 
@@ -73,49 +77,53 @@ public class HotelTest extends SeleniumTestBase {
         rumboHomePageHotel.filtroAlojamiento();
         rumboHomePageHotel.filtroCancelacionGratuita();
         rumboHomePageHotel.filtrowifiGratis();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         //rumboHomePageHotel.filtroValoracion();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         //rumboHomePageHotel.filtroRegimen();
+        rumboHomePageHotel.esperaMillis(2000);
         rumboHomePageHotel.seleccionarPais();
         rumboHomePageHotel.limpiarFiltro();
-        Thread.sleep(2000);
+        rumboHomePageHotel.esperaMillis(2000);
         rumboHomePageHotel.seleccionarHotel();
         rumboHomePageHotel.valoraciones();
 
     }
     @Test
-    void verMejoresOfertasEnHotelesBH005() throws InterruptedException {
+    void verMejoresOfertasEnHotelesBH005()  {
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
-        Thread.sleep(2000);
         rumboHomePageHotel.aceptarCookie();
         rumboHomePageHotel.selectorHotel();
+        rumboHomePageHotel.aceptarCookie();
+        Assertions.assertEquals("Hoteles | Ofertas de Hoteles baratos | Rumbo",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.seleccionHotelesRurales();
-        Thread.sleep(4000);
-        rumboHomePageHotel.cambiarPag();
         rumboHomePageHotel.seleccionHotelFincaLosLlanos();
+        Assertions.assertEquals("Hoteles Rústicos | Rumbo",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.elegirTipoHabitacion();
-        Thread.sleep(2000);
+        Assertions.assertEquals("Finca Los Llanos - Capileira - Rumbo",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.aplicarFiltrosHabitacion();
-        Thread.sleep(2000);
         rumboHomePageHotel.detallesHabitacion();
+        Assertions.assertEquals("Finca Los Llanos - Capileira - Rumbo",rumboHomePageHotel.textoUrlTitulo());
 
 
     }
 
 
     @Test
-    void reservarHotelesQueAdmitenPerrosBH006() throws InterruptedException {
+    void reservarHotelesQueAdmitenPerrosBH006()  {
         rumboHomePageHotel = new RumboHomePageHotel(DriverFactory.getDriver());
         rumboHomePageHotel.navegarAlHome();
         rumboHomePageHotel.aceptarCookie();
         rumboHomePageHotel.selectorHotel();
         rumboHomePageHotel.aceptarCookie();
+        Assertions.assertEquals("Hoteles | Ofertas de Hoteles baratos | Rumbo",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.scroll(0,1700);
         rumboHomePageHotel.navegarPerros();
+        Assertions.assertEquals("Hotel Civis Jaime I. - Castellón de la Plana - Rumbo",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.quienReserva("Leonel","Godoy","leonelgodoy@gmail.com","56","987654321");
         rumboHomePageHotel.husped("Jordan","Jimenez");
+        Assertions.assertEquals("Pago seguro - Rumbo",rumboHomePageHotel.textoUrlTitulo());
 
     }
 }
