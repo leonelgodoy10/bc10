@@ -54,7 +54,7 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.cualquierDuracion("De 6 a 9 días");
         rumboHomePageCrucero.cualquierCompania("Costa Cruceros");
         rumboHomePageCrucero.cualquierPuerto("Barcelona");
-        rumboHomePageCrucero.agregarAdultos(0);
+        rumboHomePageCrucero.agregarAdultos(1);
         rumboHomePageCrucero.buscarCrucero();
         Assertions.assertEquals("Cruceros",rumboHomePageCrucero.textoUrlTitulo());
 
@@ -116,7 +116,7 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.botonesDesplegables();
         rumboHomePageCrucero.seleccionarCompanhia();
         rumboHomePageCrucero.seleccionarPresupuesto();
-        Assertions.assertEquals("",rumboHomePageCrucero.textoUrlTitulo());
+        Assertions.assertEquals("Crucero Islas del Caribe de Miami, Estados Unidos | Carnival Horizon | Carnival | Rumbo",rumboHomePageCrucero.textoUrlTitulo());
 
     }
 

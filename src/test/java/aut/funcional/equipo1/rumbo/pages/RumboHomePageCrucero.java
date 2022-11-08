@@ -246,23 +246,16 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
     public void costaCruceros() throws InterruptedException {
-        esperaPorClick(costaCrucerosLocator, 250);
+        esperaPorClick(costaCrucerosLocator,10);
         click(costaCrucerosLocator);
-        esperaPorClick(verMasCruceroMscLocator, 250);
+        esperaPorClick(verMasCruceroMscLocator,15);
         click(verMasCruceroMscLocator);
-        esperaPorClick(cruceroPorIslasGriegas, 250);
-        //Thread.sleep(2000);
+        esperaPorClick(cruceroPorIslasGriegas,15);
         click(cruceroPorIslasGriegas);
-        //Thread.sleep(4000);
-        esperaPorClick(reiniciarBusquedaLocator, 250);
+        esperaPorClick(reiniciarBusquedaLocator,15);
         click(reiniciarBusquedaLocator);
-        //Revisar Xpath
-        if (isDisplayed(barcelocator) == true) {
-            esperaPorClick(barcelocator, 250);
-            click(buscarLocator);
-        }
-
-
+        esperaPorClick(buscarLocator,15);
+        click(buscarLocator);
     }
 
     public void filtrarRating() throws InterruptedException {

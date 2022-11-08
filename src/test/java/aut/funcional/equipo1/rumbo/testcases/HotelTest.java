@@ -74,19 +74,17 @@ public class HotelTest extends SeleniumTestBase {
         rumboHomePageHotel.agregarNino("2 años");
         rumboHomePageHotel.buscarHotel();
         rumboHomePageHotel.filtroDinero();
+        Assertions.assertEquals("Inspírate para tus viajes en 2022/2023 | lastminute.com",rumboHomePageHotel.textoUrlTitulo());
         rumboHomePageHotel.filtroAlojamiento();
         rumboHomePageHotel.filtroCancelacionGratuita();
         rumboHomePageHotel.filtrowifiGratis();
-        //Thread.sleep(2000);
-        //rumboHomePageHotel.filtroValoracion();
-        //Thread.sleep(2000);
-        //rumboHomePageHotel.filtroRegimen();
         rumboHomePageHotel.esperaMillis(2000);
         rumboHomePageHotel.seleccionarPais();
         rumboHomePageHotel.limpiarFiltro();
         rumboHomePageHotel.esperaMillis(2000);
         rumboHomePageHotel.seleccionarHotel();
         rumboHomePageHotel.valoraciones();
+        Assertions.assertEquals("King Evelthon Beach Hotel & Resort - Khlorakas - Rumbo",rumboHomePageHotel.textoUrlTitulo());
 
     }
     @Test

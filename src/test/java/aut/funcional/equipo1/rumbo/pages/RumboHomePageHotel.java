@@ -222,35 +222,26 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     }
 
     public void ningunDestino() {
-        esperaPorClick(buscarAlojamientoEnLocator,20);
         click(buscarAlojamientoEnLocator);
-        esperaPorClick(cualquierDestino,20);
         click(cualquierDestino);
 
     }
 
     public void filtroDinero() {
-        esperaPorClick(filtroPrecio,15);
         click(filtroPrecio);
-        esperaPorClick(ceroA300,15);
         click(ceroA300);
-        esperaPorClick(aplicarLocator,15);
         click(aplicarLocator);
     }
 
     public void filtroAlojamiento() {
-        esperaPorClick(casaLocator,15);
         click(casaLocator);
-        esperaPorClick(casa2,15);
         click(casa2);
-        esperaPorClick(aplicarLocator,15);
         click(aplicarLocator);
 
 
     }
 
     public void filtroCancelacionGratuita() {
-        esperaPorClick(filtrocancelacionGratuita,20);
         click(filtrocancelacionGratuita);
     }
 
@@ -310,36 +301,33 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     public void seleccionarPais() throws InterruptedException {
         esperaPorClick(chipreLocator,40);
         click(chipreLocator);
-        //Thread.sleep(5000);
     }
 
     public void limpiarFiltro() throws InterruptedException {
         esperaPorClick(limpiarTodosLocator,20);
         click(limpiarTodosLocator);
-        //Thread.sleep(1000);
-
 
     }
 
     public void seleccionarHotel() throws InterruptedException {
 
         hover(avanzarFotosLocator);
-        Thread.sleep(1000);
+        esperaMillis(1000);
 
         click(avanzarFotosLocator);
         hover(avanzarFotosLocator);
-        Thread.sleep(1000);
+        esperaMillis(1000);
 
         click(avanzarFotosLocator);
         hover(avanzarFotosLocator);
-        Thread.sleep(1000);
+        esperaMillis(1000);
 
         click(avanzarFotosLocator);
         hover(avanzarFotosLocator);
-        Thread.sleep(1000);
+        esperaMillis(1000);
 
         click(avanzarFotosLocator);
-        Thread.sleep(1000);
+        esperaMillis(1000);
 
         click(verMasLocator);
 
@@ -347,27 +335,18 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     public void valoraciones() throws InterruptedException {
         cambiarPestanha();
-        esperaPorLocator(By.xpath("//h1[normalize-space()='King Evelthon Beach Hotel & Resort']"),40);
-        //Thread.sleep(5000);
-        esperaPorClick(valoracionBuenoLocator,20);
+        esperaMillis(5000);
         click(valoracionBuenoLocator);
         cambiarseIframe(iframeHotelLocalizador);
-        Thread.sleep(15000);
-        esperaPorClick(parejasLocator,20);
+        esperaMillis(15000);
         click(parejasLocator);
-        esperaPorClick(familiasLocator,20);
         click(familiasLocator);
-        //Thread.sleep(1500);
+        esperaMillis(1500);
         volverOriginal();
-        //Thread.sleep(2000);
-        esperaPorClick(punto1Locator,20);
+        esperaMillis(2000);
         click(punto1Locator);
-        Thread.sleep(2000);
-        //Thread.sleep(2000);
-        esperaPorClick(punto2Locator,20);
+        esperaMillis(2000);
         click(punto2Locator);
-
-
     }
 
     public void navegarPerros()  {

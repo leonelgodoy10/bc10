@@ -3,12 +3,7 @@ package framework.engine.selenium;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.*;
-
 import java.time.Duration;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import static java.util.concurrent.TimeUnit.MILLISECONDS;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -76,6 +71,7 @@ public class SeleniumWrapper {
     }
 
     //Desde aqui se modifico y se agregaron las nuevas funciones para el equipo 1
+
     public void scroll(int horizontal, int vertical) {
         ((JavascriptExecutor) driver).executeScript("scroll(" + horizontal + "," + vertical + ")");
     }
@@ -99,11 +95,6 @@ public class SeleniumWrapper {
         return driver.getTitle();
     }
 
-    public void navegarAceptarCookie(String url, By locator) throws InterruptedException {
-        navigateTo(url);
-        Thread.sleep(3000);
-        click(locator);
-    }
 
     public void seleccionFechaIda(int diai, int mesi, int anhoi, int diav, int mesv, int anhov, By locator) {
         if (anhoi == (2022)) {
@@ -205,18 +196,6 @@ public class SeleniumWrapper {
 
     }
 
-    public void mouseEncima() throws InterruptedException {
-        Actions actions = new Actions(driver);
-        WebElement we = findElement(By.xpath("/html[1]/body[1]/div[6]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/div[1]/div[2]/div[5]/div[1]/section[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[1]/span[1]"));
-        actions.moveToElement(we).perform();
-        Thread.sleep(2000);
-    }
-
-    public void clickearPrecio(By locator) {
-
-        click(locator);
-
-    }
 
     public void buscarIframe(By locator) {
 
@@ -283,10 +262,4 @@ public class SeleniumWrapper {
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(timeEspera));
     }
 
-    public void cambiarPag() {
-        ArrayList<String> tabs2 = new ArrayList<String>(driver.getWindowHandles());
-        driver.switchTo().window(tabs2.get(0));
-        driver.close();
-        driver.switchTo().window(tabs2.get(1));
-    }
 }
