@@ -26,10 +26,13 @@ public class VueloTest extends SeleniumTestBase {
     void compraDeVueloTopMasBaratoBV002() throws InterruptedException {
 
         rumboHomePageHomeVuelo = new RumboHomePageVuelo(DriverFactory.getDriver());
-        rumboHomePageHomeVuelo.navegarYAceptarCookies();
+        rumboHomePageHomeVuelo.navegarAlHome();
+        rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
+        rumboHomePageHomeVuelo.aceptarCookie();
+        Assertions.assertEquals("Vuelos baratos | Buscador de vuelos | Rumbo",rumboHomePageHomeVuelo.textoUrlTitulo());
         rumboHomePageHomeVuelo.scroll(0, 4000);
-        Thread.sleep(2000);
+        rumboHomePageHomeVuelo.esperaMillis(2000);
         rumboHomePageHomeVuelo.clickTopCiudades();
         rumboHomePageHomeVuelo.buscarCiudadTop("Bruselas");
         rumboHomePageHomeVuelo.buscarIdaViajeTop("chile");
@@ -37,17 +40,16 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.agregarPersonas(4, 3, 2);
         rumboHomePageHomeVuelo.modificarFechaIda(20, 3, 2023);
         rumboHomePageHomeVuelo.buscar();
-        Thread.sleep(5000);
         rumboHomePageHomeVuelo.seleccionarMasBarato();
-        Thread.sleep(5000);
+        rumboHomePageHomeVuelo.esperaMillis(5000);
         rumboHomePageHomeVuelo.bajarPrecio();
-        Thread.sleep(3000);
+        rumboHomePageHomeVuelo.esperaMillis(3000);
         rumboHomePageHomeVuelo.bajarEscalaTop();
-        Thread.sleep(3000);
+        rumboHomePageHomeVuelo.esperaMillis(3000);
         rumboHomePageHomeVuelo.limpiarFiltros();
-        //rumboHomePageHomeVuelo.verFiltro();
-        //rumboHomePageHomeVuelo.informacionYClick();
-        //rumboHomePageHomeVuelo.clickearPrecio();
+        Assertions.assertEquals("Rumbo vuelos baratos Santiago - Bruselas",rumboHomePageHomeVuelo.textoUrlTitulo());
+
+
     }
 
     @Test
@@ -57,6 +59,7 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
         rumboHomePageHomeVuelo.aceptarCookie();
+        Assertions.assertEquals("Vuelos baratos | Buscador de vuelos | Rumbo",rumboHomePageHomeVuelo.textoUrlTitulo());
         rumboHomePageHomeVuelo.origenDestinoSeleccion("arturo merino", "mendoza");
         rumboHomePageHomeVuelo.buscaridaYVuelta(7, 11, 2022, 30, 11, 2022);
         rumboHomePageHomeVuelo.agregarAdultos(1);
@@ -68,6 +71,7 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.escalasIda("ninguna");
         rumboHomePageHomeVuelo.escalasVuelta("2 o mas");
         rumboHomePageHomeVuelo.mejorBaratoRaido("Más barato");
+        Assertions.assertEquals("Rumbo vuelos baratos Santiago - Mendoza",rumboHomePageHomeVuelo.textoUrlTitulo());
     }
 
     @Test
@@ -77,6 +81,7 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
         rumboHomePageHomeVuelo.aceptarCookie();
+        Assertions.assertEquals("Vuelos baratos | Buscador de vuelos | Rumbo",rumboHomePageHomeVuelo.textoUrlTitulo());
         rumboHomePageHomeVuelo.origenDestinoSeleccion("cancun", "egipto");
         rumboHomePageHomeVuelo.buscaridaYVuelta(21, 11, 2022, 27, 11, 2022);
         rumboHomePageHomeVuelo.agregarAdultos(3);
@@ -90,6 +95,8 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.navegarAlHome();
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
+        rumboHomePageHomeVuelo.aceptarCookie();
+        Assertions.assertEquals("Vuelos baratos | Buscador de vuelos | Rumbo",rumboHomePageHomeVuelo.textoUrlTitulo());
         rumboHomePageHomeVuelo.seleccionVuelaEuropa();
         rumboHomePageHomeVuelo.seleccionMultidestino();
         rumboHomePageHomeVuelo.borrarTodoMultiDestino();
@@ -101,8 +108,6 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.deseleccionarTransporte("Tren");
         rumboHomePageHomeVuelo.verFiltro();
 
-
-
     }
 
     @Test
@@ -112,12 +117,14 @@ public class VueloTest extends SeleniumTestBase {
         rumboHomePageHomeVuelo.aceptarCookie();
         rumboHomePageHomeVuelo.selectorVuelos();
         rumboHomePageHomeVuelo.aceptarCookie();
+        Assertions.assertEquals("Vuelos baratos | Buscador de vuelos | Rumbo",rumboHomePageHomeVuelo.textoUrlTitulo());
         rumboHomePageHomeVuelo.seleccionarSoloIda();
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
         rumboHomePageHomeVuelo.agregarNino("Bebé, 0-11 meses");
         rumboHomePageHomeVuelo.seleccionarDestino("Buenos aires");
         Assertions.assertEquals("El número de bebés (edad 0-1) no puede ser superior al de adultos.",rumboHomePageHomeVuelo.errorMensajeNinho());
         rumboHomePageHomeVuelo.buscarVuelo();
+        Assertions.assertEquals("Vuelos baratos | Buscador de vuelos | Rumbo",rumboHomePageHomeVuelo.textoUrlTitulo());
     }
 
 

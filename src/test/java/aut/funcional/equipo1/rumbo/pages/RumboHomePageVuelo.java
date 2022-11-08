@@ -66,7 +66,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     By miamiLocator = By.xpath("(//div[normalize-space()='Miami, Estados Unidos'])[1]");
     By origenMultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[1]");
     By destinoMultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[2]");
-    By origen2MultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[4]");
     By destino2MultiVueloLocator = By.xpath("(//input[@class='SearchFieldstyled__SearchFieldInput-sc-1f3jsso-5 furDfp'])[5]");
     By seleccionPrimeraOpcMultiLocator = By.xpath("(//div[@class='Stack__StyledStack-sc-oaff2v-0 ecPQEH'])[1]");
     By cerrarMultiDestinoCookieLocator = By.xpath("(//div[@class='ButtonPrimitiveIconContainer__StyledButtonPrimitiveIconContainer-sc-8rx3cv-0 fxbcmo'])[1]");
@@ -81,10 +80,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
             esperar.until(ExpectedConditions.elementToBeClickable(esperaCookie));
             click(BtnaceptarCookiesLocator);
         }
-    }
-
-    public void navegarYAceptarCookies() throws InterruptedException {
-        navegarAceptarCookie(BASE_URL_AUT, BtnaceptarCookiesLocator);
     }
 
     public void selectorVuelos() {
@@ -104,13 +99,17 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     }
 
     public void origenDestinoSeleccion(String origen, String destino) {
+        esperaPorClick(origenVueloLocator,10);
         click(origenVueloLocator);
         //clear(origenVueloLocator);
         write(origen, origenVueloLocator);
+        esperaPorClick(primeraOpcionOrigenLocator,15);
         click(primeraOpcionOrigenLocator);
+        esperaPorClick(destinoVueloLocator,15);
         click(destinoVueloLocator);
-        clear(destinoVueloLocator);
+        //clear(destinoVueloLocator);
         write(destino, destinoVueloLocator);
+        esperaPorClick(primeraOpcionDestinoLocator,15);
         click(primeraOpcionDestinoLocator);
     }
 
@@ -227,7 +226,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     }
 
     public void seleccionMultiOrigenDestino(String origen1, String destino1, String origen2, String destino2) throws InterruptedException {
-
+        esperaPorClick(origenMultiVueloLocator,15);
         click(origenMultiVueloLocator);
         esperaMillis(200);
 
@@ -261,27 +260,10 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(buscarMultivueloLocator);
     }
 
-    public void seleccionOrigenSantiagoChile() throws InterruptedException {
-        click(origenVueloLocator);
-        write("Santiago", origenVueloLocator);
-        Thread.sleep(1000);
-        click(santiagoChileLocator);
-    }
-
-    public void seleccionDestinoMiami() throws InterruptedException {
-        click(destinoVueloLocator);
-        write("Miami", destinoVueloLocator);
-        Thread.sleep(1000);
-        click(miamiLocator);
-    }
-
 
     public void clickTopCiudades() {
+        esperaPorClick(topDestinosVuelosLocator,15);
         click(topDestinosVuelosLocator);
-    }
-
-    public void buscarTopCiudad(String ciudad) throws InterruptedException {
-        buscarCiudadTop(ciudad);
     }
 
     public void buscarIdaViajeTop(String ciudad) {
@@ -299,7 +281,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         int numeroDeClicksAdultos = Adultos;
         int numeroDeClicksninos = ninos;
         int numeroDeClicksbebes = bebes;
-
+        esperaPorClick(pestanaPersonasLocator,15);
         click(pestanaPersonasLocator);
         if (Adultos > 0) {
             for (int i = 1; i < numeroDeClicksAdultos; i++) {
@@ -320,15 +302,18 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     }
 
     public void modificarFechaIda(int dia, int mes, int anho) {
+        esperaPorClick(fechaIdaCalendarioLocator,20);
         click(fechaIdaCalendarioLocator);
         seleccionarfechaIda(dia, mes, anho, siguienteMesTopLocator);
     }
 
     public void buscar() {
+        esperaPorClick(buscarTopLocator,15);
         click(buscarTopLocator);
     }
 
     public void seleccionarMasBarato() {
+        esperaPorClick(masBaratoTopLocator,20);
         click(masBaratoTopLocator);
     }
 
@@ -341,6 +326,7 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
     }
 
     public void limpiarFiltros() {
+        esperaPorClick(limpiarFiltrosLocator,30);
         click(limpiarFiltrosLocator);
     }
 
@@ -354,15 +340,6 @@ public class RumboHomePageVuelo extends SeleniumWrapper {
         click(By.xpath("//span[normalize-space()='"+tipoTransporte+"']"));
     }
 
-
-
-    public void informacionYClick() throws InterruptedException {
-        mouseEncima();
-    }
-
-    public void clickearPrecio() {
-        clickearPrecio(precioLocalizador);
-    }
 
     public void seleccionarSoloIda() {
         click(seleccionarSoloIdaLocator);
