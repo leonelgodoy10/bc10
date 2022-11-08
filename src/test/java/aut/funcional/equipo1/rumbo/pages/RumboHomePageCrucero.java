@@ -100,9 +100,10 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
         return getUrlTitle();
     }
 
-    public void navegarOfertas() {
+    public void navegarOfertas() throws InterruptedException {
         esperaPorClick(navegarOfertasLocator, 15);
         for (int i = 0; i < 3; i++) {
+            esperaMillis(200);
             click(navegarOfertasLocator);
         }
     }

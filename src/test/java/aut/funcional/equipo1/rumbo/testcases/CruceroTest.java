@@ -10,7 +10,7 @@ public class CruceroTest extends SeleniumTestBase {
     RumboHomePageCrucero rumboHomePageCrucero;
 
     @Test
-    void despliegueBarraDeslizanteBC001()  {
+    void despliegueBarraDeslizanteBC001() throws InterruptedException {
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
         rumboHomePageCrucero.navegarAlHome();
         rumboHomePageCrucero.aceptarCookie();
@@ -100,7 +100,7 @@ public class CruceroTest extends SeleniumTestBase {
     }
 
     @Test
-    void navegacionCrucerosEnOfertaBC006() throws InterruptedException {
+    void navegacionCrucerosEnOfertaBC006() throws InterruptedException {//algo cambio
 
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
         rumboHomePageCrucero.navegarAlHome();
