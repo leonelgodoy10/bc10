@@ -1,6 +1,6 @@
-package aut.funcional.rumbo.testcases;
+package aut.funcional.equipo1.rumbo.testcases;
 
-import aut.funcional.rumbo.pages.RumboHomePageCrucero;
+import aut.funcional.equipo1.rumbo.pages.RumboHomePageCrucero;
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumTestBase;
 import org.junit.jupiter.api.Assertions;
@@ -10,7 +10,7 @@ public class CruceroTest extends SeleniumTestBase {
     RumboHomePageCrucero rumboHomePageCrucero;
 
     @Test
-    void despliegueBarraDeslizanteBC001() throws InterruptedException {
+    void despliegueBarraDeslizanteBC001()  {
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
         rumboHomePageCrucero.navegarAlHome();
         rumboHomePageCrucero.aceptarCookie();
@@ -18,92 +18,84 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.seleccionarCrucero();
         Assertions.assertEquals("Cruceros. Ofertas de cruceros baratos. Tu crucero en Rumbo", rumboHomePageCrucero.textoUrlTitulo());
         rumboHomePageCrucero.scrollPage(0, 1200);
-        Thread.sleep(1000);
         rumboHomePageCrucero.navegarOfertas();
         rumboHomePageCrucero.verTodasLasOfertas();
         Assertions.assertEquals("Cruceros", rumboHomePageCrucero.textoUrlTitulo());
     }
 
     @Test
-    void busquedaCruceroUnaPersonaAdultaBC002() throws InterruptedException {
+    void busquedaCruceroUnaPersonaAdultaBC002()   {
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
         rumboHomePageCrucero.navegarAlHome();
         rumboHomePageCrucero.aceptarCookie();
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
+        Assertions.assertEquals("Cruceros. Ofertas de cruceros baratos. Tu crucero en Rumbo",rumboHomePageCrucero.textoUrlTitulo());
         rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
         rumboHomePageCrucero.seleccionPeriodo(2023, "jun");
         rumboHomePageCrucero.cualquierDuracion("más de 9 días");
         rumboHomePageCrucero.cualquierCompania("Costa Cruceros");
-        //rumboHomePageCrucero.cualquierPuerto("Barcelona");
-        rumboHomePageCrucero.seleccionarCasillero();
-        rumboHomePageCrucero.seleccionarPuertoBarce();
+        rumboHomePageCrucero.cualquierPuerto("Barcelona");
         rumboHomePageCrucero.agregarAdultos(1);
-        Thread.sleep(4000);
         rumboHomePageCrucero.buscarCrucero();
+        Assertions.assertEquals("Cruceros",rumboHomePageCrucero.textoUrlTitulo());
     }
 
     @Test
-    void reservaDeCruceroBC003() throws InterruptedException {
+    void reservaDeCruceroBC003()   {
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
         rumboHomePageCrucero.navegarAlHome();
         rumboHomePageCrucero.aceptarCookie();
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
+        Assertions.assertEquals("Cruceros. Ofertas de cruceros baratos. Tu crucero en Rumbo",rumboHomePageCrucero.textoUrlTitulo());
         rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
         rumboHomePageCrucero.seleccionPeriodo(2023, "feb");
         rumboHomePageCrucero.cualquierDuracion("De 6 a 9 días");
         rumboHomePageCrucero.cualquierCompania("Costa Cruceros");
-        rumboHomePageCrucero.seleccionarCasillero();
-        rumboHomePageCrucero.seleccionarPuertoBarce();
-        Thread.sleep(1000);
+        rumboHomePageCrucero.cualquierPuerto("Barcelona");
         rumboHomePageCrucero.agregarAdultos(0);
         rumboHomePageCrucero.buscarCrucero();
+        Assertions.assertEquals("Cruceros",rumboHomePageCrucero.textoUrlTitulo());
 
 
     }
 
     @Test
-    void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004() throws InterruptedException {//ok funcionando, probar
+    void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004()   {//ok funcionando, probar
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
         rumboHomePageCrucero.navegarAlHome();
         rumboHomePageCrucero.aceptarCookie();
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
+        Assertions.assertEquals("Cruceros. Ofertas de cruceros baratos. Tu crucero en Rumbo",rumboHomePageCrucero.textoUrlTitulo());
         rumboHomePageCrucero.seleccionarDestinoCrucero("Mediterráneo");
         rumboHomePageCrucero.seleccionPeriodo(0, "0");//Significa cualquier destino
         rumboHomePageCrucero.cualquierDuracion("Cualquier duración");
         rumboHomePageCrucero.cualquierCompania("Celebrity Cruises");
-        rumboHomePageCrucero.esperaMillis(100);
+        //rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.cualquierPuerto("Ravenna");
         rumboHomePageCrucero.agregarAdultos(15);
-        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.agregarJunior(14);
-        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.agregarNinos(14);
-        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.agregarBebes(14);
-        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.buscarCrucero();
+        Assertions.assertEquals("Cruceros",rumboHomePageCrucero.textoUrlTitulo());
     }
 
     @Test
-    void cotizacionDeUnCruceroParaUnaFamiliaBC005() throws InterruptedException {//ok, funcionando, probar
+    void cotizacionDeUnCruceroParaUnaFamiliaBC005()   {//ok, funcionando, probar
         rumboHomePageCrucero = new RumboHomePageCrucero(DriverFactory.getDriver());
         rumboHomePageCrucero.navegarAlHome();
         rumboHomePageCrucero.aceptarCookie();
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
+        Assertions.assertEquals("Cruceros. Ofertas de cruceros baratos. Tu crucero en Rumbo",rumboHomePageCrucero.textoUrlTitulo());
         rumboHomePageCrucero.seleccionarDestinoCrucero("Sudamérica");
-        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.seleccionPeriodo(2023, "ene");
-        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.cualquierDuracion("De 6 a 9 días");
-        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.cualquierCompania("MSC Cruceros");
-        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.cualquierPuerto("Buenos Aires");
-        rumboHomePageCrucero.esperaMillis(100);
         rumboHomePageCrucero.agregarJunior(1);
         rumboHomePageCrucero.buscarCrucero();
     }
@@ -116,8 +108,8 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.aceptarCookie();
         rumboHomePageCrucero.seleccionarVerMas();
         rumboHomePageCrucero.seleccionarCrucero();
+        Assertions.assertEquals("Cruceros. Ofertas de cruceros baratos. Tu crucero en Rumbo",rumboHomePageCrucero.textoUrlTitulo());
         rumboHomePageCrucero.bscCruceros();
-        Thread.sleep(2000);
         rumboHomePageCrucero.costaCruceros();
         rumboHomePageCrucero.filtrarRating();
         rumboHomePageCrucero.ingresarOpcion();
@@ -125,6 +117,7 @@ public class CruceroTest extends SeleniumTestBase {
         rumboHomePageCrucero.botonesDesplegables();
         rumboHomePageCrucero.seleccionarCompanhia();
         rumboHomePageCrucero.seleccionarPresupuesto();
+        Assertions.assertEquals("",rumboHomePageCrucero.textoUrlTitulo());
 
     }
 

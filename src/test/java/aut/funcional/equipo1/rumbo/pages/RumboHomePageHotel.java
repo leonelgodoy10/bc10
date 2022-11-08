@@ -1,4 +1,4 @@
-package aut.funcional.rumbo.pages;
+package aut.funcional.equipo1.rumbo.pages;
 
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
@@ -350,7 +350,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
 
     }
 
-    public void navegarPerros() {
+    public void navegarPerros() throws InterruptedException {
         esperaPorLocator(hotelesQueAdmitenPerrosLocator, 10);
         click(hotelesQueAdmitenPerrosLocator);
         cambiarPestanha();
@@ -369,7 +369,7 @@ public class RumboHomePageHotel extends SeleniumWrapper {
         despliegueDeServiciosHotel("Comida & bebida");
         despliegueDeServiciosHotel("Servicios de limpieza ");
         despliegueDeServiciosHotel("General ");
-        esperaPorLocator(elegirTipoDeHabitacionLocator, 10);
+        esperaPorLocator(elegirTipoDeHabitacionLocator, 15);
         click(elegirTipoDeHabitacionLocator);
         esperaPorLocator(soloAlojamientoLocator, 25);
         click(soloAlojamientoLocator);
@@ -380,13 +380,14 @@ public class RumboHomePageHotel extends SeleniumWrapper {
     public void navegarFotos(int nFotos) {
         for (int i = 0; i < nFotos; i++) {
             click(navegarFotosCivisJaimeLocator);
-            esperaImplicitaMillis(200);
+            esperaImplicitaMillis(400);
         }
     }
 
-    public void despliegueDeServiciosHotel(String servicio) {
+    public void despliegueDeServiciosHotel(String servicio) throws InterruptedException {
+
         click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
-        esperaImplicitaMillis(200);
+        esperaMillis(200);
         click(By.xpath("(//div[contains(text(),'" + servicio + "')])[1]"));
     }
 

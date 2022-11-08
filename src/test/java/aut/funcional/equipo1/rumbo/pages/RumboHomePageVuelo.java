@@ -1,4 +1,4 @@
-package aut.funcional.rumbo.pages;
+package aut.funcional.equipo1.rumbo.pages;
 
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;

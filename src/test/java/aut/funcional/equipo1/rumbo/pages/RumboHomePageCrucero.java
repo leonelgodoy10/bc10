@@ -1,4 +1,4 @@
-package aut.funcional.rumbo.pages;
+package aut.funcional.equipo1.rumbo.pages;
 
 import framework.engine.selenium.DriverFactory;
 import framework.engine.selenium.SeleniumWrapper;
@@ -74,7 +74,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     By barcelocator = By.xpath("//li[@aria-label='Barcelona']");
     //By casillerolocator = By.xpath("//span[@class=\"p-multiselect-trigger-icon ng-tns-c52-6 pi pi-chevron-down\"]");
     //By barcelocator = By.xpath("//li[@aria-label=\"Barcelona\"]");
-
+    By cuadroDeOcupantes = By.xpath("//div[@class='crs-op-occupancy__content']");
 
     //methods
     public void aceptarCookie() {
@@ -87,10 +87,12 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
     public void seleccionarVerMas() {
+        esperaPorClick(verMasLocator,15);
         click(verMasLocator);
     }
 
     public void seleccionarCrucero() {
+        esperaPorClick(crucerosLocator,15);
         click(crucerosLocator);
     }
 
@@ -99,16 +101,19 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
     public void navegarOfertas() {
+        esperaPorClick(navegarOfertasLocator, 15);
         for (int i = 0; i < 3; i++) {
             click(navegarOfertasLocator);
         }
     }
 
     public void verTodasLasOfertas() {
+        esperaPorClick(verTodasLasOfertasLocator, 15);
         click(verTodasLasOfertasLocator);
     }
 
     public void buscarCrucero() {
+        esperaPorClick(buscarLocator, 15);
         click(buscarLocator);
     }
 
@@ -117,9 +122,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
     public void seleccionarDestinoCrucero(String cruceroDestino) {
-        WebElement esperaDestino = findElement(destinoCruceroLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaDestino));
+        esperaPorClick(destinoCruceroLocator, 15);
         click(destinoCruceroLocator);
         clear(cualquierDestinoBusquedaLocator);
         write(cruceroDestino, cualquierDestinoBusquedaLocator);
@@ -127,9 +130,7 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
     public void seleccionPeriodo(int anio, String mes) {
-        WebElement esperaPeriodo = findElement(cualquierPeriodoLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaPeriodo));
+        esperaPorClick(cualquierPeriodoLocator, 15);
         click(cualquierPeriodoLocator);
         if (anio == 0) {
             click(By.xpath("//span[normalize-space()='Cualquier periodo']"));
@@ -144,17 +145,13 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
     public void cualquierDuracion(String duracionViaje) {
-        WebElement esperaDuracion = findElement(cualquierDuracionLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaDuracion));
+        esperaPorClick(cualquierDuracionLocator, 15);
         click(cualquierDuracionLocator);
         click(By.xpath("//li[@aria-label='" + duracionViaje + "']"));
     }
 
     public void cualquierCompania(String nombreCompania) {
-        WebElement esperacompania = findElement(cualquierCompaniaLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperacompania));
+        esperaPorLocator(cualquierCompaniaLocator, 15);
         click(cualquierCompaniaLocator);
         click(companiaTextBoxLocator);
         clear(companiaTextBoxLocator);
@@ -164,75 +161,66 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
 
-    public void cualquierPuerto(String nombrePuerto) throws InterruptedException {
-        WebElement esperaPuerto = findElement(cualquierPuertoLocator);
-        WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-        esperar.until(ExpectedConditions.elementToBeClickable(esperaPuerto));
+    public void cualquierPuerto(String nombrePuerto)  {
+        esperaPorClick(cualquierPuertoLocator, 40);
         click(cualquierPuertoLocator);
-        esperaMillis(200);
-        click(puertoTextBoxLocator);
-        clear(puertoTextBoxLocator);
-        esperaMillis(200);
-        write(nombrePuerto, puertoTextBoxLocator);
-        esperaMillis(200);
-        click(By.xpath("//li[@aria-label='" + nombrePuerto + "']"));
-
+        esperaPorLocator(By.xpath("//div[@class='ng-trigger ng-trigger-overlayAnimation ng-tns-c52-6 p-multiselect-panel p-component ng-star-inserted']"),30);
+        if (isDisplayed(puertoTextBoxLocator) == true) {
+            click(puertoTextBoxLocator);
+            clear(puertoTextBoxLocator);
+            write(nombrePuerto, puertoTextBoxLocator);
+            click(By.xpath("//li[@aria-label='" + nombrePuerto + "']"));
+        }
     }
 
 
     public void agregarAdultos(int nAdultos) {
-
         if (nAdultos > 1) {
-            click(pasajerosLocator);
-            WebElement esperaPasajero = findElement(agregarAdultoLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+            if (isDisplayed(cuadroDeOcupantes) == false) {
+                click(pasajerosLocator);
+            }
+            esperaPorLocator(cuadroDeOcupantes, 15);
             for (int i = 2; i < nAdultos; i++) {
+
                 click(agregarAdultoLocator);
             }
         }
-        click(pasajerosLocator);
     }
 
     public void agregarJunior(int nJunior) {
-
         if (nJunior > 1) {
-            click(pasajerosLocator);
-            WebElement esperaPasajero = findElement(agregarJuniorLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+            if (isDisplayed(cuadroDeOcupantes) == false) {
+                click(pasajerosLocator);
+            }
+            esperaPorLocator(cuadroDeOcupantes, 15);
             for (int i = 0; i < nJunior; i++) {
                 click(agregarJuniorLocator);
             }
         }
-        click(pasajerosLocator);
     }
 
     public void agregarNinos(int nNinos) {
         if (nNinos > 1) {
-            click(pasajerosLocator);
-            WebElement esperaPasajero = findElement(agregarNinoLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+            if (isDisplayed(cuadroDeOcupantes) == false) {
+                click(pasajerosLocator);
+            }
+            esperaPorLocator(cuadroDeOcupantes, 15);
             for (int i = 0; i < nNinos; i++) {
                 click(agregarNinoLocator);
             }
         }
-        click(pasajerosLocator);
     }
 
     public void agregarBebes(int nBebes) {
-
         if (nBebes > 1) {
-            click(pasajerosLocator);
-            WebElement esperaPasajero = findElement(agregarBebeLocator);
-            WebDriverWait esperar = new WebDriverWait(DriverFactory.getDriver(), Duration.ofSeconds(5));
-            esperar.until(ExpectedConditions.elementToBeClickable(esperaPasajero));
+            if (isDisplayed(cuadroDeOcupantes) == false) {
+                click(pasajerosLocator);
+            }
+            esperaPorLocator(cuadroDeOcupantes, 15);
             for (int i = 0; i < nBebes; i++) {
                 click(agregarBebeLocator);
             }
         }
-        click(pasajerosLocator);
     }
 
     public void navegarAlHome() {
@@ -240,43 +228,58 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     }
 
     public void seleccionarPuertoBarce() {
+        esperaPorClick(barcelocator, 15);
         click(barcelocator);
     }
 
     public void bscCruceros() {
-
+        esperaPorClick(mscCrucerosLocator, 50);
         click(mscCrucerosLocator);
+        esperaPorClick(verMasCruceroMscLocator, 50);
         click(verMasCruceroMscLocator);
+        esperaPorClick(crucerosPorElMediterraneoLocator, 50);
         click(crucerosPorElMediterraneoLocator);
+        esperaPorClick(crucerosDevolverLocator, 50);
         click(crucerosDevolverLocator);
 
     }
 
     public void costaCruceros() throws InterruptedException {
-
+        esperaPorClick(costaCrucerosLocator, 250);
         click(costaCrucerosLocator);
+        esperaPorClick(verMasCruceroMscLocator, 250);
         click(verMasCruceroMscLocator);
-        Thread.sleep(2000);
+        esperaPorClick(cruceroPorIslasGriegas, 250);
+        //Thread.sleep(2000);
         click(cruceroPorIslasGriegas);
-        Thread.sleep(4000);
+        //Thread.sleep(4000);
+        esperaPorClick(reiniciarBusquedaLocator, 250);
         click(reiniciarBusquedaLocator);
-        click(buscarLocator);
+        //Revisar Xpath
+        if (isDisplayed(barcelocator) == true) {
+            esperaPorClick(barcelocator, 250);
+            click(buscarLocator);
+        }
+
 
     }
 
     public void filtrarRating() throws InterruptedException {
-
+        esperaPorLocator(recomendadosLocator, 15);
         click(recomendadosLocator);
+        esperaPorLocator(ratingLocator, 15);
         click(ratingLocator);
         Thread.sleep(2000);
+        esperaPorLocator(cargarMasResultado, 15);
         click(cargarMasResultado);
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
+        esperaPorLocator(volverArribaLocator, 15);
         click(volverArribaLocator);
         Thread.sleep(2000);
     }
 
     public void ingresarOpcion() {
-
+        esperaPorClick(selectorMoverLocator, 50);
         click(selectorMoverLocator);
 
 
@@ -285,61 +288,63 @@ public class RumboHomePageCrucero extends SeleniumWrapper {
     public void carnivalHorizon() throws InterruptedException {
 
         cambiarPestanha();
+        esperaPorClick(descubreElItinirerioLocator, 50);
         click(descubreElItinirerioLocator);
-        Thread.sleep(1500);
+        //Thread.sleep(1500);
     }
 
 
     public void seleccionarCasillero() {
+        esperaPorLocator(casillerolocator, 15);
         click(casillerolocator);
     }
 
     public void botonesDesplegables() {
         if (isDisplayed(dia1) == true) {
-            esperaPorLocator(dia1, 2);
+            esperaPorClick(dia1, 30);
             click(dia1);
             click(dia1);
         }
         if (isDisplayed(dia1) == true) {
-            esperaPorLocator(dia1, 2);
+            esperaPorClick(dia1, 30);
             click(dia1);
             click(dia1);
-            if (isDisplayed(dia4) == true) {
-                esperaPorLocator(dia4, 2);
-                click(dia4);
-                click(dia4);
-            }
-            if (isDisplayed(dia5) == true) {
-                esperaPorLocator(dia5, 2);
-                click(dia5);
-                click(dia5);
-            }
-            if (isDisplayed(dia6) == true) {
-                esperaPorLocator(dia6, 2);
-                click(dia6);
-                click(dia6);
-            }
-            if (isDisplayed(dia7) == true) {
-                esperaPorLocator(dia7, 2);
-                click(dia7);
-                click(dia7);
-            }
-            if (isDisplayed(dia9) == true) {
-                esperaPorLocator(dia9, 2);
-                click(dia9);
-                click(dia9);
-            }
+        }
+        if (isDisplayed(dia4) == true) {
+            esperaPorClick(dia4, 30);
+            click(dia4);
+            click(dia4);
+        }
+        if (isDisplayed(dia5) == true) {
+            esperaPorClick(dia5, 30);
+            click(dia5);
+            click(dia5);
+        }
+        if (isDisplayed(dia6) == true) {
+            esperaPorClick(dia6, 30);
+            click(dia6);
+            click(dia6);
+        }
+        if (isDisplayed(dia7) == true) {
+            esperaPorClick(dia7, 30);
+            click(dia7);
+            click(dia7);
+        }
+        if (isDisplayed(dia9) == true) {
+            esperaPorClick(dia9, 30);
+            click(dia9);
+            click(dia9);
         }
     }
 
     public void seleccionarCompanhia() {
-
+        esperaPorClick(companhiaLocator, 50);
         click(companhiaLocator);
 
     }
 
     public void seleccionarPresupuesto() {
-
+        esperaPorClick(solicitarPresupuesto, 50);
         click(solicitarPresupuesto);
 
     }

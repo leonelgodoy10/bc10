@@ -75,14 +75,13 @@ public class SeleniumWrapper {
         driver.navigate().to(url);
     }
 
+    //Desde aqui se modifico y se agregaron las nuevas funciones para el equipo 1
     public void scroll(int horizontal, int vertical) {
         ((JavascriptExecutor) driver).executeScript("scroll(" + horizontal + "," + vertical + ")");
     }
 
     public void scrollEncuentra(By locator) {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", findElement(locator));
-
-
     }
 
     public void clear(By locator) {
@@ -135,9 +134,7 @@ public class SeleniumWrapper {
         } else {
             click(locator);
             click((By.xpath(("(//button[@type='button'][normalize-space()='" + diav + "'])[2]"))));
-
         }
-
     }
 
     public void buscarCiudadTop(String ciudadTop) {
@@ -165,8 +162,6 @@ public class SeleniumWrapper {
                     click(locator);
                 }
             }
-
-
         }
     }
 
@@ -233,10 +228,7 @@ public class SeleniumWrapper {
                 System.out.println(contador);
             } else
                 driver.switchTo().defaultContent();
-
         }
-
-
     }
 
     public void cambiarseIframe(By locator) throws InterruptedException {
@@ -258,12 +250,9 @@ public class SeleniumWrapper {
     public void hover(By locator) {
         Actions builder = new Actions(driver);
         builder.moveToElement(findElement(locator)).perform();
-
-
     }
 
     public void cambiarPestanha() {
-
 
         String mainTab = driver.getWindowHandle();
         String newTab = "";
@@ -280,14 +269,15 @@ public class SeleniumWrapper {
 
                 newTab = actual;
             }
-
         }
-
-
     }
     public void esperaPorLocator(By locator,int maxTime){
         WebElement esperarLocator = new WebDriverWait(DriverFactory.getDriver(),Duration.ofSeconds(maxTime))
                 .until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
+    public void esperaPorClick(By locator, int maxTime){
+        WebElement esperarClick = new WebDriverWait(DriverFactory.getDriver(),Duration.ofSeconds(maxTime))
+                .until(ExpectedConditions.elementToBeClickable(locator));
     }
     public void esperaImplicitaMillis(int timeEspera){
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(timeEspera));
@@ -299,5 +289,4 @@ public class SeleniumWrapper {
         driver.close();
         driver.switchTo().window(tabs2.get(1));
     }
-
 }
