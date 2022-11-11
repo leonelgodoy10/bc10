@@ -1,0 +1,20 @@
+@Test
+    void localizadores(){
+
+        By locator = By.id("id_del_elemento");
+
+        By locator_name = By.name("name_element");
+
+        By locator_linktext = By.linkText("Texto_link");
+
+        By locator_className = By.className("clase_elemento");
+
+        By locator_tagName = By.tagName("Tag_name");
+
+        By locator_cssSelector = By.cssSelector("//input[@name='q']");
+
+        By locator_Xpath = By.xpath("//input[@name='q']");
+
+
+ver libreria robot
+
