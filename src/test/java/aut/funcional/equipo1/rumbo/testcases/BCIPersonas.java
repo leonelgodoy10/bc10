@@ -11,9 +11,13 @@ public class BCIPersonas extends SeleniumTestBase {
 
 
     @Test
-    void reservaDeCruceroMaximaCantidadDePersonasDisponiblesBC004() throws InterruptedException {
+    void ingresoBancoEnLinea() throws InterruptedException {
         bciHomePage = new BCIHomePage(DriverFactory.getDriver());
-        Thread.sleep(10000);
+        bciHomePage.navegarAlHome();
+        bciHomePage.clicBancoEnLinea();
+        bciHomePage.ingresoUsuario("167981577","12345");
+        Thread.sleep(1000);
+
 
     }
 
